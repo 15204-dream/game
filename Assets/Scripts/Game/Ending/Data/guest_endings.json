@@ -1,0 +1,300 @@
+{
+  "version": "1.0",
+  "gameName": "糟糕！是心动鸭！",
+  "mode": "guest",
+  "mainEndings": [
+    {
+      "id": "HE01",
+      "name": "心动终章",
+      "description": "与心爱的人互选成功，收获完美的爱情结局",
+      "type": "GoodEnding",
+      "category": "Main",
+      "requiredConditions": {
+        "minFavorability": 95,
+        "requireMutualChoice": true
+      },
+      "unlockHint": "好感度达到95且互选成功",
+      "diamondReward": 100,
+      "displayConfig": {
+        "fadeInDuration": 1.5,
+        "titleDisplayDuration": 2.0,
+        "textScrollSpeed": 40,
+        "autoSkipDelay": 10,
+        "allowSkip": true
+      }
+    },
+    {
+      "id": "HE02",
+      "name": "双向奔赴",
+      "description": "完成任务目标，与心仪对象建立深厚感情",
+      "type": "GoodEnding",
+      "category": "Main",
+      "requiredConditions": {
+        "minFavorability": 90,
+        "requireTaskCompletion": true
+      },
+      "unlockHint": "好感度达到90且完成至少1个任务",
+      "diamondReward": 80,
+      "displayConfig": {
+        "fadeInDuration": 1.5,
+        "titleDisplayDuration": 2.0,
+        "textScrollSpeed": 40,
+        "autoSkipDelay": 10,
+        "allowSkip": true
+      }
+    },
+    {
+      "id": "HE03",
+      "name": "友情万岁",
+      "description": "虽然没有找到爱情，但收获了珍贵的友谊",
+      "type": "GoodEnding",
+      "category": "Main",
+      "requiredConditions": {
+        "allFavorabilityInRange": [50, 70],
+        "requireNoHearts": true
+      },
+      "unlockHint": "所有角色好感度在50-70之间且未产生心动",
+      "diamondReward": 60,
+      "displayConfig": {
+        "fadeInDuration": 1.5,
+        "titleDisplayDuration": 2.0,
+        "textScrollSpeed": 40,
+        "autoSkipDelay": 10,
+        "allowSkip": true
+      }
+    },
+    {
+      "id": "HE04",
+      "name": "独自美丽",
+      "description": "选择提前退出，享受独处的美好时光",
+      "type": "NormalEnding",
+      "category": "Main",
+      "requiredConditions": {
+        "playerQuit": true
+      },
+      "unlockHint": "主动选择退出录制",
+      "diamondReward": 40,
+      "displayConfig": {
+        "fadeInDuration": 1.5,
+        "titleDisplayDuration": 2.0,
+        "textScrollSpeed": 40,
+        "autoSkipDelay": 10,
+        "allowSkip": true
+      }
+    },
+    {
+      "id": "NE01",
+      "name": "意难平",
+      "description": "互选失败，留下遗憾但美好的回忆",
+      "type": "NormalEnding",
+      "category": "Main",
+      "requiredConditions": {
+        "requireMutualChoice": true,
+        "minFavorability": 80
+      },
+      "unlockHint": "曾经互选但最终未达成完美结局",
+      "diamondReward": 30,
+      "displayConfig": {
+        "fadeInDuration": 1.5,
+        "titleDisplayDuration": 2.0,
+        "textScrollSpeed": 40,
+        "autoSkipDelay": 10,
+        "allowSkip": true
+      }
+    },
+    {
+      "id": "NE02",
+      "name": "擦肩而过",
+      "description": "错过了最佳时机，各自踏上新的旅程",
+      "type": "BadEnding",
+      "category": "Main",
+      "requiredConditions": {
+        "fallback": true
+      },
+      "unlockHint": "达成默认结局",
+      "diamondReward": 20,
+      "displayConfig": {
+        "fadeInDuration": 1.5,
+        "titleDisplayDuration": 2.0,
+        "textScrollSpeed": 40,
+        "autoSkipDelay": 10,
+        "allowSkip": true
+      }
+    }
+  ],
+  "characterEndings": [
+    {
+      "characterId": "LengLeng",
+      "characterName": "冷冷",
+      "endingId": "CE_LengLeng",
+      "endingName": "冰冷融化",
+      "description": "高冷学长的心墙被你融化",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与冷冷好感度达到70"
+    },
+    {
+      "characterId": "SenSen",
+      "characterName": "森森",
+      "endingId": "CE_SenSen",
+      "endingName": "阳光相伴",
+      "description": "阳光少年的温暖笑容只属于你",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与森森好感度达到70"
+    },
+    {
+      "characterId": "ChenGe",
+      "characterName": "琛哥",
+      "endingId": "CE_ChenGe",
+      "endingName": "暖心守护",
+      "description": "成为照顾琛哥的人",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与琛哥好感度达到70"
+    },
+    {
+      "characterId": "XiaoJi",
+      "characterName": "小季",
+      "endingId": "CE_XiaoJi",
+      "endingName": "笨拙浪漫",
+      "description": "感受笨拙却真诚的爱意",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与小季好感度达到70"
+    },
+    {
+      "characterId": "ZhouZhou",
+      "characterName": "洲洲",
+      "endingId": "CE_ZhouZhou",
+      "endingName": "理科情书",
+      "description": "学霸的浪漫是用余生学习爱你",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与洲洲好感度达到70"
+    },
+    {
+      "characterId": "YanShen",
+      "characterName": "言深",
+      "endingId": "CE_YanShen",
+      "endingName": "迷雾散去",
+      "description": "走进神秘人内心的温柔世界",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与言深好感度达到70"
+    },
+    {
+      "characterId": "NianNian",
+      "characterName": "念念",
+      "endingId": "CE_NianNian",
+      "endingName": "诗与远方",
+      "description": "一起书写属于你们的故事",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与念念好感度达到70"
+    },
+    {
+      "characterId": "WanNing",
+      "characterName": "晚宁",
+      "endingId": "CE_WanNing",
+      "endingName": "卸下伪装",
+      "description": "看到她完美外表下的真实可爱",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与晚宁好感度达到70"
+    },
+    {
+      "characterId": "ZhiYi",
+      "characterName": "知意",
+      "endingId": "CE_ZhiYi",
+      "endingName": "心有灵犀",
+      "description": "无需言语，一个眼神就懂你",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与知意好感度达到70"
+    },
+    {
+      "characterId": "XingChen",
+      "characterName": "星辰",
+      "endingId": "CE_XingChen",
+      "endingName": "星辰大海",
+      "description": "一起追逐星空下的梦想",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与星辰好感度达到70"
+    },
+    {
+      "characterId": "YouWei",
+      "characterName": "幼薇",
+      "endingId": "CE_YouWei",
+      "endingName": "快乐加倍",
+      "description": "和开心果一起每一天都精彩",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与幼薇好感度达到70"
+    },
+    {
+      "characterId": "JiuJiu",
+      "characterName": "酒酒",
+      "endingId": "CE_JiuJiu",
+      "endingName": "微醺心动",
+      "description": "让人沉醉的从来都是心动",
+      "requiredFavorability": 70,
+      "requireMutualChoice": false,
+      "unlockHint": "与酒酒好感度达到70"
+    }
+  ],
+  "secretEndings": [
+    {
+      "id": "SE01",
+      "name": "全员心动",
+      "description": "解锁传说中的全员心动结局",
+      "type": "SecretEnding",
+      "category": "Secret",
+      "isSecret": true,
+      "unlockConditions": {
+        "minCharactersWithHighFavorability": 4,
+        "favorabilityThreshold": 80
+      },
+      "unlockHint": "让至少4位角色好感度达到80以上"
+    },
+    {
+      "id": "SE02",
+      "name": "修罗场",
+      "description": "触发史诗级名场面",
+      "type": "SecretEnding",
+      "category": "Secret",
+      "isSecret": true,
+      "unlockConditions": {
+        "minCharactersWithMediumFavorability": 6,
+        "favorabilityThreshold": 60
+      },
+      "unlockHint": "让至少6位角色好感度达到60以上"
+    },
+    {
+      "id": "SE03",
+      "name": "恋综之外",
+      "description": "见证故事的后续发展",
+      "type": "SecretEnding",
+      "category": "Secret",
+      "isSecret": true,
+      "unlockConditions": {
+        "minMaxFavorability": 50,
+        "minDay": 14
+      },
+      "unlockHint": "好感度达到50以上且存活至第14天"
+    },
+    {
+      "id": "SE04",
+      "name": "心动番外",
+      "description": "感谢游玩的特别彩蛋",
+      "type": "SecretEnding",
+      "category": "Secret",
+      "isSecret": true,
+      "unlockConditions": {
+        "triggeredEvents": ["Special_Confession", "Special_FourthWall"]
+      },
+      "unlockHint": "触发特殊事件：告白 & 打破第四面墙"
+    }
+  ]
+}

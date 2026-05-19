@@ -1,0 +1,261 @@
+{
+  "version": "1.0",
+  "seasonName": "糟糕！是心动鸭！第一季",
+  "totalCharacters": 12,
+  "characters": [
+    {
+      "characterId": "guest_male_001",
+      "characterName": "陆子衿",
+      "gender": "Male",
+      "age": 26,
+      "occupation": "建筑设计师",
+      "personality": "外冷内热、理性稳重",
+      "hobby": "摄影、旅行",
+      "birthday": "1998-03-15",
+      "zodiac": "双鱼座",
+      "mbti": "INTJ",
+      "appearanceDescription": "身高182cm，戴眼镜，五官精致，气质斯文",
+      "voiceDescription": "低沉温和，说话有条理",
+      "tags": ["高冷", "理性", "事业型", "细心"],
+      "preferredTraits": [
+        {"traitName": "善解人意", "intensity": 8, "description": "能够理解他的工作压力"},
+        {"traitName": "独立自主", "intensity": 7, "description": "有自己的生活追求"}
+      ],
+      "turnOffBehaviors": ["无理取闹", "过度依赖", "虚伪做作"]
+    },
+    {
+      "characterId": "guest_male_002",
+      "characterName": "顾星河",
+      "gender": "Male",
+      "age": 24,
+      "occupation": "网红摄影师",
+      "personality": "阳光开朗、幽默风趣",
+      "hobby": "摄影、音乐",
+      "birthday": "2000-07-22",
+      "zodiac": "巨蟹座",
+      "mbti": "ENFP",
+      "appearanceDescription": "身高178cm，阳光笑容，阳光活力",
+      "voiceDescription": "活泼开朗，善于讲笑话",
+      "tags": ["阳光", "幽默", "浪漫", "艺术家"],
+      "preferredTraits": [
+        {"traitName": "活泼可爱", "intensity": 9, "description": "能够一起制造快乐"},
+        {"traitName": "热爱生活", "intensity": 8, "description": "对世界保持好奇"}
+      ],
+      "turnOffBehaviors": ["沉闷无趣", "悲观消极", "过度物质"]
+    },
+    {
+      "characterId": "guest_male_003",
+      "characterName": "沈墨白",
+      "gender": "Male",
+      "age": 28,
+      "occupation": "急诊科医生",
+      "personality": "温柔体贴、责任心强",
+      "hobby": "阅读、烹饪",
+      "birthday": "1996-11-08",
+      "zodiac": "天蝎座",
+      "mbti": "ISFJ",
+      "appearanceDescription": "身高185cm，清爽干净，眼神温柔",
+      "voiceDescription": "温柔细腻，让人安心",
+      "tags": ["温柔", "可靠", "成熟", "暖男"],
+      "preferredTraits": [
+        {"traitName": "善解人意", "intensity": 9, "description": "能够理解医生工作的辛苦"},
+        {"traitName": "体贴温柔", "intensity": 8, "description": "懂得照顾人"}
+      ],
+      "turnOffBehaviors": ["自私冷漠", "不尊重生命", "爱慕虚荣"]
+    },
+    {
+      "characterId": "guest_male_004",
+      "characterName": "林逸尘",
+      "gender": "Male",
+      "age": 25,
+      "occupation": "健身教练",
+      "personality": "阳光积极、健康自律",
+      "hobby": "健身、户外运动",
+      "birthday": "1999-01-30",
+      "zodiac": "水瓶座",
+      "mbti": "ESFP",
+      "appearanceDescription": "身高180cm，体格健硕，阳光帅气",
+      "voiceDescription": "充满能量，富有感染力",
+      "tags": ["阳光", "健康", "积极", "运动型"],
+      "preferredTraits": [
+        {"traitName": "热爱运动", "intensity": 8, "description": "喜欢一起健身"},
+        {"traitName": "乐观开朗", "intensity": 7, "description": "积极向上的生活态度"}
+      ],
+      "turnOffBehaviors": ["懒惰消极", "不自律", "过度节食"]
+    },
+    {
+      "characterId": "guest_male_005",
+      "characterName": "陆辞",
+      "gender": "Male",
+      "age": 27,
+      "occupation": "音乐制作人",
+      "personality": "文艺浪漫、才华横溢",
+      "hobby": "音乐创作、弹吉他",
+      "birthday": "1997-06-18",
+      "zodiac": "双子座",
+      "mbti": "INFP",
+      "appearanceDescription": "身高177cm，长发文艺，眼神深邃",
+      "voiceDescription": "低沉有磁性，富有感染力",
+      "tags": ["文艺", "浪漫", "才华", "艺术家"],
+      "preferredTraits": [
+        {"traitName": "文艺气质", "intensity": 8, "description": "欣赏艺术和美"},
+        {"traitName": "善解人意", "intensity": 7, "description": "理解他的创作世界"}
+      ],
+      "turnOffBehaviors": ["粗俗无礼", "功利现实", "不懂浪漫"]
+    },
+    {
+      "characterId": "guest_male_006",
+      "characterName": "秦牧野",
+      "gender": "Male",
+      "age": 29,
+      "occupation": "金融分析师",
+      "personality": "成熟稳重、精明干练",
+      "hobby": "投资、阅读",
+      "birthday": "1995-09-25",
+      "zodiac": "天秤座",
+      "mbti": "ENTJ",
+      "appearanceDescription": "身高183cm，西装革履，精英气质",
+      "voiceDescription": "沉稳有力，自信从容",
+      "tags": ["成熟", "成功", "精英", "事业型"],
+      "preferredTraits": [
+        {"traitName": "独立自主", "intensity": 8, "description": "有自己的事业追求"},
+        {"traitName": "聪明睿智", "intensity": 7, "description": "能够进行深度交流"}
+      ],
+      "turnOffBehaviors": ["攀附依赖", "不思进取", "虚荣攀比"]
+    },
+    {
+      "characterId": "guest_female_001",
+      "characterName": "苏念卿",
+      "gender": "Female",
+      "age": 25,
+      "occupation": "甜品师",
+      "personality": "甜美可爱、温暖治愈",
+      "hobby": "烘焙、绘画",
+      "birthday": "1999-04-12",
+      "zodiac": "白羊座",
+      "mbti": "ENFJ",
+      "appearanceDescription": "身高165cm，甜美温柔，笑容治愈",
+      "voiceDescription": "甜美柔和，让人心情愉悦",
+      "tags": ["甜美", "温柔", "治愈", "贤惠"],
+      "preferredTraits": [
+        {"traitName": "体贴细心", "intensity": 9, "description": "懂得照顾人"},
+        {"traitName": "真诚坦率", "intensity": 8, "description": "不做作，真诚待人"}
+      ],
+      "turnOffBehaviors": ["虚伪做作", "心机深沉", "冷漠无情"]
+    },
+    {
+      "characterId": "guest_female_002",
+      "characterName": "林若曦",
+      "gender": "Female",
+      "age": 24,
+      "occupation": "舞蹈老师",
+      "personality": "优雅自信、热情开朗",
+      "hobby": "跳舞、健身",
+      "birthday": "2000-02-28",
+      "zodiac": "双鱼座",
+      "mbti": "ESFP",
+      "appearanceDescription": "身高170cm，身材曼妙，优雅自信",
+      "voiceDescription": "自信有力，充满活力",
+      "tags": ["优雅", "自信", "热情", "艺术型"],
+      "preferredTraits": [
+        {"traitName": "自信独立", "intensity": 8, "description": "有自己的追求"},
+        {"traitName": "阳光开朗", "intensity": 7, "description": "积极向上的生活态度"}
+      ],
+      "turnOffBehaviors": ["自卑怯懦", "消极悲观", "过度依赖"]
+    },
+    {
+      "characterId": "guest_female_003",
+      "characterName": "夏清欢",
+      "gender": "Female",
+      "age": 26,
+      "occupation": "律师",
+      "personality": "聪明理性、独立自主",
+      "hobby": "阅读、辩论",
+      "birthday": "1998-08-05",
+      "zodiac": "狮子座",
+      "mbti": "INTJ",
+      "appearanceDescription": "身高168cm，干练利落，气场强大",
+      "voiceDescription": "清晰有力，逻辑分明",
+      "tags": ["聪明", "干练", "独立", "女强人"],
+      "preferredTraits": [
+        {"traitName": "理性成熟", "intensity": 8, "description": "能够进行深度对话"},
+        {"traitName": "独立自主", "intensity": 9, "description": "不依附他人"}
+      ],
+      "turnOffBehaviors": ["幼稚无理", "优柔寡断", "过度情绪化"]
+    },
+    {
+      "characterId": "guest_female_004",
+      "characterName": "沈听雨",
+      "gender": "Female",
+      "age": 23,
+      "occupation": "宠物博主",
+      "personality": "活泼可爱、充满爱心",
+      "hobby": "养宠物、拍照",
+      "birthday": "2001-12-10",
+      "zodiac": "射手座",
+      "mbti": "INFP",
+      "appearanceDescription": "身高163cm，清新可爱，灵动活泼",
+      "voiceDescription": "俏皮可爱，富有感染力",
+      "tags": ["可爱", "活泼", "有爱心", "小清新"],
+      "preferredTraits": [
+        {"traitName": "善解人意", "intensity": 8, "description": "温柔善良"},
+        {"traitName": "真诚直率", "intensity": 7, "description": "有什么说什么"}
+      ],
+      "turnOffBehaviors": ["冷漠无情", "虚伪做作", "不爱动物"]
+    },
+    {
+      "characterId": "guest_female_005",
+      "characterName": "顾晚棠",
+      "gender": "Female",
+      "age": 27,
+      "occupation": "花艺师",
+      "personality": "文艺优雅、浪漫细腻",
+      "hobby": "插花、茶道",
+      "birthday": "1997-05-20",
+      "zodiac": "金牛座",
+      "mbti": "ISFP",
+      "appearanceDescription": "身高166cm，气质如兰，温婉优雅",
+      "voiceDescription": "轻声细语，温柔动人",
+      "tags": ["文艺", "优雅", "浪漫", "气质型"],
+      "preferredTraits": [
+        {"traitName": "文艺气质", "intensity": 9, "description": "欣赏美和艺术"},
+        {"traitName": "温柔体贴", "intensity": 8, "description": "懂得照顾人感受"}
+      ],
+      "turnOffBehaviors": ["粗鲁无礼", "不解风情", "功利世俗"]
+    },
+    {
+      "characterId": "guest_female_006",
+      "characterName": "陆知意",
+      "gender": "Female",
+      "age": 25,
+      "occupation": "记者",
+      "personality": "独立坚强、正义感强",
+      "hobby": "写作、旅行",
+      "birthday": "1999-10-15",
+      "zodiac": "天秤座",
+      "mbti": "ENTP",
+      "appearanceDescription": "身高167cm，知性干练，眼神坚定",
+      "voiceDescription": "铿锵有力，富有感染力",
+      "tags": ["独立", "知性", "正义", "勇敢"],
+      "preferredTraits": [
+        {"traitName": "聪明睿智", "intensity": 8, "description": "有思想深度"},
+        {"traitName": "真诚直率", "intensity": 7, "description": "敢说真话"}
+      ],
+      "turnOffBehaviors": ["虚伪懦弱", "不辨是非", "逃避责任"]
+    }
+  ],
+  "cpCombinations": [
+    {"maleId": "guest_male_001", "femaleId": "guest_female_001", "compatibility": 85},
+    {"maleId": "guest_male_001", "femaleId": "guest_female_003", "compatibility": 78},
+    {"maleId": "guest_male_002", "femaleId": "guest_female_002", "compatibility": 90},
+    {"maleId": "guest_male_002", "femaleId": "guest_female_004", "compatibility": 82},
+    {"maleId": "guest_male_003", "femaleId": "guest_female_001", "compatibility": 92},
+    {"maleId": "guest_male_003", "femaleId": "guest_female_005", "compatibility": 88},
+    {"maleId": "guest_male_004", "femaleId": "guest_female_002", "compatibility": 85},
+    {"maleId": "guest_male_004", "femaleId": "guest_female_004", "compatibility": 80},
+    {"maleId": "guest_male_005", "femaleId": "guest_female_005", "compatibility": 95},
+    {"maleId": "guest_male_005", "femaleId": "guest_female_006", "compatibility": 75},
+    {"maleId": "guest_male_006", "femaleId": "guest_female_003", "compatibility": 88},
+    {"maleId": "guest_male_006", "femaleId": "guest_female_006", "compatibility": 82}
+  ]
+}

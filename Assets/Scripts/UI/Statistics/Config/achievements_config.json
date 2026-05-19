@@ -1,0 +1,262 @@
+{
+  "config_name": "成就配置",
+  "version": "1.0.0",
+  "description": "配置游戏中的所有成就",
+  
+  "成就列表": [
+    {
+      "id": "first_conversation",
+      "name": "初次见面",
+      "description": "与任意嘉宾进行第一次对话",
+      "icon": "👋",
+      "rarity": "Common",
+      "max_progress": 1,
+      "reward": "💬 解锁对话选项"
+    },
+    {
+      "id": "first_date",
+      "name": "约会开始",
+      "description": "与任意嘉宾进行第一次约会",
+      "icon": "🌹",
+      "rarity": "Common",
+      "max_progress": 1,
+      "reward": "💕 解锁约会场景"
+    },
+    {
+      "id": "first_heart",
+      "name": "心动时刻",
+      "description": "向任意嘉宾送出第一个心动",
+      "icon": "❤️",
+      "rarity": "Common",
+      "max_progress": 1,
+      "reward": "❤️ 解锁心动特效"
+    },
+    {
+      "id": "conversation_10",
+      "name": "闲聊达人",
+      "description": "对话次数达到10次",
+      "icon": "💬",
+      "rarity": "Common",
+      "max_progress": 10,
+      "reward": "🎭 解锁新话题"
+    },
+    {
+      "id": "conversation_master",
+      "name": "健谈达人",
+      "description": "对话次数达到100次",
+      "icon": "🗣️",
+      "rarity": "Rare",
+      "max_progress": 100,
+      "reward": "🏅 健谈达人称号"
+    },
+    {
+      "id": "date_5",
+      "name": "约会新手",
+      "description": "约会次数达到5次",
+      "icon": "🌅",
+      "rarity": "Common",
+      "max_progress": 5,
+      "reward": "💐 解锁新约会地点"
+    },
+    {
+      "id": "date_master",
+      "name": "约会高手",
+      "description": "约会次数达到50次",
+      "icon": "🏆",
+      "rarity": "Rare",
+      "max_progress": 50,
+      "reward": "💝 约会高手称号"
+    },
+    {
+      "id": "heart_collector",
+      "name": "心动收集者",
+      "description": "送出100个心动",
+      "icon": "💖",
+      "rarity": "Rare",
+      "max_progress": 100,
+      "reward": "✨ 心动收集者称号"
+    },
+    {
+      "id": "affection_50",
+      "name": "渐入佳境",
+      "description": "某个嘉宾好感度达到50%",
+      "icon": "💗",
+      "rarity": "Common",
+      "max_progress": 1,
+      "reward": "💕 解锁新互动"
+    },
+    {
+      "id": "affection_master",
+      "name": "感情大师",
+      "description": "某个嘉宾好感度达到100%",
+      "icon": "💓",
+      "rarity": "Epic",
+      "max_progress": 1,
+      "reward": "🎊 感情大师称号"
+    },
+    {
+      "id": "all_guests_dated",
+      "name": "人人平等",
+      "description": "与所有嘉宾都约会过",
+      "icon": "🌈",
+      "rarity": "Epic",
+      "max_progress": 1,
+      "reward": "🏅 社交达人称号"
+    },
+    {
+      "id": "story_chapter_1",
+      "name": "故事开启",
+      "description": "完成第一章剧情",
+      "icon": "📖",
+      "rarity": "Common",
+      "max_progress": 1,
+      "reward": "📜 解锁新剧情"
+    },
+    {
+      "id": "story_chapter_3",
+      "name": "剧情深入",
+      "description": "完成第三章剧情",
+      "icon": "📚",
+      "rarity": "Rare",
+      "max_progress": 1,
+      "reward": "🎬 解锁剧情回顾"
+    },
+    {
+      "id": "story_completer",
+      "name": "故事完结",
+      "description": "完成所有剧情事件",
+      "icon": "📕",
+      "rarity": "Epic",
+      "max_progress": 1,
+      "reward": "🏆 全剧终称号"
+    },
+    {
+      "id": "ending_normal",
+      "name": "普通结局",
+      "description": "达成任意一个普通结局",
+      "icon": "🌙",
+      "rarity": "Rare",
+      "max_progress": 1,
+      "reward": "🎭 解锁新服装"
+    },
+    {
+      "id": "ending_good",
+      "name": "美好结局",
+      "description": "达成一个美好结局",
+      "icon": "🌟",
+      "rarity": "Epic",
+      "max_progress": 1,
+      "reward": "💎 解锁新特效"
+    },
+    {
+      "id": "ending_best",
+      "name": "完美结局",
+      "description": "达成完美结局",
+      "icon": "💫",
+      "rarity": "Legendary",
+      "max_progress": 1,
+      "reward": "👑 完美结局称号"
+    },
+    {
+      "id": "legendary_lover",
+      "name": "传奇恋人",
+      "description": "好感度达到100且保持到最后",
+      "icon": "💕",
+      "rarity": "Legendary",
+      "max_progress": 1,
+      "reward": "💖 传奇恋人称号"
+    },
+    {
+      "id": "true_love",
+      "name": "真爱永恒",
+      "description": "连续7天好感度保持最高",
+      "icon": "💘",
+      "rarity": "Legendary",
+      "max_progress": 1,
+      "reward": "💝 真爱永恒称号"
+    },
+    {
+      "id": "game_master",
+      "name": "游戏大师",
+      "description": "解锁所有成就",
+      "icon": "🎮",
+      "rarity": "Legendary",
+      "max_progress": 1,
+      "reward": "🏆 游戏大师称号"
+    },
+    {
+      "id": "speed_dater",
+      "name": "速战速决",
+      "description": "在第7天前达成约会",
+      "icon": "⚡",
+      "rarity": "Rare",
+      "max_progress": 1,
+      "reward": "💨 解锁快速模式"
+    },
+    {
+      "id": "perfectionist",
+      "name": "完美主义者",
+      "description": "所有选项都选择最优解",
+      "icon": "💎",
+      "rarity": "Epic",
+      "max_progress": 1,
+      "reward": "✨ 完美主义者称号"
+    },
+    {
+      "id": "explorer",
+      "name": "探索者",
+      "description": "解锁所有隐藏剧情",
+      "icon": "🔍",
+      "rarity": "Rare",
+      "max_progress": 1,
+      "reward": "🗺️ 探索者称号"
+    }
+  ],
+  
+  "稀有度配置": {
+    "Common": {
+      "颜色": "#B0B0B0",
+      "权重": 0.5,
+      "解锁概率": 1.0
+    },
+    "Rare": {
+      "颜色": "#4A90FF",
+      "权重": 0.3,
+      "解锁概率": 0.8
+    },
+    "Epic": {
+      "颜色": "#CC33FF",
+      "权重": 0.15,
+      "解锁概率": 0.5
+    },
+    "Legendary": {
+      "颜色": "#FFAA00",
+      "权重": 0.05,
+      "解锁概率": 0.2
+    }
+  },
+  
+  "解锁条件配置": {
+    "支持的条件类型": [
+      "ConversationCount",
+      "DateCount",
+      "AffectionLevel",
+      "HeartCount",
+      "StoryProgress",
+      "EndingReached",
+      "TimePlayed",
+      "DayReached",
+      "GuestCount",
+      "AchievementCount"
+    ]
+  },
+  
+  "显示配置": {
+    "显示成就面板": true,
+    "显示解锁通知": true,
+    "通知持续时间": 3.0,
+    "启用动画": true,
+    "显示进度条": true,
+    "显示稀有度标识": true
+  }
+}

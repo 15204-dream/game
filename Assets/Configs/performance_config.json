@@ -1,0 +1,89 @@
+{
+  "performance_settings": {
+    "target_fps": 60,
+    "mobile_target_fps": 30,
+    "min_frame_rate": 15,
+    "enable_adaptive_fps": true,
+    "fps_drop_threshold": 0.6,
+    "fps_recovery_threshold": 0.95
+  },
+  "memory_settings": {
+    "max_memory_mb": 512,
+    "memory_warning_threshold": 0.8,
+    "memory_critical_threshold": 0.95,
+    "enable_auto_gc": true,
+    "gc_interval_seconds": 30,
+    "enable_auto_unload_unused": true
+  },
+  "quality_settings": {
+    "default_quality_level": 2,
+    "low_end_quality_level": 0,
+    "enable_shadows": true,
+    "enable_post_processing": true,
+    "shadow_quality": "Medium",
+    "texture_quality": "High",
+    "anisotropic_filtering": true
+  },
+  "object_pool_settings": {
+    "default_pool_size": 10,
+    "max_pool_size": 100,
+    "auto_expand": true,
+    "enable_logging": false
+  },
+  "cache_settings": {
+    "default_max_size": 100,
+    "default_ttl_seconds": 300,
+    "enable_auto_cleanup": true,
+    "cleanup_interval_seconds": 60,
+    "caches": {
+      "api_response": {
+        "max_size": 50,
+        "ttl_seconds": 300
+      },
+      "character_data": {
+        "max_size": 20,
+        "ttl_seconds": 600
+      },
+      "scene_resources": {
+        "max_size": 30,
+        "ttl_seconds": 180
+      }
+    }
+  },
+  "resource_loading": {
+    "enable_async_loading": true,
+    "max_concurrent_loads": 4,
+    "enable_cache": true,
+    "max_cached_resources": 100,
+    "preload_enabled": true
+  },
+  "platform_specific": {
+    "android": {
+      "target_fps": 30,
+      "quality_level": 1,
+      "enable_multithreaded_rendering": false
+    },
+    "ios": {
+      "target_fps": 30,
+      "quality_level": 1,
+      "enable_multithreaded_rendering": true
+    },
+    "standalone": {
+      "target_fps": 60,
+      "quality_level": 2,
+      "enable_multithreaded_rendering": true
+    }
+  },
+  "monitoring": {
+    "enable_performance_monitor": true,
+    "sample_count": 60,
+    "update_interval": 0.5,
+    "enable_memory_tracking": true
+  },
+  "optimization": {
+    "enable_auto_optimization": true,
+    "optimization_check_interval": 5,
+    "downgrade_on_low_performance": true,
+    "upgrade_on_good_performance": true
+  }
+}

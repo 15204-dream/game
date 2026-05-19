@@ -1,0 +1,104 @@
+{
+  "version": "1.0",
+  "gameName": "糟糕！是心动鸭！",
+  "mode": "director",
+  "achievements": [
+    {
+      "achievementId": "StarDirector",
+      "achievementName": "造星导演",
+      "description": "成功打造3位明星嘉宾",
+      "icon": "star_director_icon",
+      "isSecret": false,
+      "unlockHint": "将3位嘉宾培养成明星",
+      "diamondReward": 100,
+      "conditions": {
+        "requiredStarCount": 3
+      }
+    },
+    {
+      "achievementId": "CPMaster",
+      "achievementName": "CP制造机",
+      "description": "成功配对5对CP",
+      "icon": "cp_master_icon",
+      "isSecret": false,
+      "unlockHint": "促成5对CP配对成功",
+      "diamondReward": 100,
+      "conditions": {
+        "requiredCPCount": 5
+      }
+    },
+    {
+      "achievementId": "TopicMaster",
+      "achievementName": "话题鬼才",
+      "description": "制造10个热门话题",
+      "icon": "topic_master_icon",
+      "isSecret": false,
+      "unlockHint": "产生10个热门话题",
+      "diamondReward": 80,
+      "conditions": {
+        "requiredTopicCount": 10
+      }
+    },
+    {
+      "achievementId": "CrisisMaster",
+      "achievementName": "危机终结者",
+      "description": "在发生危机的情况下仍保持高热度高口碑",
+      "icon": "crisis_master_icon",
+      "isSecret": true,
+      "unlockHint": "触发危机但热度≥70且口碑≥70",
+      "diamondReward": 150,
+      "conditions": {
+        "requireCrisis": true,
+        "minHeat": 70,
+        "minReputation": 70
+      }
+    },
+    {
+      "achievementId": "RatingMyth",
+      "achievementName": "收视神话",
+      "description": "热度达到95以上，口碑达到90以上，全程无危机",
+      "icon": "rating_myth_icon",
+      "isSecret": false,
+      "unlockHint": "达成S级评定且无危机",
+      "diamondReward": 200,
+      "conditions": {
+        "minHeat": 95,
+        "minReputation": 90,
+        "requireNoCrisis": true
+      }
+    },
+    {
+      "achievementId": "ReverseFlip",
+      "achievementName": "逆向翻盘",
+      "description": "在经历多次危机后成功翻盘",
+      "icon": "reverse_flip_icon",
+      "isSecret": true,
+      "unlockHint": "经历2次以上危机但热度≥60且口碑≥50",
+      "diamondReward": 120,
+      "conditions": {
+        "minCrisisCount": 2,
+        "minHeat": 60,
+        "minReputation": 50
+      }
+    }
+  ],
+  "achievementGroups": {
+    "legendary": ["RatingMyth"],
+    "rare": ["CrisisMaster", "ReverseFlip", "CPMaster"],
+    "common": ["StarDirector", "TopicMaster"]
+  },
+  "bonusRewards": {
+    "allCommon": {
+      "description": "解锁所有普通成就",
+      "diamondBonus": 200
+    },
+    "allRare": {
+      "description": "解锁所有稀有成就",
+      "diamondBonus": 500
+    },
+    "allLegendary": {
+      "description": "解锁所有传说成就",
+      "diamondBonus": 1000
+    }
+  }
+}

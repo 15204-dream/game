@@ -1,0 +1,308 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "director_onboard",
+      "sequenceName": "导演上任",
+      "description": "了解导演职责，审阅嘉宾资料，正式上任",
+      "autoStart": true,
+      "canSkip": false,
+      "saveProgress": true,
+      "priority": 1,
+      "trigger": {
+        "type": "Manual",
+        "triggerId": "director_mode_start",
+        "sceneName": "DirectorOfficeScene"
+      },
+      "nextSequence": {
+        "sequenceId": "director_first_episode",
+        "sequenceName": "首期策划"
+      },
+      "steps": [
+        {
+          "stepId": "director_onboard_1",
+          "title": "节目组邀请",
+          "description": "接收节目组的导演邀请，了解节目背景",
+          "conditionType": "Event",
+          "eventName": "InvitationAccepted",
+          "targetPaths": ["UI/InvitationPanel"],
+          "priority": 1,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "director_onboard_2",
+          "title": "了解导演职责",
+          "description": "学习作为导演需要做的事情和工作流程",
+          "conditionType": "Event",
+          "eventName": "RoleInfoRead",
+          "targetPaths": ["UI/DirectorRolePanel"],
+          "priority": 2,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "director_onboard_3",
+          "title": "审阅嘉宾资料",
+          "description": "查看12位嘉宾的详细资料，为策划节目做准备",
+          "conditionType": "Event",
+          "eventName": "GuestProfilesReviewed",
+          "targetPaths": ["UI/GuestProfilesPanel"],
+          "priority": 3,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "director_onboard_4",
+          "title": "完成上任",
+          "description": "确认导演身份，正式上任开始工作",
+          "conditionType": "Event",
+          "eventName": "DirectorConfirmed",
+          "targetPaths": ["UI/ConfirmButton"],
+          "priority": 4,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "director_first_episode",
+      "sequenceName": "首期策划",
+      "description": "查看数据面板，安排首期活动",
+      "autoStart": false,
+      "canSkip": false,
+      "saveProgress": true,
+      "priority": 2,
+      "trigger": {
+        "type": "SceneLoad",
+        "triggerId": "first_episode_scene",
+        "sceneName": "ControlRoomScene"
+      },
+      "nextSequence": {
+        "sequenceId": "director_heat_monitor",
+        "sequenceName": "热度监控"
+      },
+      "steps": [
+        {
+          "stepId": "director_planning_1",
+          "title": "查看数据面板",
+          "description": "了解节目数据概览和关键指标",
+          "conditionType": "Event",
+          "eventName": "DashboardViewed",
+          "targetPaths": ["UI/DataDashboardPanel"],
+          "priority": 1,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "director_planning_2",
+          "title": "了解嘉宾资料",
+          "description": "查看12位嘉宾的详细资料，了解嘉宾特点",
+          "conditionType": "Event",
+          "eventName": "GuestListViewed",
+          "targetPaths": ["UI/GuestListPanel"],
+          "priority": 2,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "director_planning_3",
+          "title": "安排首期活动",
+          "description": "为第一天的节目安排心动活动",
+          "conditionType": "Event",
+          "eventName": "FirstActivityPlanned",
+          "targetPaths": ["UI/ActivityPlannerPanel"],
+          "priority": 3,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "director_heat_monitor",
+      "sequenceName": "热度监控",
+      "description": "监控节目热度，优化内容策略",
+      "autoStart": false,
+      "canSkip": true,
+      "saveProgress": true,
+      "priority": 3,
+      "trigger": {
+        "type": "Event",
+        "triggerId": "heat_monitor_trigger",
+        "sceneName": ""
+      },
+      "nextSequence": {
+        "sequenceId": "director_activity_arrange",
+        "sequenceName": "活动安排"
+      },
+      "steps": [
+        {
+          "stepId": "director_heat_1",
+          "title": "查看热度数据",
+          "description": "监控节目的实时热度变化",
+          "conditionType": "Event",
+          "eventName": "HeatDataViewed",
+          "targetPaths": ["UI/HeatMonitorPanel"],
+          "priority": 1,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "director_heat_2",
+          "title": "分析观众反馈",
+          "description": "查看观众的评论和反馈数据",
+          "conditionType": "Event",
+          "eventName": "FeedbackAnalyzed",
+          "targetPaths": ["UI/FeedbackPanel"],
+          "priority": 2,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "director_heat_3",
+          "title": "调整节目策略",
+          "description": "根据数据调整节目安排和内容策略",
+          "conditionType": "Event",
+          "eventName": "StrategyAdjusted",
+          "targetPaths": ["UI/StrategyPanel"],
+          "priority": 3,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "director_activity_arrange",
+      "sequenceName": "活动安排",
+      "description": "策划和安排各种心动活动",
+      "autoStart": false,
+      "canSkip": true,
+      "saveProgress": true,
+      "priority": 4,
+      "trigger": {
+        "type": "Event",
+        "triggerId": "activity_trigger",
+        "sceneName": ""
+      },
+      "nextSequence": {
+        "sequenceId": "director_crisis",
+        "sequenceName": "危机公关"
+      },
+      "steps": [
+        {
+          "stepId": "director_activity_1",
+          "title": "查看活动模板",
+          "description": "了解可用的活动模板和类型",
+          "conditionType": "Event",
+          "eventName": "TemplatesViewed",
+          "targetPaths": ["UI/ActivityTemplatesPanel"],
+          "priority": 1,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "director_activity_2",
+          "title": "创建新活动",
+          "description": "策划一个心动活动，设置活动内容",
+          "conditionType": "Event",
+          "eventName": "ActivityCreated",
+          "targetPaths": ["UI/ActivityCreatorPanel"],
+          "priority": 2,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "director_activity_3",
+          "title": "安排活动时间",
+          "description": "设置活动的时间和参与规则",
+          "conditionType": "Event",
+          "eventName": "ScheduleSet",
+          "targetPaths": ["UI/SchedulePanel"],
+          "priority": 3,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "director_crisis",
+      "sequenceName": "危机公关",
+      "description": "处理突发情况，保护节目声誉",
+      "autoStart": false,
+      "canSkip": true,
+      "saveProgress": true,
+      "priority": 5,
+      "trigger": {
+        "type": "Event",
+        "triggerId": "crisis_trigger",
+        "sceneName": ""
+      },
+      "steps": [
+        {
+          "stepId": "director_crisis_1",
+          "title": "查看关系网络",
+          "description": "了解嘉宾之间的关系和潜在冲突",
+          "conditionType": "Event",
+          "eventName": "NetworkViewed",
+          "targetPaths": ["UI/RelationshipNetworkPanel"],
+          "priority": 1,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "director_crisis_2",
+          "title": "识别潜在问题",
+          "description": "发现可能出现的危机和风险点",
+          "conditionType": "Event",
+          "eventName": "RiskIdentified",
+          "targetPaths": ["UI/CrisisAlertPanel"],
+          "priority": 2,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "director_crisis_3",
+          "title": "处理模拟危机",
+          "description": "学习如何处理危机情况，保护节目声誉",
+          "conditionType": "Event",
+          "eventName": "CrisisHandled",
+          "targetPaths": ["UI/CrisisHandlerPanel"],
+          "priority": 3,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    }
+  ]
+}

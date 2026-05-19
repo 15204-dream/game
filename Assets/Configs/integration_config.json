@@ -1,0 +1,143 @@
+{
+  "system_integration": {
+    "initialize_on_start": true,
+    "auto_register_services": true,
+    "enable_event_system": true,
+    "enable_service_locator": true,
+    "startup_priority": {
+      "event_bus": 1,
+      "service_locator": 2,
+      "game_loop_manager": 3,
+      "performance_optimizer": 4,
+      "memory_manager": 5,
+      "cache_manager": 6,
+      "object_pool_manager": 7,
+      "resource_manager": 8,
+      "audio_manager": 9,
+      "localization_manager": 10
+    }
+  },
+  "game_loop": {
+    "target_fps": 60,
+    "enable_pause_support": true,
+    "enable_save_on_quit": true,
+    "enable_auto_save": true,
+    "auto_save_interval_minutes": 5
+  },
+  "scene_management": {
+    "default_scene": "MainMenu",
+    "game_scene": "Game",
+    "enable_loading_screen": true,
+    "enable_scene_preloading": false,
+    "enable_async_loading": true,
+    "transition_type": "Fade",
+    "transition_duration": 0.5
+  },
+  "modules": {
+    "game_manager": {
+      "enabled": true,
+      "auto_initialize": true
+    },
+    "data_manager": {
+      "enabled": true,
+      "auto_save": true,
+      "save_path": "Saves/"
+    },
+    "ui_manager": {
+      "enabled": true,
+      "enable_tween": true
+    },
+    "character_manager": {
+      "enabled": true,
+      "enable_pooling": true
+    },
+    "dialogue_manager": {
+      "enabled": true,
+      "enable_auto_save": true
+    },
+    "api_client": {
+      "enabled": true,
+      "timeout_seconds": 30,
+      "retry_count": 3
+    }
+  },
+  "event_bus": {
+    "enable_logging": false,
+    "global_events": [
+      "OnGameStart",
+      "OnGameEnd",
+      "OnModeSwitch",
+      "OnDialogueStart",
+      "OnDialogueEnd",
+      "OnEndingReached",
+      "OnAchievementUnlocked",
+      "OnAPIResponse"
+    ]
+  },
+  "service_locator": {
+    "auto_register_default_services": true,
+    "services": {
+      "EventBus": {
+        "singleton": true
+      },
+      "ServiceLocator": {
+        "singleton": true
+      },
+      "GameLoopManager": {
+        "singleton": true
+      },
+      "PerformanceOptimizer": {
+        "singleton": true
+      },
+      "MemoryManager": {
+        "singleton": true
+      },
+      "ObjectPoolManager": {
+        "singleton": true
+      },
+      "CacheManager": {
+        "singleton": true
+      },
+      "ResourceManager": {
+        "singleton": true
+      },
+      "AudioManager": {
+        "singleton": true
+      },
+      "LocalizationManager": {
+        "singleton": true
+      }
+    }
+  },
+  "error_handling": {
+    "enable_global_error_handler": true,
+    "log_errors": true,
+    "show_error_ui": false,
+    "crash_reporting": false
+  },
+  "game_modes": {
+    "guest_mode": {
+      "enabled": true,
+      "features": {
+        "dialogue_system": true,
+        "character_interaction": true,
+        "inventory_system": true
+      }
+    },
+    "director_mode": {
+      "enabled": true,
+      "features": {
+        "plot_generation": true,
+        "audience_simulation": true,
+        "heat_calculation": true
+      }
+    }
+  },
+  "save_system": {
+    "enable_auto_save": true,
+    "auto_save_interval_minutes": 5,
+    "max_save_slots": 10,
+    "save_path": "Saves/",
+    "save_format": "json"
+  }
+}

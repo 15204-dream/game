@@ -1,0 +1,137 @@
+# 糟糕！是心动鸭！Unity项目 .gitignore
+
+# Unity项目生成的文件
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Unity版本控制元数据
+/.vscode/
+.vs/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.unityproj
+
+# 场景文件
+*.unity
+
+# 脚本文件（保留在版本控制中）
+# Assets/Scripts/
+
+# 资源文件（保留在版本控制中）
+# Assets/Resources/
+
+# 预制体（保留在版本控制中）
+# Assets/Prefabs/
+
+# 数据文件（保留在版本控制中）
+# Assets/Data/
+
+# 导出文件
+/[Ee]xports/
+*.apk
+*.aab
+*.app
+*.ipa
+*.exe
+*.dll
+*.appxbundle
+*.appxupload
+
+# macOS系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Windows系统文件
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+
+# Linux系统文件
+*~
+
+# KDE文件
+.directory
+
+# Unity特定忽略文件
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp.csproj
+Assembly-UnityScript-firstpass.unityproj
+Assembly-UnityScript.unityproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-Editor-firstpass.csproj
+Assembly-UnityScript-Editor-firstpass.unityproj
+Assembly-UnityScript-Editor.unityproj
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
+
+# 日志文件
+*.log
+
+# 本地配置文件
+LocalConfig/
+
+# 插件和包
+/[Pp]ackages/
+[Pp]lugins/
+
+# 崩溃日志
+Crashes/
+
+# 性能分析文件
+ProfileData/
+
+# Unity云构建
+/[Aa]bout/
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Test Runner
+[Tt]est[Rr]esults/
+
+# 视频和音频缓存
+/[Aa]udioCache/
+/[Vv]ideoCache/
+
+# 纹理压缩缓存
+/[Tt]extureCache/
+
+# 构建报告
+/[Bb]uild[Rr]eport/
+
+# 自动保存
+AutoSave/
+
+# 项目特定配置
+[Ll]ocal[Pp]rojects/
+[Pp]rojectSettings/
+
+# 自定义忽略规则
+*.meta.bak
+*.unitypackage

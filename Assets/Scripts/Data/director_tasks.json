@@ -1,0 +1,468 @@
+{
+  "version": "1.0",
+  "totalTasks": 25,
+  "tasks": [
+    {
+      "taskId": "director_task_001",
+      "taskName": "开拍准备",
+      "description": "完成第一集的剧本创作",
+      "taskType": "Main",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "dobj_001_1",
+          "description": "创建剧本",
+          "type": "Create",
+          "targetId": "script",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "dobj_001_2",
+          "description": "添加至少3个场景",
+          "type": "Create",
+          "targetId": "scene",
+          "targetCount": 3,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "dobj_001_3",
+          "description": "提交审核",
+          "type": "Submit",
+          "targetId": "script",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 1000,
+        "experience": 100,
+        "popularity": 50,
+        "heatBonus": 500,
+        "budgetBonus": 5000,
+        "unlockedAbilities": ["ability_basic_direction"]
+      },
+      "bonusReward": {
+        "coins": 500,
+        "experience": 50,
+        "popularity": 30,
+        "heatBonus": 200,
+        "budgetBonus": 2000,
+        "unlockedAbilities": []
+      },
+      "prerequisiteTaskIds": [],
+      "requiredDirectorLevel": 1,
+      "canSkip": false,
+      "canRetake": false
+    },
+    {
+      "taskId": "director_task_002",
+      "taskName": "热度攀升",
+      "description": "使节目热度达到'热门'等级",
+      "taskType": "Main",
+      "difficulty": "Normal",
+      "objectives": [
+        {
+          "objectiveId": "dobj_002_1",
+          "description": "热度达到5000",
+          "type": "ReachHeat",
+          "targetId": "",
+          "targetCount": 5000,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 2000,
+        "experience": 200,
+        "popularity": 100,
+        "heatBonus": 1000,
+        "budgetBonus": 10000,
+        "unlockedAbilities": ["ability_heat_management"]
+      },
+      "prerequisiteTaskIds": ["director_task_001"],
+      "requiredDirectorLevel": 2,
+      "canSkip": false,
+      "canRetake": false
+    },
+    {
+      "taskId": "director_task_003",
+      "taskName": "危机处理",
+      "description": "成功解决一次公关危机",
+      "taskType": "Main",
+      "difficulty": "Hard",
+      "objectives": [
+        {
+          "objectiveId": "dobj_003_1",
+          "description": "触发危机",
+          "type": "TriggerCrisis",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "dobj_003_2",
+          "description": "解决问题",
+          "type": "ResolveCrisis",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 3000,
+        "experience": 300,
+        "popularity": 200,
+        "heatBonus": 2000,
+        "budgetBonus": 15000,
+        "unlockedAbilities": ["ability_crisis_control"]
+      },
+      "prerequisiteTaskIds": ["director_task_002"],
+      "requiredDirectorLevel": 3,
+      "canSkip": false,
+      "canRetake": false
+    },
+    {
+      "taskId": "director_task_004",
+      "taskName": "热搜制造机",
+      "description": "让节目登上热搜榜首",
+      "taskType": "Main",
+      "difficulty": "Expert",
+      "objectives": [
+        {
+          "objectiveId": "dobj_004_1",
+          "description": "达到热搜第1名",
+          "type": "ReachHotSearch",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 5000,
+        "experience": 500,
+        "popularity": 500,
+        "heatBonus": 5000,
+        "budgetBonus": 30000,
+        "unlockedAbilities": ["ability_marketing_master"]
+      },
+      "prerequisiteTaskIds": ["director_task_003"],
+      "requiredDirectorLevel": 5,
+      "canSkip": false,
+      "canRetake": true
+    },
+    {
+      "taskId": "director_task_005",
+      "taskName": "收视率之王",
+      "description": "单集收视率达到峰值",
+      "taskType": "Main",
+      "difficulty": "Master",
+      "objectives": [
+        {
+          "objectiveId": "dobj_005_1",
+          "description": "收视率达到最高",
+          "type": "ReachRating",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 10000,
+        "experience": 1000,
+        "popularity": 1000,
+        "heatBonus": 10000,
+        "budgetBonus": 50000,
+        "unlockedAbilities": ["ability_legendary_director"]
+      },
+      "prerequisiteTaskIds": ["director_task_004"],
+      "requiredDirectorLevel": 8,
+      "canSkip": false,
+      "canRetake": false
+    },
+    {
+      "taskId": "director_side_001",
+      "taskName": "创意调度",
+      "description": "安排一次创意活动",
+      "taskType": "Side",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "dobj_side_001_1",
+          "description": "执行创意行动",
+          "type": "PerformAction",
+          "targetId": "creative",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 300,
+        "experience": 30,
+        "popularity": 20,
+        "heatBonus": 100,
+        "budgetBonus": 0,
+        "unlockedAbilities": []
+      },
+      "prerequisiteTaskIds": [],
+      "requiredDirectorLevel": 1,
+      "canSkip": true,
+      "canRetake": true
+    },
+    {
+      "taskId": "director_side_002",
+      "taskName": "话题制造",
+      "description": "发布一条引发热议的内容",
+      "taskType": "Side",
+      "difficulty": "Normal",
+      "objectives": [
+        {
+          "objectiveId": "dobj_side_002_1",
+          "description": "创建热门话题",
+          "type": "Create",
+          "targetId": "topic",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "dobj_side_002_2",
+          "description": "话题引发讨论",
+          "type": "ReachEngagement",
+          "targetId": "",
+          "targetCount": 1000,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 500,
+        "experience": 50,
+        "popularity": 50,
+        "heatBonus": 300,
+        "budgetBonus": 1000,
+        "unlockedAbilities": []
+      },
+      "prerequisiteTaskIds": [],
+      "requiredDirectorLevel": 2,
+      "canSkip": true,
+      "canRetake": true
+    },
+    {
+      "taskId": "director_daily_001",
+      "taskName": "日常运营",
+      "description": "完成每日的节目维护",
+      "taskType": "Daily",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "dobj_daily_001_1",
+          "description": "发布日常内容",
+          "type": "Publish",
+          "targetId": "content",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 100,
+        "experience": 10,
+        "popularity": 10,
+        "heatBonus": 50,
+        "budgetBonus": 0,
+        "unlockedAbilities": []
+      },
+      "prerequisiteTaskIds": [],
+      "requiredDirectorLevel": null,
+      "canSkip": true,
+      "canRetake": true
+    },
+    {
+      "taskId": "director_weekly_001",
+      "taskName": "周度总结",
+      "description": "完成一周的节目制作",
+      "taskType": "Weekly",
+      "difficulty": "Normal",
+      "objectives": [
+        {
+          "objectiveId": "dobj_weekly_001_1",
+          "description": "完成7集",
+          "type": "Complete",
+          "targetId": "episode",
+          "targetCount": 7,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 2000,
+        "experience": 200,
+        "popularity": 200,
+        "heatBonus": 1000,
+        "budgetBonus": 10000,
+        "unlockedAbilities": ["ability_weekly_bonus"]
+      },
+      "prerequisiteTaskIds": [],
+      "requiredDirectorLevel": 3,
+      "canSkip": false,
+      "canRetake": true
+    },
+    {
+      "taskId": "director_challenge_001",
+      "taskName": "极限操作",
+      "description": "在预算不足的情况下完成一期节目",
+      "taskType": "Challenge",
+      "difficulty": "Expert",
+      "objectives": [
+        {
+          "objectiveId": "dobj_challenge_001_1",
+          "description": "预算低于10000",
+          "type": "ReachBudget",
+          "targetId": "",
+          "targetCount": 10000,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "dobj_challenge_001_2",
+          "description": "完成节目",
+          "type": "Complete",
+          "targetId": "episode",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 5000,
+        "experience": 500,
+        "popularity": 300,
+        "heatBonus": 2000,
+        "budgetBonus": 0,
+        "unlockedAbilities": ["ability_budget_master"]
+      },
+      "prerequisiteTaskIds": ["director_weekly_001"],
+      "requiredDirectorLevel": 5,
+      "canSkip": false,
+      "canRetake": false
+    }
+  ],
+  "directorAbilities": [
+    {
+      "abilityId": "ability_basic_direction",
+      "abilityName": "基础导演",
+      "description": "能够进行基本的场景调度和剧本创作",
+      "maxLevel": 5,
+      "requiredLevel": 1,
+      "upgrades": [
+        {"level": 2, "cost": 100, "description": "解锁更多场景类型"},
+        {"level": 3, "cost": 200, "description": "提升剧本质量"},
+        {"level": 4, "cost": 300, "description": "增加嘉宾互动"},
+        {"level": 5, "cost": 500, "description": "达到导演精通"}
+      ]
+    },
+    {
+      "abilityId": "ability_heat_management",
+      "abilityName": "热度管理",
+      "description": "更好地管理和提升节目热度",
+      "maxLevel": 5,
+      "requiredLevel": 2,
+      "upgrades": [
+        {"level": 2, "cost": 150, "description": "热度衰减减半"},
+        {"level": 3, "cost": 250, "description": "解锁热门内容推荐"},
+        {"level": 4, "cost": 400, "description": "热度增长加速"},
+        {"level": 5, "cost": 600, "description": "达到热度大师"}
+      ]
+    },
+    {
+      "abilityId": "ability_crisis_control",
+      "abilityName": "危机控制",
+      "description": "更好地处理各种节目危机",
+      "maxLevel": 5,
+      "requiredLevel": 3,
+      "upgrades": [
+        {"level": 2, "cost": 200, "description": "危机预防概率提升"},
+        {"level": 3, "cost": 300, "description": "危机解决方案增加"},
+        {"level": 4, "cost": 500, "description": "危机处理速度提升"},
+        {"level": 5, "cost": 800, "description": "达到危机处理专家"}
+      ]
+    },
+    {
+      "abilityId": "ability_marketing_master",
+      "abilityName": "营销大师",
+      "description": "精通各种营销技巧",
+      "maxLevel": 3,
+      "requiredLevel": 4,
+      "upgrades": [
+        {"level": 2, "cost": 400, "description": "营销效果翻倍"},
+        {"level": 3, "cost": 600, "description": "达到营销大师"}
+      ]
+    },
+    {
+      "abilityId": "ability_budget_master",
+      "abilityName": "预算大师",
+      "description": "精打细算，让每一分钱都花在刀刃上",
+      "maxLevel": 5,
+      "requiredLevel": 2,
+      "upgrades": [
+        {"level": 2, "cost": 150, "description": "预算使用效率提升10%"},
+        {"level": 3, "cost": 250, "description": "预算使用效率提升20%"},
+        {"level": 4, "cost": 400, "description": "预算使用效率提升30%"},
+        {"level": 5, "cost": 600, "description": "达到预算大师"}
+      ]
+    }
+  ],
+  "achievementTasks": [
+    {
+      "achievementId": "d_ach_first_episode",
+      "achievementName": "首播成功",
+      "description": "完成第一期节目制作",
+      "targetProgress": 1,
+      "reward": {
+        "coins": 1000,
+        "experience": 100,
+        "popularity": 50,
+        "heatBonus": 0,
+        "budgetBonus": 0,
+        "unlockedAbilities": []
+      }
+    },
+    {
+      "achievementId": "d_ach_viral",
+      "achievementName": "病毒式传播",
+      "description": "单条内容达到100万热度",
+      "targetProgress": 1000000,
+      "reward": {
+        "coins": 5000,
+        "experience": 500,
+        "popularity": 500,
+        "heatBonus": 0,
+        "budgetBonus": 50000,
+        "unlockedAbilities": ["ability_viral_master"]
+      }
+    },
+    {
+      "achievementId": "d_ach_legendary",
+      "achievementName": "传奇导演",
+      "description": "完成10季节目，每季都获得高收视",
+      "targetProgress": 10,
+      "reward": {
+        "coins": 50000,
+        "experience": 5000,
+        "popularity": 5000,
+        "heatBonus": 0,
+        "budgetBonus": 200000,
+        "unlockedAbilities": ["ability_legendary_director"]
+      }
+    }
+  ]
+}

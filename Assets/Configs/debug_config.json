@@ -1,0 +1,120 @@
+{
+  "debug_settings": {
+    "enable_debug_console": true,
+    "debug_console_toggle_key": "F1",
+    "enable_cheat_codes": true,
+    "show_fps_counter": false,
+    "verbose_logging": true
+  },
+  "logging": {
+    "enable_log_file": true,
+    "enable_console_log": true,
+    "max_log_count": 1000,
+    "log_file_name": "game_log.txt",
+    "log_levels": {
+      "debug": true,
+      "info": true,
+      "warning": true,
+      "error": true,
+      "fatal": true
+    },
+    "log_categories": {
+      "system": true,
+      "gameplay": true,
+      "ui": true,
+      "network": true,
+      "performance": false
+    }
+  },
+  "performance_profiling": {
+    "enable_profiler": true,
+    "sample_count": 60,
+    "update_interval": 0.5,
+    "enable_memory_tracking": true,
+    "enable_fps_analysis": true,
+    "enable_gpu_profiling": false
+  },
+  "cheat_codes": {
+    "GODMODE": {
+      "description": "无敌模式",
+      "enabled": true
+    },
+    "FREEMONEY": {
+      "description": "无限金币",
+      "enabled": true
+    },
+    "MAXHEART": {
+      "description": "满心好感",
+      "enabled": true
+    },
+    "SKIPDAY": {
+      "description": "跳过一天",
+      "enabled": true
+    },
+    "ALLENDINGS": {
+      "description": "解锁所有结局",
+      "enabled": true
+    },
+    "FPS": {
+      "description": "显示帧率",
+      "enabled": true
+    },
+    "RELOAD": {
+      "description": "重新加载",
+      "enabled": true
+    },
+    "GIVETIME": {
+      "description": "增加行动点",
+      "enabled": true
+    },
+    "TRUEOUT": {
+      "description": "触发真结局",
+      "enabled": true
+    }
+  },
+  "test_settings": {
+    "run_tests_on_start": false,
+    "verbose_test_output": true,
+    "test_delay_seconds": 0.5,
+    "performance_thresholds": {
+      "min_acceptable_fps": 30,
+      "max_acceptable_memory_mb": 512,
+      "max_acceptable_load_time": 5
+    }
+  },
+  "developer_tools": {
+    "enable_scene_editor": false,
+    "enable_inspector_extensions": false,
+    "enable_custom_gizmos": false,
+    "show_debug_bounds": false,
+    "show_debug_rays": false
+  },
+  "build_settings": {
+    "development_build": true,
+    "enable_debug_symbols": true,
+    "enable_profiling": true,
+    "enable_deferred_gc": false
+  },
+  "runtime_inspector": {
+    "enable_runtime_inspector": false,
+    "show_object_count": true,
+    "show_memory_usage": true,
+    "show_fps": true,
+    "show_draw_calls": false
+  },
+  "stats_display": {
+    "show_fps": true,
+    "show_memory": true,
+    "show_objects": false,
+    "show_draw_calls": false,
+    "show_verts": false,
+    "show_setpass_calls": false
+  },
+  "network_debugging": {
+    "log_api_requests": true,
+    "log_api_responses": true,
+    "show_network_stats": false,
+    "simulate_latency": false,
+    "simulated_latency_ms": 100
+  }
+}

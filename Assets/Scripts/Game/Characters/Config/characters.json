@@ -1,0 +1,497 @@
+{
+  "gameTitle": "糟糕！是心动鸭！",
+  "version": "1.0.0",
+  "characters": [
+    {
+      "characterId": "lengleng",
+      "chineseName": "顾北辰",
+      "nickname": "冷冷",
+      "gender": "Male",
+      "age": 28,
+      "occupation": "投资总监",
+      "personalityTags": ["高冷", "神秘", "腹黑"],
+      "appearanceDescription": "身穿深灰色西装，镜片后的眼神冷淡而深邃，气质禁欲而疏离",
+      "stats": {
+        "favorability": 45,
+        "charm": 85,
+        "interactionInitiative": 30,
+        "emotionalStability": 95
+      },
+      "雷区列表": [
+        {"triggerType": "油腻", "description": "不喜欢过于油腻的表达", "favorabilityPenalty": 25},
+        {"triggerType": "八卦", "description": "讨厌打听隐私", "favorabilityPenalty": 20},
+        {"triggerType": "轻浮", "description": "无法忍受轻浮的行为", "favorabilityPenalty": 30}
+      ],
+      "cp相性列表": [
+        {"characterId": "niannian", "compatibilityScore": 70, "compatibilityReason": "甜甜的女孩子可以融化冰冷的心"},
+        {"characterId": "wanning", "compatibilityScore": 75, "compatibilityReason": "知性女性可以引起兴趣"},
+        {"characterId": "zhuyi", "compatibilityScore": 45, "compatibilityReason": "太过聒噪让他想逃离"},
+        {"characterId": "xingchen", "compatibilityScore": 80, "compatibilityReason": "内敛的性格产生共鸣"},
+        {"characterId": "youwei", "compatibilityScore": 65, "compatibilityReason": "邻家气质让他放松"},
+        {"characterId": "jiujiu", "compatibilityScore": 60, "compatibilityReason": "酷飒御姐旗鼓相当"}
+      ],
+      "personalEndingLineName": "冰山融化",
+      "directorValueTag": "高冷系男神",
+      "hiddenTraitDescription": "表面冷漠，内心深处渴望被理解",
+      "heartSignalDescription": "当他开始主动找你说话，说明已经心动了",
+      "specialAttributes": {
+        "coldnessLevel": 85,
+        "restraintLevel": 90,
+        "muscleScore": 40,
+        "intelligenceScore": 95,
+        "humorScore": 30
+      }
+    },
+    {
+      "characterId": "sensenn",
+      "chineseName": "林屿森",
+      "nickname": "森森",
+      "gender": "Male",
+      "age": 26,
+      "occupation": "阳光咖啡师",
+      "personalityTags": ["阳光", "暖男", "浪漫"],
+      "appearanceDescription": "阳光帅气的邻家男孩，笑容温暖如春风，让人忍不住想要靠近",
+      "stats": {
+        "favorability": 55,
+        "charm": 90,
+        "interactionInitiative": 95,
+        "emotionalStability": 80
+      },
+      "雷区列表": [
+        {"triggerType": "悲伤情绪", "description": "受不了别人难过", "favorabilityPenalty": 15},
+        {"triggerType": "孤独", "description": "讨厌孤独的氛围", "favorabilityPenalty": 20},
+        {"triggerType": "冷漠", "description": "无法接受冷漠对待", "favorabilityPenalty": 25}
+      ],
+      "cp相性列表": [
+        {"characterId": "niannian", "compatibilityScore": 90, "compatibilityReason": "两个阳光的人在一起更快乐"},
+        {"characterId": "wanning", "compatibilityScore": 70, "compatibilityReason": "可以照顾她偶尔的疲惫"},
+        {"characterId": "zhuyi", "compatibilityScore": 85, "compatibilityReason": "都是活泼性格很合拍"},
+        {"characterId": "xingchen", "compatibilityScore": 75, "compatibilityReason": "可以带给她更多快乐"},
+        {"characterId": "youwei", "compatibilityScore": 95, "compatibilityReason": "最理想的邻家组合"},
+        {"characterId": "jiujiu", "compatibilityScore": 60, "compatibilityReason": "可能跟不上她的节奏"}
+      ],
+      "personalEndingLineName": "温暖港湾",
+      "directorValueTag": "阳光暖男",
+      "hiddenTraitDescription": "表面阳光，内心有时也会感到孤独",
+      "heartSignalDescription": "当他对你特别照顾时，说明你已经在他心里了",
+      "specialAttributes": {
+        "sunshineLevel": 90,
+        "warmthLevel": 95,
+        "muscleScore": 65,
+        "intelligenceScore": 70,
+        "humorScore": 90
+      }
+    },
+    {
+      "characterId": "chenge",
+      "chineseName": "陆景琛",
+      "nickname": "琛哥",
+      "gender": "Male",
+      "age": 35,
+      "occupation": "企业高管",
+      "personalityTags": ["成熟", "稳重", "自信"],
+      "appearanceDescription": "身着深色西装，气质沉稳内敛，举手投足间尽显成熟男人的魅力",
+      "stats": {
+        "favorability": 50,
+        "charm": 88,
+        "interactionInitiative": 60,
+        "emotionalStability": 98
+      },
+      "雷区列表": [
+        {"triggerType": "幼稚", "description": "无法忍受幼稚行为", "favorabilityPenalty": 20},
+        {"triggerType": "冲动", "description": "讨厌冲动行事", "favorabilityPenalty": 25},
+        {"triggerType": "不负责任", "description": "最在意责任感", "favorabilityPenalty": 30}
+      ],
+      "cp相性列表": [
+        {"characterId": "niannian", "compatibilityScore": 70, "compatibilityReason": "想要保护她的纯真"},
+        {"characterId": "wanning", "compatibilityScore": 90, "compatibilityReason": "成熟女性的完美搭配"},
+        {"characterId": "zhuyi", "compatibilityScore": 60, "compatibilityReason": "可能觉得她有些聒噪"},
+        {"characterId": "xingchen", "compatibilityScore": 75, "compatibilityReason": "可以给她安全感"},
+        {"characterId": "youwei", "compatibilityScore": 80, "compatibilityReason": "想要照顾她的温柔"},
+        {"characterId": "jiujiu", "compatibilityScore": 85, "compatibilityReason": "御姐和熟男很般配"}
+      ],
+      "personalEndingLineName": "携手余生",
+      "directorValueTag": "成熟大叔",
+      "hiddenTraitDescription": "成熟的外表下，有一颗渴望被依赖的心",
+      "heartSignalDescription": "当他开始为你规划未来时，说明你是认真的",
+      "specialAttributes": {
+        "maturityLevel": 95,
+        "stabilityLevel": 90,
+        "careLevel": 85,
+        "muscleScore": 75,
+        "intelligenceScore": 85,
+        "humorScore": 50
+      }
+    },
+    {
+      "characterId": "xiaoji",
+      "chineseName": "季淮序",
+      "nickname": "小季",
+      "gender": "Male",
+      "age": 27,
+      "occupation": "独立艺术家",
+      "personalityTags": ["艺术", "傲娇", "自信"],
+      "appearanceDescription": "穿着考究的文艺服饰，举止优雅独特，眼中有星辰大海般的梦想",
+      "stats": {
+        "favorability": 48,
+        "charm": 82,
+        "interactionInitiative": 45,
+        "emotionalStability": 70
+      },
+      "雷区列表": [
+        {"triggerType": "庸俗", "description": "最讨厌俗气的东西", "favorabilityPenalty": 25},
+        {"triggerType": "批评艺术", "description": "无法接受对艺术的质疑", "favorabilityPenalty": 30},
+        {"triggerType": "攀比", "description": "讨厌世俗的比较", "favorabilityPenalty": 20},
+        {"triggerType": "粗鲁", "description": "追求优雅的生活方式", "favorabilityPenalty": 25}
+      ],
+      "cp相性列表": [
+        {"characterId": "niannian", "compatibilityScore": 80, "compatibilityReason": "甜甜的女孩子很可爱"},
+        {"characterId": "wanning", "compatibilityScore": 65, "compatibilityReason": "理性的她可能不太理解艺术"},
+        {"characterId": "zhuyi", "compatibilityScore": 70, "compatibilityReason": "八卦精让他头疼"},
+        {"characterId": "xingchen", "compatibilityScore": 90, "compatibilityReason": "同样浪漫的灵魂伴侣"},
+        {"characterId": "youwei", "compatibilityScore": 75, "compatibilityReason": "单纯的她让他想要保护"},
+        {"characterId": "jiujiu", "compatibilityScore": 60, "compatibilityReason": "强势的她让他想要争锋相对"}
+      ],
+      "personalEndingLineName": "灵魂共鸣",
+      "directorValueTag": "艺术系男神",
+      "hiddenTraitDescription": "表面骄傲，内心其实很渴望被理解",
+      "heartSignalDescription": "当他为你展示自己的作品时，说明你已经走进了他的心",
+      "specialAttributes": {
+        "artisticLevel": 95,
+        "prideLevel": 80,
+        "tsundereLevel": 75,
+        "muscleScore": 30,
+        "intelligenceScore": 85,
+        "humorScore": 45
+      }
+    },
+    {
+      "characterId": "zhouzhou",
+      "chineseName": "沈逸洲",
+      "nickname": "洲洲",
+      "gender": "Male",
+      "age": 25,
+      "occupation": "健身博主",
+      "personalityTags": ["自信", "阳光", "活泼"],
+      "appearanceDescription": "身材健硕的阳光大男孩，自信满满，浑身散发着健康的气息",
+      "stats": {
+        "favorability": 52,
+        "charm": 88,
+        "interactionInitiative": 85,
+        "emotionalStability": 75
+      },
+      "雷区列表": [
+        {"triggerType": "身材羞辱", "description": "绝对不能被说胖", "favorabilityPenalty": 30},
+        {"triggerType": "不健身", "description": "讨厌不自律的人", "favorabilityPenalty": 15},
+        {"triggerType": "负能量", "description": "无法接受消极情绪", "favorabilityPenalty": 20}
+      ],
+      "cp相性列表": [
+        {"characterId": "niannian", "compatibilityScore": 85, "compatibilityReason": "可爱女孩让他想要保护"},
+        {"characterId": "wanning", "compatibilityScore": 65, "compatibilityReason": "干练女性可能太强势"},
+        {"characterId": "zhuyi", "compatibilityScore": 75, "compatibilityReason": "八卦精和他很聊得来"},
+        {"characterId": "xingchen", "compatibilityScore": 70, "compatibilityReason": "浪漫的她让他心动"},
+        {"characterId": "youwei", "compatibilityScore": 80, "compatibilityReason": "邻家女孩让他放松"},
+        {"characterId": "jiujiu", "compatibilityScore": 90, "compatibilityReason": "酷飒御姐和他的气场很合"}
+      ],
+      "personalEndingLineName": "活力人生",
+      "directorValueTag": "健身博主",
+      "hiddenTraitDescription": "过度自信的外表下，其实很在意别人的看法",
+      "heartSignalDescription": "当他不再自拍而是关注你时，说明你比他的照片更重要",
+      "specialAttributes": {
+        "fitnessLevel": 95,
+        "confidenceLevel": 85,
+        "selfieLevel": 80,
+        "muscleScore": 95,
+        "intelligenceScore": 55,
+        "humorScore": 75
+      }
+    },
+    {
+      "characterId": "yanshen",
+      "chineseName": "傅言深",
+      "nickname": "言深",
+      "gender": "Male",
+      "age": 30,
+      "occupation": "神秘投资人",
+      "personalityTags": ["神秘", "腹黑", "高冷"],
+      "appearanceDescription": "眼神深邃而危险，举止神秘莫测，嘴角常带着意味深长的微笑",
+      "stats": {
+        "favorability": 45,
+        "charm": 90,
+        "interactionInitiative": 35,
+        "emotionalStability": 92
+      },
+      "雷区列表": [
+        {"triggerType": "打探隐私", "description": "绝不透露自己的秘密", "favorabilityPenalty": 25},
+        {"triggerType": "虚伪", "description": "最讨厌不真诚", "favorabilityPenalty": 30},
+        {"triggerType": "愚蠢", "description": "无法忍受智商低的人", "favorabilityPenalty": 20}
+      ],
+      "cp相性列表": [
+        {"characterId": "niannian", "compatibilityScore": 65, "compatibilityReason": "天真的她让他想要保护"},
+        {"characterId": "wanning", "compatibilityScore": 80, "compatibilityReason": "聪明的她可以棋逢对手"},
+        {"characterId": "zhuyi", "compatibilityScore": 50, "compatibilityReason": "八卦精让他不耐烦"},
+        {"characterId": "xingchen", "compatibilityScore": 75, "compatibilityReason": "内敛的她和他有共鸣"},
+        {"characterId": "youwei", "compatibilityScore": 60, "compatibilityReason": "单纯的她让他想要逗弄"},
+        {"characterId": "jiujiu", "compatibilityScore": 85, "compatibilityReason": "强势的她让他感到挑战"}
+      ],
+      "personalEndingLineName": "暗夜星辰",
+      "directorValueTag": "神秘男神",
+      "hiddenTraitDescription": "看似冷漠无情，其实一直在暗中守护",
+      "heartSignalDescription": "当他开始为你铺设未来的路时，说明你已是他的人",
+      "specialAttributes": {
+        "mysteryLevel": 90,
+        "schemingLevel": 85,
+        "hiddenWarmthLevel": 30,
+        "muscleScore": 60,
+        "intelligenceScore": 95,
+        "humorScore": 55
+      }
+    },
+    {
+      "characterId": "niannian",
+      "chineseName": "苏念念",
+      "nickname": "念念",
+      "gender": "Female",
+      "age": 24,
+      "occupation": "甜品师",
+      "personalityTags": ["甜美", "可爱", "活泼"],
+      "appearanceDescription": "圆圆的脸蛋，水汪汪的大眼睛，说话软糯可爱，让人忍不住想要保护",
+      "stats": {
+        "favorability": 55,
+        "charm": 92,
+        "interactionInitiative": 80,
+        "emotionalStability": 70
+      },
+      "雷区列表": [
+        {"triggerType": "嘲讽", "description": "无法接受被嘲笑", "favorabilityPenalty": 25},
+        {"triggerType": "威胁", "description": "害怕恐怖的氛围", "favorabilityPenalty": 20},
+        {"triggerType": "冷漠", "description": "受不了被忽视", "favorabilityPenalty": 25}
+      ],
+      "cp相性列表": [
+        {"characterId": "lengleng", "compatibilityScore": 70, "compatibilityReason": "高冷男神和可爱女孩的最萌年龄差"},
+        {"characterId": "sensenn", "compatibilityScore": 90, "compatibilityReason": "两个阳光的人在一起更快乐"},
+        {"characterId": "chenge", "compatibilityScore": 75, "compatibilityReason": "被大叔宠爱的感觉真好"},
+        {"characterId": "xiaoji", "compatibilityScore": 80, "compatibilityReason": "艺术家的缪斯女神"},
+        {"characterId": "zhouzhou", "compatibilityScore": 85, "compatibilityReason": "阳光健身男和甜心女孩"},
+        {"characterId": "yanshen", "compatibilityScore": 65, "compatibilityReason": "神秘感让她好奇"}
+      ],
+      "personalEndingLineName": "甜蜜邂逅",
+      "directorValueTag": "甜心担当",
+      "hiddenTraitDescription": "看似天真，内心其实很敏感细腻",
+      "heartSignalDescription": "当她开始主动找你说话时，说明你已经走进她心里了",
+      "specialAttributes": {
+        "sweetnessLevel": 95,
+        "innocenceLevel": 80,
+        "cutenessLevel": 90,
+        "eleganceScore": 60,
+        "intelligenceScore": 65,
+        "socialScore": 75
+      }
+    },
+    {
+      "characterId": "wanning",
+      "chineseName": "姜晚宁",
+      "nickname": "晚宁",
+      "gender": "Female",
+      "age": 29,
+      "occupation": "律师",
+      "personalityTags": ["知性", "干练", "成熟"],
+      "appearanceDescription": "身着干练的职业装，举止优雅得体，眼神中透着智慧与自信",
+      "stats": {
+        "favorability": 50,
+        "charm": 85,
+        "interactionInitiative": 65,
+        "emotionalStability": 90
+      },
+      "雷区列表": [
+        {"triggerType": "拖延", "description": "最讨厌效率低下", "favorabilityPenalty": 20},
+        {"triggerType": "情绪化", "description": "欣赏理性处事", "favorabilityPenalty": 25},
+        {"triggerType": "不专业", "description": "对专业性要求很高", "favorabilityPenalty": 25}
+      ],
+      "cp相性列表": [
+        {"characterId": "lengleng", "compatibilityScore": 80, "compatibilityReason": "两个理性的人可以深入交流"},
+        {"characterId": "sensenn", "compatibilityScore": 70, "compatibilityReason": "他可以让她放松"},
+        {"characterId": "chenge", "compatibilityScore": 90, "compatibilityReason": "成熟男女的完美组合"},
+        {"characterId": "xiaoji", "compatibilityScore": 65, "compatibilityReason": "艺术和理性可以互补"},
+        {"characterId": "zhouzhou", "compatibilityScore": 60, "compatibilityReason": "可能觉得有点不够聪明"},
+        {"characterId": "yanshen", "compatibilityScore": 85, "compatibilityReason": "聪明的她可以看穿他的心思"}
+      ],
+      "personalEndingLineName": "并肩作战",
+      "directorValueTag": "职场精英",
+      "hiddenTraitDescription": "理性外表下，有一颗渴望被理解的心",
+      "heartSignalDescription": "当她开始向你倾诉工作时，说明她已经开始信任你",
+      "specialAttributes": {
+        "intellectLevel": 95,
+        "efficiencyLevel": 90,
+        "workFocusLevel": 85,
+        "eleganceScore": 90,
+        "intelligenceScore": 95,
+        "socialScore": 75
+      }
+    },
+    {
+      "characterId": "zhiyi",
+      "chineseName": "夏知意",
+      "nickname": "知意",
+      "gender": "Female",
+      "age": 25,
+      "occupation": "记者",
+      "personalityTags": ["活泼", "八卦", "社交"],
+      "appearanceDescription": "灵动的大眼睛，话多且信息量大，浑身散发着活泼的气息",
+      "stats": {
+        "favorability": 52,
+        "charm": 88,
+        "interactionInitiative": 95,
+        "emotionalStability": 75
+      },
+      "雷区列表": [
+        {"triggerType": "无聊", "description": "无法忍受沉闷的气氛", "favorabilityPenalty": 20},
+        {"triggerType": "隐瞒", "description": "讨厌别人藏着掖着", "favorabilityPenalty": 25},
+        {"triggerType": "独处", "description": "最喜欢热闹的氛围", "favorabilityPenalty": 15}
+      ],
+      "cp相性列表": [
+        {"characterId": "lengleng", "compatibilityScore": 50, "compatibilityReason": "高冷男让她很好奇"},
+        {"characterId": "sensenn", "compatibilityScore": 85, "compatibilityReason": "阳光暖男和她很合拍"},
+        {"characterId": "chenge", "compatibilityScore": 65, "compatibilityReason": "成熟男人有故事可挖"},
+        {"characterId": "xiaoji", "compatibilityScore": 70, "compatibilityReason": "艺术家有很多八卦素材"},
+        {"characterId": "zhouzhou", "compatibilityScore": 75, "compatibilityReason": "健身博主有很多话题"},
+        {"characterId": "yanshen", "compatibilityScore": 55, "compatibilityReason": "神秘男让她很感兴趣"}
+      ],
+      "personalEndingLineName": "情报女王",
+      "directorValueTag": "八卦担当",
+      "hiddenTraitDescription": "看似八卦，实则是情报收集高手",
+      "heartSignalDescription": "当她开始只和你分享秘密时，说明你是她最信任的人",
+      "specialAttributes": {
+        "gossipLevel": 95,
+        "socialLevel": 90,
+        "curiosityLevel": 85,
+        "eleganceScore": 65,
+        "intelligenceScore": 80,
+        "socialScore": 95
+      }
+    },
+    {
+      "characterId": "xingchen",
+      "chineseName": "顾星辰",
+      "nickname": "星辰",
+      "gender": "Female",
+      "age": 26,
+      "occupation": "作家",
+      "personalityTags": ["浪漫", "内敛", "艺术"],
+      "appearanceDescription": "温柔的眼神中藏着星辰大海，举止轻柔，说话声音如微风拂面",
+      "stats": {
+        "favorability": 53,
+        "charm": 90,
+        "interactionInitiative": 45,
+        "emotionalStability": 75
+      },
+      "雷区列表": [
+        {"triggerType": "粗俗", "description": "无法接受不浪漫的行为", "favorabilityPenalty": 25},
+        {"triggerType": "吵闹", "description": "喜欢安静的环境", "favorabilityPenalty": 20},
+        {"triggerType": "现实", "description": "讨厌太过功利的人", "favorabilityPenalty": 30}
+      ],
+      "cp相性列表": [
+        {"characterId": "lengleng", "compatibilityScore": 85, "compatibilityReason": "高冷男神和她有相似的内敛"},
+        {"characterId": "sensenn", "compatibilityScore": 75, "compatibilityReason": "阳光可以照亮她的世界"},
+        {"characterId": "chenge", "compatibilityScore": 70, "compatibilityReason": "成熟男人可以给她安全感"},
+        {"characterId": "xiaoji", "compatibilityScore": 90, "compatibilityReason": "艺术家的灵魂伴侣"},
+        {"characterId": "zhouzhou", "compatibilityScore": 60, "compatibilityReason": "可能觉得太过直白"},
+        {"characterId": "yanshen", "compatibilityScore": 80, "compatibilityReason": "神秘感和浪漫相得益彰"}
+      ],
+      "personalEndingLineName": "星语心愿",
+      "directorValueTag": "氛围感女神",
+      "hiddenTraitDescription": "内心世界丰富，渴望被读懂",
+      "heartSignalDescription": "当她为你写诗或创作时，说明你是她的灵感缪斯",
+      "specialAttributes": {
+        "romanceLevel": 95,
+        "introversionLevel": 85,
+        "imaginationLevel": 90,
+        "eleganceScore": 85,
+        "intelligenceScore": 80,
+        "socialScore": 50
+      }
+    },
+    {
+      "characterId": "youwei",
+      "chineseName": "沈幼薇",
+      "nickname": "幼薇",
+      "gender": "Female",
+      "age": 24,
+      "occupation": "护士",
+      "personalityTags": ["邻家", "甜美", "温柔"],
+      "appearanceDescription": "清新自然如邻家女孩，笑容温暖治愈，让人感到无比亲切",
+      "stats": {
+        "favorability": 55,
+        "charm": 88,
+        "interactionInitiative": 75,
+        "emotionalStability": 82
+      },
+      "雷区列表": [
+        {"triggerType": "争吵", "description": "害怕冲突和矛盾", "favorabilityPenalty": 20},
+        {"triggerType": "冷漠", "description": "渴望被关心", "favorabilityPenalty": 25},
+        {"triggerType": "挑剔", "description": "受不了被苛责", "favorabilityPenalty": 20}
+      ],
+      "cp相性列表": [
+        {"characterId": "lengleng", "compatibilityScore": 65, "compatibilityReason": "想要融化他的心"},
+        {"characterId": "sensenn", "compatibilityScore": 95, "compatibilityReason": "阳光男孩和她最配"},
+        {"characterId": "chenge", "compatibilityScore": 80, "compatibilityReason": "成熟男人让她有安全感"},
+        {"characterId": "xiaoji", "compatibilityScore": 75, "compatibilityReason": "艺术家的灵感来源"},
+        {"characterId": "zhouzhou", "compatibilityScore": 80, "compatibilityReason": "活力情侣组合"},
+        {"characterId": "yanshen", "compatibilityScore": 60, "compatibilityReason": "神秘感让她有点怕怕的"}
+      ],
+      "personalEndingLineName": "温暖如你",
+      "directorValueTag": "治愈系女神",
+      "hiddenTraitDescription": "看似柔弱，实则内心坚强",
+      "heartSignalDescription": "当她开始为你做饭照顾你时，说明你已经成了她的家人",
+      "specialAttributes": {
+        "sweetnessLevel": 90,
+        "neighborlyLevel": 95,
+        "innocenceLevel": 80,
+        "eleganceScore": 70,
+        "intelligenceScore": 70,
+        "socialScore": 85
+      }
+    },
+    {
+      "characterId": "jiujiu",
+      "chineseName": "温酒酒",
+      "nickname": "酒酒",
+      "gender": "Female",
+      "age": 27,
+      "occupation": "酒吧老板",
+      "personalityTags": ["酷飒", "御姐", "自信"],
+      "appearanceDescription": "御姐范十足，气场强大，烈焰红唇下藏着柔软的内心",
+      "stats": {
+        "favorability": 48,
+        "charm": 92,
+        "interactionInitiative": 70,
+        "emotionalStability": 78
+      },
+      "雷区列表": [
+        {"triggerType": "软弱", "description": "最讨厌软弱的人", "favorabilityPenalty": 25},
+        {"triggerType": "犹豫", "description": "欣赏果断干脆", "favorabilityPenalty": 20},
+        {"triggerType": "纠缠", "description": "讨厌拖泥带水", "favorabilityPenalty": 25}
+      ],
+      "cp相性列表": [
+        {"characterId": "lengleng", "compatibilityScore": 70, "compatibilityReason": "高冷对高冷很有火花"},
+        {"characterId": "sensenn", "compatibilityScore": 60, "compatibilityReason": "阳光男孩让她觉得有点幼稚"},
+        {"characterId": "chenge", "compatibilityScore": 85, "compatibilityReason": "成熟男女的完美搭配"},
+        {"characterId": "xiaoji", "compatibilityScore": 65, "compatibilityReason": "傲娇对上傲娇很有趣"},
+        {"characterId": "zhouzhou", "compatibilityScore": 75, "compatibilityReason": "自信的人互相欣赏"},
+        {"characterId": "yanshen", "compatibilityScore": 90, "compatibilityReason": "势均力敌的对手最迷人"}
+      ],
+      "personalEndingLineName": "烈焰红妆",
+      "directorValueTag": "御姐担当",
+      "hiddenTraitDescription": "看似坚强，实则渴望被保护",
+      "heartSignalDescription": "当她开始向你撒娇时，说明你已经攻破了她的防线",
+      "specialAttributes": {
+        "coolLevel": 95,
+        "sassyLevel": 90,
+        "hiddenSoftnessLevel": 20,
+        "eleganceScore": 90,
+        "intelligenceScore": 80,
+        "socialScore": 70
+      }
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "version": "1.0",
+  "gameName": "糟糕！是心动鸭！",
+  "mode": "director",
+  "rankEndings": [
+    {
+      "rankId": "S",
+      "rankName": "现象级神作",
+      "description": "热度与口碑双丰收，零危机达成传奇级节目",
+      "rankColor": "#FFD700",
+      "thresholds": {
+        "minHeat": 95,
+        "minReputation": 90,
+        "requireNoCrisis": true
+      },
+      "diamondReward": 500,
+      "unlockHint": "热度达到95以上，口碑达到90以上，全程无危机"
+    },
+    {
+      "rankId": "A",
+      "rankName": "年度爆款",
+      "description": "热门综艺，成功引爆话题",
+      "rankColor": "#E040FB",
+      "thresholds": {
+        "minHeat": 80,
+        "minReputation": 75
+      },
+      "diamondReward": 300,
+      "unlockHint": "热度达到80以上，口碑达到75以上"
+    },
+    {
+      "rankId": "B",
+      "rankName": "热播综艺",
+      "description": "节目成功热播，获得观众认可",
+      "rankColor": "#40C4FF",
+      "thresholds": {
+        "minHeat": 60,
+        "minReputation": 60
+      },
+      "diamondReward": 200,
+      "unlockHint": "热度达到60以上，口碑达到60以上"
+    },
+    {
+      "rankId": "C",
+      "rankName": "平稳收官",
+      "description": "节目顺利结束，中规中矩",
+      "rankColor": "#69F0AE",
+      "thresholds": {
+        "minHeat": 40,
+        "minReputation": 40
+      },
+      "diamondReward": 100,
+      "unlockHint": "热度达到40以上，口碑达到40以上"
+    },
+    {
+      "rankId": "D",
+      "rankName": "口碑滑铁卢",
+      "description": "节目遭遇口碑危机，需要反思",
+      "rankColor": "#FF6E40",
+      "thresholds": {
+        "minReputation": 20
+      },
+      "diamondReward": 50,
+      "unlockHint": "口碑在20-40之间"
+    },
+    {
+      "rankId": "E",
+      "rankName": "紧急停播",
+      "description": "节目遭遇重大问题，被迫停播",
+      "rankColor": "#FF1744",
+      "thresholds": {
+        "fallback": true
+      },
+      "diamondReward": 20,
+      "unlockHint": "口碑低于20"
+    }
+  ],
+  "calculationFormulas": {
+    "heatFormula": "baseHeat + guestPopularityBonus + cpBonus + topicBonus - crisisPenalty",
+    "reputationFormula": "baseReputation + qualityBonus + crisisPenalty",
+    "audienceFormula": "heat * 1000 * timeMultiplier"
+  },
+  "bonusConfig": {
+    "cpBonus": 5,
+    "topicBonus": 3,
+    "guestPopularityBonus": 2,
+    "qualityBonus": 10,
+    "crisisPenalty": -15
+  },
+  "displayConfig": {
+    "fadeInDuration": 1.5,
+    "titleDisplayDuration": 2.0,
+    "statsDisplayDuration": 3.0,
+    "achievementDisplayDelay": 1.0,
+    "showDetailedStats": true
+  }
+}

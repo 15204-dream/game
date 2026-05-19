@@ -1,0 +1,484 @@
+{
+  "version": "1.0",
+  "totalTasks": 20,
+  "tasks": [
+    {
+      "taskId": "task_main_001",
+      "taskName": "初来乍到",
+      "description": "认识所有嘉宾，与至少3位嘉宾进行自我介绍对话",
+      "taskType": "Main",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "obj_001_1",
+          "description": "与陆子衿交谈",
+          "type": "Talk",
+          "targetId": "guest_male_001",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_001_2",
+          "description": "与苏念卿交谈",
+          "type": "Talk",
+          "targetId": "guest_female_001",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_001_3",
+          "description": "与顾星河交谈",
+          "type": "Talk",
+          "targetId": "guest_male_002",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": true
+        }
+      ],
+      "reward": {
+        "coins": 500,
+        "gems": 10,
+        "popularity": 100,
+        "experience": 50,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 0,
+        "targetCharacterId": null
+      },
+      "bonusReward": {
+        "coins": 200,
+        "gems": 5,
+        "popularity": 50,
+        "experience": 30,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 20,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": [],
+      "requiredPlayerLevel": null,
+      "canSkip": false,
+      "canRetake": false,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_main_002",
+      "taskName": "心意相通",
+      "description": "与一位心仪的嘉宾进行第一次单独约会",
+      "taskType": "Main",
+      "difficulty": "Normal",
+      "objectives": [
+        {
+          "objectiveId": "obj_002_1",
+          "description": "选择约会对象并邀请",
+          "type": "GoOnDate",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_002_2",
+          "description": "完成约会并选择浪漫选项",
+          "type": "MakeChoice",
+          "targetId": "",
+          "targetCount": 3,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 1000,
+        "gems": 20,
+        "popularity": 200,
+        "experience": 100,
+        "items": [
+          {"itemId": "gift_flower", "itemName": "玫瑰花", "quantity": 1, "rarity": 2}
+        ],
+        "unlockAbilities": ["ability_charm_boost"],
+        "unlockScenes": [],
+        "affectionPoints": 100,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": ["task_main_001"],
+      "requiredPlayerLevel": 2,
+      "canSkip": false,
+      "canRetake": false,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_main_003",
+      "taskName": "心意渐浓",
+      "description": "与约会对象的好感度达到500以上",
+      "taskType": "Main",
+      "difficulty": "Normal",
+      "objectives": [
+        {
+          "objectiveId": "obj_003_1",
+          "description": "好感度达到500",
+          "type": "ReachRelationshipLevel",
+          "targetId": "",
+          "targetCount": 500,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 1500,
+        "gems": 30,
+        "popularity": 300,
+        "experience": 150,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": ["scene_bedroom"],
+        "affectionPoints": 0,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": ["task_main_002"],
+      "requiredPlayerLevel": 3,
+      "canSkip": false,
+      "canRetake": false,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_side_001",
+      "taskName": "厨艺展示",
+      "description": "在厨房场景为心仪嘉宾制作一顿晚餐",
+      "taskType": "Side",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "obj_side_001_1",
+          "description": "进入厨房",
+          "type": "CompleteScene",
+          "targetId": "scene_kitchen",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_side_001_2",
+          "description": "制作料理",
+          "type": "UseAbility",
+          "targetId": "cooking",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 300,
+        "gems": 5,
+        "popularity": 50,
+        "experience": 30,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 50,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": [],
+      "requiredPlayerLevel": 1,
+      "canSkip": true,
+      "canRetake": true,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_side_002",
+      "taskName": "礼物传情",
+      "description": "送给心仪嘉宾一份礼物",
+      "taskType": "Side",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "obj_side_002_1",
+          "description": "准备礼物",
+          "type": "CollectItem",
+          "targetId": "gift",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_side_002_2",
+          "description": "送出礼物",
+          "type": "GiveGift",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 200,
+        "gems": 10,
+        "popularity": 80,
+        "experience": 40,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 30,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": [],
+      "requiredPlayerLevel": 1,
+      "canSkip": false,
+      "canRetake": false,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_daily_001",
+      "taskName": "日常问候",
+      "description": "每天与至少2位嘉宾打招呼",
+      "taskType": "Daily",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "obj_daily_001_1",
+          "description": "与嘉宾打招呼",
+          "type": "Talk",
+          "targetId": "",
+          "targetCount": 2,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 100,
+        "gems": 2,
+        "popularity": 20,
+        "experience": 10,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 10,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": [],
+      "requiredPlayerLevel": null,
+      "canSkip": true,
+      "canRetake": true,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_daily_002",
+      "taskName": "主动出击",
+      "description": "每天发起至少一次对话",
+      "taskType": "Daily",
+      "difficulty": "Easy",
+      "objectives": [
+        {
+          "objectiveId": "obj_daily_002_1",
+          "description": "主动发起对话",
+          "type": "Talk",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 80,
+        "gems": 1,
+        "popularity": 15,
+        "experience": 8,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 5,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": [],
+      "requiredPlayerLevel": null,
+      "canSkip": true,
+      "canRetake": true,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_weekly_001",
+      "taskName": "本周之星",
+      "description": "在一周内与至少5位嘉宾建立友谊",
+      "taskType": "Weekly",
+      "difficulty": "Normal",
+      "objectives": [
+        {
+          "objectiveId": "obj_weekly_001_1",
+          "description": "与嘉宾建立友谊",
+          "type": "ReachRelationshipLevel",
+          "targetId": "",
+          "targetCount": 5,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 2000,
+        "gems": 50,
+        "popularity": 500,
+        "experience": 200,
+        "items": [],
+        "unlockAbilities": ["ability_social_butterfly"],
+        "unlockScenes": [],
+        "affectionPoints": 0,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": [],
+      "requiredPlayerLevel": 3,
+      "canSkip": false,
+      "canRetake": true,
+      "hasHiddenObjectives": false
+    },
+    {
+      "taskId": "task_challenge_001",
+      "taskName": "勇气考验",
+      "description": "在公众场合向心仪嘉宾表达好感",
+      "taskType": "Challenge",
+      "difficulty": "Hard",
+      "objectives": [
+        {
+          "objectiveId": "obj_challenge_001_1",
+          "description": "选择合适的时机",
+          "type": "MakeChoice",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_challenge_001_2",
+          "description": "表达好感",
+          "type": "Talk",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 3000,
+        "gems": 100,
+        "popularity": 1000,
+        "experience": 500,
+        "items": [],
+        "unlockAbilities": ["ability_confession_boost"],
+        "unlockScenes": [],
+        "affectionPoints": 200,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": ["task_main_002"],
+      "requiredPlayerLevel": 5,
+      "canSkip": false,
+      "canRetake": false,
+      "hasHiddenObjectives": true
+    },
+    {
+      "taskId": "task_special_001",
+      "taskName": "浪漫天台",
+      "description": "在心动的夜晚，邀请心仪嘉宾去天台看星星",
+      "taskType": "Special",
+      "difficulty": "Hard",
+      "objectives": [
+        {
+          "objectiveId": "obj_special_001_1",
+          "description": "解锁天台场景",
+          "type": "CompleteScene",
+          "targetId": "scene_rooftop",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_special_001_2",
+          "description": "邀请嘉宾去天台",
+          "type": "GoOnDate",
+          "targetId": "",
+          "targetCount": 1,
+          "currentCount": 0,
+          "isOptional": false
+        },
+        {
+          "objectiveId": "obj_special_001_3",
+          "description": "进行浪漫对话",
+          "type": "MakeChoice",
+          "targetId": "",
+          "targetCount": 5,
+          "currentCount": 0,
+          "isOptional": false
+        }
+      ],
+      "reward": {
+        "coins": 5000,
+        "gems": 200,
+        "popularity": 2000,
+        "experience": 1000,
+        "items": [],
+        "unlockAbilities": ["ability_romance_master"],
+        "unlockScenes": [],
+        "affectionPoints": 500,
+        "targetCharacterId": null
+      },
+      "prerequisiteTaskIds": ["task_main_003"],
+      "requiredPlayerLevel": 8,
+      "canSkip": false,
+      "canRetake": false,
+      "hasHiddenObjectives": false
+    }
+  ],
+  "achievementTasks": [
+    {
+      "achievementId": "ach_first_date",
+      "achievementName": "初次约会",
+      "description": "完成第一次约会",
+      "targetProgress": 1,
+      "reward": {
+        "coins": 500,
+        "gems": 20,
+        "popularity": 100,
+        "experience": 50,
+        "items": [],
+        "unlockAbilities": [],
+        "unlockScenes": [],
+        "affectionPoints": 0,
+        "targetCharacterId": null
+      }
+    },
+    {
+      "achievementId": "ach_confession",
+      "achievementName": "勇敢告白",
+      "description": "向心仪嘉宾告白",
+      "targetProgress": 1,
+      "reward": {
+        "coins": 1000,
+        "gems": 50,
+        "popularity": 300,
+        "experience": 100,
+        "items": [],
+        "unlockAbilities": ["ability_confidence_boost"],
+        "unlockScenes": [],
+        "affectionPoints": 0,
+        "targetCharacterId": null
+      }
+    },
+    {
+      "achievementId": "ach_popular",
+      "achievementName": "人气嘉宾",
+      "description": "总人气值达到10000",
+      "targetProgress": 10000,
+      "reward": {
+        "coins": 3000,
+        "gems": 100,
+        "popularity": 0,
+        "experience": 300,
+        "items": [],
+        "unlockAbilities": ["ability_popularity_boost"],
+        "unlockScenes": [],
+        "affectionPoints": 0,
+        "targetCharacterId": null
+      }
+    }
+  ]
+}

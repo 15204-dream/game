@@ -1,0 +1,269 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "guest_entry",
+      "sequenceName": "入场准备",
+      "description": "了解节目规则，创建角色档案，准备入住心动小屋",
+      "autoStart": true,
+      "canSkip": false,
+      "saveProgress": true,
+      "priority": 1,
+      "trigger": {
+        "type": "Manual",
+        "triggerId": "guest_mode_start",
+        "sceneName": "EntryScene"
+      },
+      "nextSequence": {
+        "sequenceId": "guest_checkin",
+        "sequenceName": "入住心动小屋"
+      },
+      "steps": [
+        {
+          "stepId": "guest_entry_1",
+          "title": "节目组来电",
+          "description": "接听节目组的邀请电话，了解节目信息",
+          "conditionType": "Event",
+          "eventName": "PhoneCallComplete",
+          "priority": 1,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "guest_entry_2",
+          "title": "了解节目规则",
+          "description": "学习心动小屋的基本规则和玩法",
+          "conditionType": "Event",
+          "eventName": "RulesReadComplete",
+          "targetPaths": ["UI/RulesPanel"],
+          "priority": 2,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "guest_entry_3",
+          "title": "创建角色档案",
+          "description": "填写个人信息，创建你的角色档案",
+          "conditionType": "Event",
+          "eventName": "ProfileSaveComplete",
+          "targetPaths": ["UI/ProfileEditor"],
+          "priority": 3,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "guest_entry_4",
+          "title": "完成入场准备",
+          "description": "确认信息，准备入住心动小屋",
+          "conditionType": "Event",
+          "eventName": "EntryConfirmed",
+          "targetPaths": ["UI/ConfirmButton"],
+          "priority": 4,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "guest_checkin",
+      "sequenceName": "入住心动小屋",
+      "description": "认识新朋友，探索心动小屋",
+      "autoStart": false,
+      "canSkip": true,
+      "saveProgress": true,
+      "priority": 2,
+      "trigger": {
+        "type": "SceneLoad",
+        "triggerId": "checkin_scene",
+        "sceneName": "LoveHouseScene"
+      },
+      "nextSequence": {
+        "sequenceId": "guest_mailbox",
+        "sequenceName": "心动信箱"
+      },
+      "steps": [
+        {
+          "stepId": "guest_checkin_1",
+          "title": "自我介绍",
+          "description": "在大家面前介绍自己，给其他嘉宾留下好印象",
+          "conditionType": "Event",
+          "eventName": "IntroductionComplete",
+          "targetPaths": ["UI/IntroductionPanel"],
+          "priority": 1,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "guest_checkin_2",
+          "title": "认识第一位嘉宾",
+          "description": "和新室友打个招呼，开始你的心动之旅",
+          "conditionType": "Event",
+          "eventName": "FirstGuestMet",
+          "targetPaths": ["UI/GuestList/FirstGuest"],
+          "priority": 2,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        },
+        {
+          "stepId": "guest_checkin_3",
+          "title": "探索心动小屋",
+          "description": "熟悉小屋的各个区域，了解公共设施",
+          "conditionType": "Event",
+          "eventName": "ExploreComplete",
+          "targetPaths": ["UI/MapPanel"],
+          "priority": 3,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "guest_mailbox",
+      "sequenceName": "心动信箱",
+      "description": "学习使用心动信箱，写出第一封信",
+      "autoStart": false,
+      "canSkip": false,
+      "saveProgress": true,
+      "priority": 3,
+      "trigger": {
+        "type": "Time",
+        "triggerId": "mailbox_time",
+        "sceneName": "",
+        "delay": 5.0
+      },
+      "nextSequence": {
+        "sequenceId": "guest_tasks",
+        "sequenceName": "任务系统"
+      },
+      "steps": [
+        {
+          "stepId": "guest_mailbox_1",
+          "title": "学习心动信箱使用",
+          "description": "了解心动信箱的功能和规则",
+          "conditionType": "Event",
+          "eventName": "MailboxTutorialComplete",
+          "targetPaths": ["UI/MailboxPanel"],
+          "priority": 1,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "guest_mailbox_2",
+          "title": "写出第一封信",
+          "description": "给你心仪的对象写一封信，表达你的心意",
+          "conditionType": "Event",
+          "eventName": "FirstLetterSent",
+          "targetPaths": ["UI/MailboxPanel/WriteButton"],
+          "priority": 2,
+          "canSkip": false,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "guest_tasks",
+      "sequenceName": "任务系统",
+      "description": "了解每日任务，获取更多奖励",
+      "autoStart": false,
+      "canSkip": true,
+      "saveProgress": true,
+      "priority": 4,
+      "trigger": {
+        "type": "Event",
+        "triggerId": "task_trigger",
+        "sceneName": ""
+      },
+      "nextSequence": {
+        "sequenceId": "guest_social",
+        "sequenceName": "社交互动"
+      },
+      "steps": [
+        {
+          "stepId": "guest_task_1",
+          "title": "查看每日任务",
+          "description": "了解可完成的每日任务和奖励",
+          "conditionType": "Event",
+          "eventName": "TaskPanelOpened",
+          "targetPaths": ["UI/TaskPanel"],
+          "priority": 1,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "guest_task_2",
+          "title": "接受任务",
+          "description": "接受一个每日任务开始挑战",
+          "conditionType": "Event",
+          "eventName": "TaskAccepted",
+          "targetPaths": ["UI/TaskPanel/AcceptButton"],
+          "priority": 2,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    },
+    {
+      "sequenceId": "guest_social",
+      "sequenceName": "社交互动",
+      "description": "和其他嘉宾互动，提升好感度",
+      "autoStart": false,
+      "canSkip": true,
+      "saveProgress": true,
+      "priority": 5,
+      "trigger": {
+        "type": "Event",
+        "triggerId": "social_trigger",
+        "sceneName": ""
+      },
+      "steps": [
+        {
+          "stepId": "guest_social_1",
+          "title": "发起对话",
+          "description": "选择一位嘉宾开始聊天",
+          "conditionType": "Event",
+          "eventName": "ChatStarted",
+          "targetPaths": ["UI/GuestList/TalkButton"],
+          "priority": 1,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.3],
+          "arrowType": "None"
+        },
+        {
+          "stepId": "guest_social_2",
+          "title": "赠送礼物",
+          "description": "给心仪的对象送个小礼物增加好感",
+          "conditionType": "Event",
+          "eventName": "GiftSent",
+          "targetPaths": ["UI/GiftPanel"],
+          "priority": 2,
+          "canSkip": true,
+          "requireManualComplete": false,
+          "dialoguePosition": [0.5, 0.5],
+          "arrowType": "Down"
+        }
+      ]
+    }
+  ]
+}
