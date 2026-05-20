@@ -387,7 +387,7 @@ export default class StoryData {
                     { text: '向暖暖羊告白', next: 'ending_check', affection: { guest: 10, value: 30 } },
                     { text: '向雅雅鹿告白', next: 'ending_check', affection: { guest: 11, value: 30 } },
                     { text: '向轻轻云告白', next: 'ending_check', affection: { guest: 12, value: 30 } },
-                    { text: '选择单身', next: 'ending_single' }
+                    { text: '选择单身', next: 'ending_check' }
                 ]
             },
             ending_check: {
