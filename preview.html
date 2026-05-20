@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>糟糕!是心动鸭! - 恋综模拟器</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,24 +13,44 @@
         }
 
         :root {
-            --primary: #ff6b9d;
-            --secondary: #c44569;
-            --accent: #ffd700;
+            --pink: #ff6b9d;
+            --dark-pink: #c44569;
+            --gold: #ffd700;
+            --sky: #87ceeb;
+            --cream: #fffdd0;
             --dark: #2d3436;
-            --light: #ffeef8;
-            --gradient-1: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-            --gradient-2: linear-gradient(135deg, #ffeef8 0%, #ffd700 100%);
+            --black: #000000;
+            --white: #ffffff;
+            --green: #4caf50;
+            --pixel-size: 4px;
         }
 
         body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: white;
+            font-family: 'Press Start 2P', cursive;
+            background: #1a1a2e;
+            color: var(--cream);
             overflow-x: hidden;
+            font-size: 10px;
+            line-height: 1.8;
+            image-rendering: pixelated;
         }
 
-        /* Floating Hearts Background */
-        .hearts-bg {
+        /* Pixel Border */
+        .pixel-border {
+            border: var(--pixel-size) solid var(--black);
+            box-shadow: 
+                calc(var(--pixel-size) * 1) 0 0 0 var(--black),
+                0 calc(var(--pixel-size) * 1) 0 0 var(--black),
+                calc(var(--pixel-size) * -1) 0 0 0 var(--black),
+                0 calc(var(--pixel-size) * -1) 0 0 var(--black),
+                calc(var(--pixel-size) * 1) calc(var(--pixel-size) * 1) 0 0 var(--black),
+                calc(var(--pixel-size) * -1) calc(var(--pixel-size) * -1) 0 0 var(--black),
+                calc(var(--pixel-size) * -1) calc(var(--pixel-size) * 1) 0 0 var(--black),
+                calc(var(--pixel-size) * 1) calc(var(--pixel-size) * -1) 0 0 var(--black);
+        }
+
+        /* Floating Duck Background */
+        .duck-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -40,25 +61,23 @@
             overflow: hidden;
         }
 
-        .heart {
+        .duck {
             position: absolute;
             font-size: 20px;
-            animation: floatHeart 15s infinite ease-in-out;
-            opacity: 0.3;
+            animation: floatDuck 20s infinite linear;
+            opacity: 0.15;
         }
 
-        @keyframes floatHeart {
-            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        @keyframes floatDuck {
+            0% { transform: translateX(-100px) translateY(0); }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(-100px); }
         }
 
         /* Container */
         .container {
             position: relative;
             z-index: 1;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -72,33 +91,41 @@
             align-items: center;
             text-align: center;
             padding: 40px 20px;
+            background: 
+                linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.1) 100%);
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #ff6b9d, #ffd700, #ff6b9d);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease infinite;
-            text-shadow: 0 0 40px rgba(255, 107, 157, 0.5);
-            margin-bottom: 20px;
+        .pixel-art-title {
+            font-size: clamp(16px, 4vw, 32px);
+            color: var(--pink);
+            text-shadow: 
+                var(--pixel-size) var(--pixel-size) 0 var(--dark-pink),
+                calc(var(--pixel-size) * -1) calc(var(--pixel-size) * -1) 0 var(--black);
+            margin-bottom: 30px;
+            animation: blink 1s infinite;
+            line-height: 1.5;
         }
 
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.8; }
         }
 
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #ffeef8;
-            margin-bottom: 40px;
-            opacity: 0.9;
+        .subtitle {
+            font-size: 12px;
+            color: var(--gold);
+            margin-bottom: 50px;
+            animation: rainbow 3s infinite;
         }
 
+        @keyframes rainbow {
+            0% { color: var(--pink); }
+            33% { color: var(--gold); }
+            66% { color: var(--sky); }
+            100% { color: var(--pink); }
+        }
+
+        /* Mode Cards */
         .mode-selector {
             display: flex;
             gap: 30px;
@@ -107,415 +134,651 @@
             margin-top: 40px;
         }
 
-        .mode-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px;
-            width: 350px;
-            border: 2px solid rgba(255, 107, 157, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .pixel-card {
+            background: var(--cream);
+            padding: 30px;
+            width: 320px;
+            color: var(--black);
+            transition: all 0.2s;
             cursor: pointer;
+            position: relative;
         }
 
-        .mode-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--accent);
-            box-shadow: 0 30px 60px rgba(255, 107, 157, 0.4);
+        .pixel-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 
+                calc(var(--pixel-size) * 4) calc(var(--pixel-size) * 4) 0 0 var(--black);
         }
 
-        .mode-icon {
-            font-size: 4rem;
+        .pixel-card::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            background: var(--black);
+            z-index: -1;
+        }
+
+        .pixel-card-icon {
+            font-size: 48px;
             margin-bottom: 20px;
+            display: block;
+            image-rendering: pixelated;
         }
 
-        .mode-card h3 {
-            font-size: 1.8rem;
+        .pixel-card h3 {
+            font-size: 14px;
+            color: var(--pink);
             margin-bottom: 15px;
-            color: var(--accent);
+            text-shadow: 2px 2px 0 var(--dark-pink);
         }
 
-        .mode-card p {
-            color: #ffeef8;
-            line-height: 1.8;
-            opacity: 0.9;
+        .pixel-card p {
+            font-size: 8px;
+            line-height: 2;
+            color: var(--dark);
         }
 
-        /* Section Styles */
+        /* Section */
         .section {
-            padding: 100px 20px;
+            padding: 80px 20px;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 20px;
             text-align: center;
             margin-bottom: 60px;
-            background: linear-gradient(135deg, #ffd700, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold);
+            text-shadow: 
+                3px 3px 0 var(--black);
+            animation: titleBounce 2s infinite;
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Characters Grid */
         .characters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .character-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 30px;
+            background: var(--cream);
+            padding: 25px;
             text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.4s ease;
+            color: var(--black);
+            position: relative;
+            transition: all 0.2s;
         }
 
         .character-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+            transform: translate(-4px, -4px);
+            box-shadow: 
+                calc(var(--pixel-size) * 4) calc(var(--pixel-size) * 4) 0 0 var(--black);
         }
 
-        .character-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--gradient-1);
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            background: var(--pink);
+            z-index: -1;
+        }
+
+        .character-sprite {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--pink), var(--gold));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            font-size: 40px;
+            image-rendering: pixelated;
+            border: var(--pixel-size) solid var(--black);
         }
 
         .character-name {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 12px;
             margin-bottom: 10px;
-            color: var(--accent);
+            color: var(--dark-pink);
         }
 
         .character-tag {
             display: inline-block;
-            background: rgba(255, 107, 157, 0.3);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            background: var(--pink);
+            color: var(--white);
+            padding: 6px 12px;
+            font-size: 6px;
             margin-bottom: 15px;
+            border: 2px solid var(--black);
         }
 
         .character-desc {
-            color: #ffeef8;
-            opacity: 0.8;
-            line-height: 1.6;
-            font-size: 0.95rem;
+            font-size: 8px;
+            line-height: 2;
+            color: var(--dark);
         }
 
         /* Features */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .feature-box {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            border-left: 5px solid var(--primary);
-            transition: all 0.3s ease;
+            background: var(--cream);
+            padding: 30px;
+            color: var(--black);
+            position: relative;
+            border-left: var(--pixel-size) solid var(--pink);
         }
 
         .feature-box:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.12);
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+            image-rendering: pixelated;
         }
 
         .feature-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
+            font-size: 10px;
+            margin-bottom: 12px;
+            color: var(--pink);
         }
 
         .feature-box p {
-            color: #ffeef8;
-            line-height: 1.8;
-            opacity: 0.85;
+            font-size: 8px;
+            line-height: 2;
+            color: var(--dark);
         }
 
         /* CTA Section */
         .cta-section {
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 215, 0, 0.1) 100%);
         }
 
-        .cta-button {
-            display: inline-block;
-            background: var(--gradient-1);
-            color: white;
-            padding: 20px 60px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            border: none;
+        .pixel-button {
+            font-family: 'Press Start 2P', cursive;
+            background: var(--pink);
+            color: var(--white);
+            padding: 20px 40px;
+            font-size: 10px;
+            border: var(--pixel-size) solid var(--black);
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.5);
-            margin: 20px;
+            transition: all 0.2s;
+            margin: 10px;
+            display: inline-block;
+            position: relative;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 30px 70px rgba(255, 107, 157, 0.7);
+        .pixel-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translate(-4px, -4px);
+            box-shadow: 
+                calc(var(--pixel-size) * 4) calc(var(--pixel-size) * 4) 0 0 var(--black);
         }
 
-        .cta-button.secondary {
-            background: transparent;
-            border: 3px solid var(--primary);
+        .pixel-button::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background: var(--dark-pink);
+            z-index: -1;
+        }
+
+        .pixel-button.secondary {
+            background: var(--cream);
+            color: var(--black);
+        }
+
+        .pixel-button.secondary::before {
+            background: var(--black);
+        }
+
+        /* Pixel Decoration */
+        .pixel-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .pixel-heart {
+            font-size: 24px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: rgba(255, 238, 248, 0.6);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            border-top: var(--pixel-size) solid var(--pink);
+            background: var(--black);
+        }
+
+        footer p {
+            font-size: 8px;
+            margin: 10px 0;
+        }
+
+        /* Duck Icon */
+        .duck-icon {
+            font-size: 48px;
+            display: block;
+            margin: 20px 0;
+            animation: waddle 0.5s infinite;
+        }
+
+        @keyframes waddle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .loading-bar {
+            width: 300px;
+            height: 20px;
+            background: var(--cream);
+            border: var(--pixel-size) solid var(--black);
+            margin-top: 30px;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: var(--pink);
+            width: 0%;
+            transition: width 0.3s;
+            animation: loadingPulse 1s infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .loading-text {
+            color: var(--cream);
+            font-size: 10px;
+            margin-top: 20px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .mode-card {
+            body {
+                font-size: 8px;
+            }
+
+            .pixel-card {
                 width: 100%;
             }
-            
+
             .hero {
                 min-height: auto;
                 padding: 80px 20px;
             }
+
+            .pixel-button {
+                padding: 15px 30px;
+                font-size: 8px;
+            }
         }
 
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
+        /* Scanlines Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--black);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-bottom: var(--pixel-size) solid var(--pink);
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: var(--cream);
+            padding: 15px 25px;
+            border: var(--pixel-size) solid var(--black);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 6px;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 12px;
+            color: var(--pink);
         }
     </style>
 </head>
 <body>
-    <!-- Floating Hearts -->
-    <div class="hearts-bg" id="heartsBg"></div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="duck-icon">🦆</div>
+        <div class="pixel-art-title">糟糕!是心动鸭!</div>
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
+        </div>
+        <div class="loading-text">LOADING...</div>
+    </div>
+
+    <!-- Scanlines Effect -->
+    <div class="scanlines"></div>
+
+    <!-- Floating Ducks -->
+    <div class="duck-bg" id="duckBg"></div>
 
     <div class="container">
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-label">心动值</div>
+                    <div class="stat-value">MAX</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">嘉宾数</div>
+                    <div class="stat-value">12</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">结局数</div>
+                    <div class="stat-value">28</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">模式</div>
+                    <div class="stat-value">双</div>
+                </div>
+            </div>
+        </div>
+
         <!-- Hero Section -->
         <section class="hero">
-            <h1 class="hero-title">糟糕!是心动鸭!</h1>
-            <p class="hero-subtitle">💕 沉浸式恋综模拟游戏 · 双模式玩法 💕</p>
+            <div class="duck-icon">🦆💕</div>
+            <h1 class="pixel-art-title">糟糕!是心动鸭!</h1>
+            <p class="subtitle">💕 像素风恋综模拟游戏 💕</p>
+            
+            <div class="pixel-decoration">
+                <span class="pixel-heart">❤️</span>
+                <span class="pixel-heart">💕</span>
+                <span class="pixel-heart">💖</span>
+                <span class="pixel-heart">💗</span>
+                <span class="pixel-heart">💓</span>
+            </div>
+
             <div class="mode-selector">
-                <div class="mode-card" onclick="scrollToSection('features')">
-                    <div class="mode-icon">👤</div>
+                <div class="pixel-card" onclick="scrollToSection('features')">
+                    <span class="pixel-card-icon">👤</span>
                     <h3>嘉宾模式</h3>
-                    <p>作为第13位神秘嘉宾入住心动小屋<br>与12位性格迥异的素人共同生活21天<br>找到真爱或收获友情</p>
+                    <p>作为第13位神秘嘉宾<br>入住心动小屋<br>与12位嘉宾共同生活21天<br>寻找真爱 💕</p>
                 </div>
-                <div class="mode-card" onclick="scrollToSection('features')">
-                    <div class="mode-icon">🎬</div>
+                <div class="pixel-card" onclick="scrollToSection('features')">
+                    <span class="pixel-card-icon">🎬</span>
                     <h3>导演模式</h3>
-                    <p>化身节目导演,掌控全局<br>安排活动、制造话题、处理危机<br>打造爆款恋综</p>
+                    <p>化身节目导演<br>安排活动·制造话题<br>处理危机·打造爆款<br>成为金牌制作人 🎥</p>
                 </div>
             </div>
         </section>
 
         <!-- Characters Section -->
-        <section class="section reveal" id="characters">
+        <section class="section" id="characters">
             <h2 class="section-title">✨ 12位心动嘉宾 ✨</h2>
+            
+            <h3 style="text-align: center; font-size: 14px; color: var(--sky); margin: 40px 0 30px;">👔 男嘉宾</h3>
             <div class="characters-grid">
                 <div class="character-card">
-                    <div class="character-avatar">❄️</div>
+                    <div class="character-sprite">❄️</div>
                     <div class="character-name">冷冷</div>
                     <span class="character-tag">高冷禁欲</span>
-                    <p class="character-desc">建筑设计师,外冷内热毒舌,需要温暖来融化他冰封的心</p>
+                    <p class="character-desc">顾北辰 · 建筑设计师<br>外冷内热毒舌系<br>需要用温暖融化冰封的心</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">☀️</div>
+                    <div class="character-sprite">☀️</div>
                     <div class="character-name">森森</div>
                     <span class="character-tag">阳光暖男</span>
-                    <p class="character-desc">宠物咖啡馆店长,话唠动物控,像小太阳一样温暖每个人</p>
+                    <p class="character-desc">林屿森 · 宠物咖啡馆店长<br>话唠动物控<br>像小太阳一样温暖每个人</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">💼</div>
+                    <div class="character-sprite">💼</div>
                     <div class="character-name">琛哥</div>
                     <span class="character-tag">成熟稳重</span>
-                    <p class="character-desc">急诊科医生,温柔体贴有责任心,是最可靠的存在</p>
+                    <p class="character-desc">陆景琛 · 急诊科医生<br>温柔体贴有责任心<br>是最可靠的存在</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">🎹</div>
+                    <div class="character-sprite">🎹</div>
                     <div class="character-name">小季</div>
                     <span class="character-tag">艺术傲娇</span>
-                    <p class="character-desc">音乐学院研究生,敏感细腻,用音乐表达情感</p>
+                    <p class="character-desc">季淮序 · 音乐学院研究生<br>敏感细腻<br>用音乐表达情感</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">💪</div>
+                    <div class="character-sprite">💪</div>
                     <div class="character-name">洲洲</div>
                     <span class="character-tag">自信张扬</span>
-                    <p class="character-desc">网红健身博主,直球告白,用行动证明心意</p>
+                    <p class="character-desc">沈逸洲 · 网红健身博主<br>直球告白派<br>用行动证明心意</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">📚</div>
+                    <div class="character-sprite">📚</div>
                     <div class="character-name">言深</div>
                     <span class="character-tag">神秘腹黑</span>
-                    <p class="character-desc">悬疑小说作家,洞察人心,用故事暗示心意</p>
+                    <p class="character-desc">傅言深 · 悬疑小说作家<br>洞察人心<br>用故事暗示心意</p>
                 </div>
+            </div>
+
+            <h3 style="text-align: center; font-size: 14px; color: var(--pink); margin: 60px 0 30px;">👗 女嘉宾</h3>
+            <div class="characters-grid">
                 <div class="character-card">
-                    <div class="character-avatar">🍬</div>
+                    <div class="character-sprite">🍬</div>
                     <div class="character-name">念念</div>
                     <span class="character-tag">甜美可爱</span>
-                    <p class="character-desc">幼儿园老师,温柔体贴有爱心,每个人都想保护她</p>
+                    <p class="character-desc">苏念念 · 幼儿园老师<br>温柔体贴有爱心<br>每个人都想保护她</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">⚖️</div>
+                    <div class="character-sprite">⚖️</div>
                     <div class="character-name">晚宁</div>
                     <span class="character-tag">知性干练</span>
-                    <p class="character-desc">律师,逻辑清晰毒舌,但私底下怕打雷怕看恐怖片</p>
+                    <p class="character-desc">姜晚宁 · 律师<br>逻辑清晰毒舌<br>私底下怕打雷怕看恐怖片</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">📸</div>
+                    <div class="character-sprite">📸</div>
                     <div class="character-name">知意</div>
                     <span class="character-tag">活泼八卦</span>
-                    <p class="character-desc">新闻专业大四学生,正义感强好奇心重,用镜头记录心动</p>
+                    <p class="character-desc">夏知意 · 新闻专业大四学生<br>正义感强好奇心重<br>用镜头记录心动</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">🌟</div>
+                    <div class="character-sprite">🌟</div>
                     <div class="character-name">星辰</div>
                     <span class="character-tag">浪漫内敛</span>
-                    <p class="character-desc">天文馆讲解员,爱幻想,会用星星命名喜欢的人</p>
+                    <p class="character-desc">顾星辰 · 天文馆讲解员<br>爱幻想浪漫<br>会用星星命名喜欢的人</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">🍰</div>
+                    <div class="character-sprite">🍰</div>
                     <div class="character-name">幼薇</div>
                     <span class="character-tag">邻家甜美</span>
-                    <p class="character-desc">甜品师,善于倾听,用甜点传达心意</p>
+                    <p class="character-desc">沈幼薇 · 甜品师<br>善于倾听<br>用甜点传达心意</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-avatar">🎤</div>
+                    <div class="character-sprite">🎤</div>
                     <div class="character-name">酒酒</div>
                     <span class="character-tag">酷飒御姐</span>
-                    <p class="character-desc">酒吧驻唱歌手,敢爱敢恨,唱情歌会哭</p>
+                    <p class="character-desc">温酒酒 · 酒吧驻唱歌手<br>敢爱敢恨<br>唱情歌会哭</p>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section class="section reveal" id="features">
+        <section class="section" id="features">
             <h2 class="section-title">🎮 游戏特色</h2>
             <div class="features">
                 <div class="feature-box">
-                    <div class="feature-icon">🤖</div>
+                    <span class="feature-icon">🤖</span>
                     <h3>AI驱动剧情</h3>
-                    <p>基于DeepSeek API的智能剧情生成系统,每次游戏都是全新体验,角色对话符合人设</p>
+                    <p>基于DeepSeek API的智能剧情生成系统,每次游戏都是全新体验</p>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">💕</div>
+                    <span class="feature-icon">💕</span>
                     <h3>真实社交模拟</h3>
                     <p>好感度系统、嫉妒机制、阵营分化,模拟真实恋综的社交博弈</p>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">🎭</div>
+                    <span class="feature-icon">🎭</span>
                     <h3>多结局系统</h3>
-                    <p>6种主结局 + 12种角色个人结局 + 4种隐藏彩蛋结局,你的选择决定故事走向</p>
+                    <p>6种主结局 + 12种角色结局 + 4种隐藏彩蛋结局</p>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">📊</div>
+                    <span class="feature-icon">📊</span>
                     <h3>热度管理</h3>
-                    <p>导演模式下管理节目热度、制造话题、处理危机,成为金牌制作人</p>
+                    <p>导演模式下管理节目热度、制造话题、处理危机</p>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">🎯</div>
+                    <span class="feature-icon">🎯</span>
                     <h3>丰富任务系统</h3>
-                    <p>日常任务、主线任务、角色专属任务、成就任务,玩法多样不单调</p>
+                    <p>日常任务、主线任务、角色专属任务、成就任务</p>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">🛒</div>
+                    <span class="feature-icon">🛒</span>
                     <h3>商城系统</h3>
-                    <p>礼物道具、装扮道具、功能道具、运营道具,助你攻略心仪对象</p>
+                    <p>礼物道具、装扮道具、功能道具、运营道具</p>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="cta-section reveal">
+        <section class="cta-section">
+            <div class="duck-icon">🦆✨</div>
             <h2 class="section-title">💖 准备好开始心动之旅了吗?</h2>
-            <button class="cta-button">🎮 立即开始游戏</button>
-            <button class="cta-button secondary">📖 查看项目文档</button>
+            <button class="pixel-button">🎮 像素世界等你来</button>
+            <button class="pixel-button secondary">📖 查看游戏文档</button>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>© 2024 糟糕!是心动鸭! - 恋综模拟器 · Unity项目</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">💕 愿每一份心动都不被辜负 💕</p>
+            <div class="duck-icon">🦆💕</div>
+            <p>© 2024 糟糕!是心动鸭! - 像素风恋综模拟器</p>
+            <p>Unity 2022.3 LTS · DeepSeek API · C#</p>
+            <p style="margin-top: 20px;">💕 愿每一份心动都不被辜负 💕</p>
         </footer>
     </div>
 
     <script>
-        // Create floating hearts
-        function createHearts() {
-            const heartsBg = document.getElementById('heartsBg');
-            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '✨', '💫'];
-            
-            for (let i = 0; i < 30; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 15 + 's';
-                heart.style.animationDuration = (15 + Math.random() * 10) + 's';
-                heartsBg.appendChild(heart);
+        // Loading Animation
+        let progress = 0;
+        const loadingProgress = document.getElementById('loadingProgress');
+        const loadingScreen = document.getElementById('loadingScreen');
+
+        function updateLoading() {
+            if (progress < 100) {
+                progress += Math.random() * 30;
+                if (progress > 100) progress = 100;
+                loadingProgress.style.width = progress + '%';
+                setTimeout(updateLoading, 200);
+            } else {
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
             }
         }
 
-        // Scroll reveal animation
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
+        // Create Floating Ducks
+        function createDucks() {
+            const duckBg = document.getElementById('duckBg');
+            const ducks = ['🦆', '💕', '✨', '🌟', '💖', '🦆💕'];
             
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
+            for (let i = 0; i < 15; i++) {
+                const duck = document.createElement('div');
+                duck.className = 'duck';
+                duck.textContent = ducks[Math.floor(Math.random() * ducks.length)];
+                duck.style.top = Math.random() * 100 + '%';
+                duck.style.animationDelay = Math.random() * 20 + 's';
+                duck.style.animationDuration = (15 + Math.random() * 15) + 's';
+                duckBg.appendChild(duck);
+            }
         }
 
-        // Scroll to section
+        // Scroll to Section
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
         // Initialize
-        createHearts();
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+        window.addEventListener('load', () => {
+            createDucks();
+            updateLoading();
+        });
     </script>
 </body>
 </html>
