@@ -1,0 +1,12 @@
+{
+  "name": "oops-im-in-love",
+  "version": "1.0.0",
+  "description": "Oops! I'm in Love! - Dating Simulator Game",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": ["game", "dating-simulator", "pixel-art"],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,360 @@
+import StateManager from './StateManager.js';
+import InputManager from './InputManager.js';
+import GuestData from '../data/GuestData.js';
+import AIDialogueEngine from '../ai/AIDialogueEngine.js';
+import EndingManager from '../ending/EndingManager.js';
+import StoryData from '../story/StoryData.js';
+import PixelFontRenderer from '../graphics/PixelFontRenderer.js';
+import CharacterSpriteGenerator from '../graphics/CharacterSpriteGenerator.js';
+import BackgroundGenerator from '../graphics/BackgroundGenerator.js';
+import UIElementGenerator from '../graphics/UIElementGenerator.js';
+import GUIManager from '../ui/GUIManager.js';
+import Button from '../ui/Button.js';
+
+export default class Game {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.ctx.imageSmoothingEnabled = false;
+        
+        this.width = canvas.width;
+        this.height = canvas.height;
+        
+        this.stateManager = new StateManager();
+        this.inputManager = new InputManager(canvas);
+        this.guestData = new GuestData();
+        this.aiDialogueEngine = new AIDialogueEngine();
+        this.endingManager = new EndingManager();
+        this.storyData = new StoryData();
+        
+        this.fontRenderer = new PixelFontRenderer(this.ctx);
+        this.backgroundGenerator = new BackgroundGenerator(this.ctx);
+        this.uiGenerator = new UIElementGenerator(this.ctx);
+        
+        this.characterSprites = null;
+        this.guiManager = new GUIManager();
+        
+        this.gameData = {
+            affection: {},
+            currentStoryNode: 'start',
+            day: 1,
+            mode: null,
+            playerCharacter: null
+        };
+        
+        this.guests = this.guestData.getGuests();
+        this.guests.forEach(guest => {
+            this.gameData.affection[guest.id] = 0;
+        });
+        
+        this.currentTime = 0;
+        this.running = false;
+        this.lastTime = 0;
+        this.deltaTime = 0;
+    }
+
+    async init() {
+        const spriteGenerator = new CharacterSpriteGenerator(this.ctx);
+        this.characterSprites = spriteGenerator.generateAllCharacters(this.guests, 128);
+        
+        this.setupMenuUI();
+        
+        this.running = true;
+        this.lastTime = performance.now();
+        this.gameLoop();
+        
+        const loading = document.getElementById('loading');
+        if (loading) {
+            loading.style.display = 'none';
+        }
+    }
+
+    setupMenuUI() {
+        this.guiManager.clear();
+        
+        const centerX = this.width / 2;
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 350, 200, 60,
+            'Start Game',
+            '#E94560',
+            () => this.stateManager.setState(this.stateManager.states.MODE_SELECT)
+        ));
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 430, 200, 60,
+            'Endings',
+            '#4ECDC4',
+            () => this.stateManager.setState(this.stateManager.states.ENDING_GALLERY)
+        ));
+    }
+
+    setupModeSelectUI() {
+        this.guiManager.clear();
+        
+        const centerX = this.width / 2;
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 300, 200, 60,
+            'Guest Mode',
+            '#FF69B4',
+            () => {
+                this.gameData.mode = 'guest';
+                this.stateManager.setState(this.stateManager.states.GUEST_MODE);
+                this.setupGuestModeUI();
+            }
+        ));
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 380, 200, 60,
+            'Director Mode',
+            '#2C2C2C',
+            () => {
+                this.gameData.mode = 'director';
+                this.stateManager.setState(this.stateManager.states.DIRECTOR_MODE);
+            }
+        ));
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 460, 200, 60,
+            'Back',
+            '#666666',
+            () => {
+                this.stateManager.setState(this.stateManager.states.MENU);
+                this.setupMenuUI();
+            }
+        ));
+    }
+
+    setupGuestModeUI() {
+        this.guiManager.clear();
+        this.gameData.currentStoryNode = 'start';
+    }
+
+    setupEndingGalleryUI() {
+        this.guiManager.clear();
+        
+        const centerX = this.width / 2;
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 650, 200, 60,
+            'Back',
+            '#666666',
+            () => {
+                this.stateManager.setState(this.stateManager.states.MENU);
+                this.setupMenuUI();
+            }
+        ));
+    }
+
+    update() {
+        this.currentTime++;
+        this.guiManager.update(this.inputManager);
+        
+        const currentState = this.stateManager.getCurrentState();
+        
+        if (currentState === this.stateManager.states.MODE_SELECT) {
+            if (this.guiManager.elements.length === 0) {
+                this.setupModeSelectUI();
+            }
+        } else if (currentState === this.stateManager.states.ENDING_GALLERY) {
+            if (this.guiManager.elements.length === 0) {
+                this.setupEndingGalleryUI();
+            }
+        }
+    }
+
+    render() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        
+        const currentState = this.stateManager.getCurrentState();
+        
+        if (currentState === this.stateManager.states.MENU) {
+            this.renderMenu();
+        } else if (currentState === this.stateManager.states.MODE_SELECT) {
+            this.renderModeSelect();
+        } else if (currentState === this.stateManager.states.GUEST_MODE) {
+            this.renderGuestMode();
+        } else if (currentState === this.stateManager.states.DIRECTOR_MODE) {
+            this.renderDirectorMode();
+        } else if (currentState === this.stateManager.states.ENDING_GALLERY) {
+            this.renderEndingGallery();
+        }
+        
+        this.guiManager.render(this.ctx, this.uiGenerator, this.fontRenderer);
+    }
+
+    renderMenu() {
+        this.backgroundGenerator.drawHeartBackground(this.currentTime);
+        
+        const centerX = this.width / 2;
+        this.fontRenderer.drawText('Oops! I\'m in Love!', centerX - 200, 180, '#E94560', 2);
+        this.fontRenderer.drawText('Dating Simulator', centerX - 150, 240, '#FFB6C1', 1.5);
+        
+        this.renderCharacterRow(100, 480, [1, 2, 3, 4, 5, 6]);
+        this.renderCharacterRow(100, 590, [7, 8, 9, 10, 11, 12]);
+    }
+
+    renderModeSelect() {
+        this.backgroundGenerator.drawLivingRoomBackground(this.currentTime);
+        
+        const centerX = this.width / 2;
+        this.fontRenderer.drawText('Select Game Mode', centerX - 150, 200, '#FFFFFF', 1.5);
+        
+        this.uiGenerator.drawDecorationBorder(centerX - 250, 250, 500, 300, '#E94560');
+    }
+
+    renderGuestMode() {
+        this.backgroundGenerator.drawLivingRoomBackground(this.currentTime);
+        this.renderStory();
+    }
+
+    renderDirectorMode() {
+        this.backgroundGenerator.drawHeartBackground(this.currentTime);
+        
+        const centerX = this.width / 2;
+        this.fontRenderer.drawText('Director Mode', centerX - 120, 200, '#FFD700', 1.8);
+        this.fontRenderer.drawText('Coming Soon!', centerX - 100, 300, '#FFFFFF', 1.5);
+        
+        this.guiManager.addElement(new Button(
+            centerX - 100, 400, 200, 60,
+            'Back',
+            '#666666',
+            () => {
+                this.stateManager.setState(this.stateManager.states.MODE_SELECT);
+                this.setupModeSelectUI();
+            }
+        ));
+    }
+
+    renderEndingGallery() {
+        this.ctx.fillStyle = '#1A1A2E';
+        this.ctx.fillRect(0, 0, this.width, this.height);
+        
+        const centerX = this.width / 2;
+        this.fontRenderer.drawText('Ending Gallery', centerX - 120, 80, '#E94560', 1.8);
+        
+        const progress = this.endingManager.getProgress();
+        const progressText = `Progress: ${progress.unlocked} / ${progress.total}`;
+        this.fontRenderer.drawText(progressText, centerX - 120, 130, '#FFD700', 1.2);
+        
+        const endings = this.endingManager.getAllEndings();
+        let x = 50;
+        let y = 180;
+        
+        endings.forEach((ending, index) => {
+            const isUnlocked = this.endingManager.isUnlocked(ending.id);
+            
+            if (isUnlocked) {
+                this.uiGenerator.drawHeartIcon(x + 20, y + 20, 15, true);
+            } else {
+                this.uiGenerator.drawHeartIcon(x + 20, y + 20, 15, false);
+            }
+            
+            const title = isUnlocked ? ending.title : '???';
+            this.fontRenderer.drawText(title, x + 50, y + 15, isUnlocked ? '#FFFFFF' : '#666666', 1);
+            
+            x += 240;
+            if (x > this.width - 100) {
+                x = 50;
+                y += 80;
+            }
+        });
+    }
+
+    renderStory() {
+        const node = this.storyData.getStoryNode(this.gameData.currentStoryNode);
+        if (!node) {
+            this.gameData.currentStoryNode = 'start';
+            return;
+        }
+        
+        const centerX = this.width / 2;
+        
+        this.uiGenerator.drawDialogBox(50, 450, this.width - 100, 200);
+        this.fontRenderer.drawTextWithWrap(node.text, 80, 480, this.width - 160, '#FFFFFF', 1.2);
+        
+        let buttonY = 550;
+        node.choices.forEach((choice, index) => {
+            const button = new Button(
+                centerX - 200, buttonY, 400, 50,
+                choice.text,
+                '#4ECDC4',
+                () => {
+                    if (choice.affection) {
+                        this.gameData.affection[choice.affection.guest] += choice.affection.value;
+                    }
+                    if (choice.next === 'menu') {
+                        this.stateManager.setState(this.stateManager.states.MENU);
+                        this.setupMenuUI();
+                    } else {
+                        this.gameData.currentStoryNode = choice.next;
+                    }
+                }
+            );
+            button.update(this.inputManager);
+            button.render(this.ctx, this.uiGenerator, this.fontRenderer);
+            buttonY += 60;
+        });
+        
+        this.renderAffectionDisplay();
+    }
+
+    renderAffectionDisplay() {
+        let x = 50;
+        let y = 30;
+        
+        this.guests.slice(0, 6).forEach(guest => {
+            this.renderAffectionBar(x, y, guest);
+            x += 160;
+        });
+        
+        x = 50;
+        y = 80;
+        
+        this.guests.slice(6, 12).forEach(guest => {
+            this.renderAffectionBar(x, y, guest);
+            x += 160;
+        });
+    }
+
+    renderAffectionBar(x, y, guest) {
+        const affection = this.gameData.affection[guest.id];
+        
+        if (this.characterSprites[guest.id]) {
+            this.ctx.drawImage(this.characterSprites[guest.id], x, y, 40, 40);
+        }
+        
+        this.uiGenerator.drawAffectionBar(x + 50, y + 10, 100, 20, affection);
+        
+        const heartX = x + 50;
+        const heartY = y + 10;
+        const numHearts = Math.floor(affection / 20);
+        for (let i = 0; i < 5; i++) {
+            this.uiGenerator.drawHeartIcon(heartX + i * 22, heartY - 25, 12, i < numHearts);
+        }
+    }
+
+    renderCharacterRow(startX, y, guestIds) {
+        let x = startX;
+        guestIds.forEach(id => {
+            if (this.characterSprites[id]) {
+                this.ctx.drawImage(this.characterSprites[id], x, y, 96, 96);
+            }
+            x += 136;
+        });
+    }
+
+    gameLoop() {
+        if (!this.running) return;
+        
+        const now = performance.now();
+        this.deltaTime = (now - this.lastTime) / 1000;
+        this.lastTime = now;
+        
+        this.update();
+        this.render();
+        
+        requestAnimationFrame(() => this.gameLoop());
+    }
+}
