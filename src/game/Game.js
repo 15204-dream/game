@@ -7,6 +7,10 @@ import AIDialogueEngine from '../ai/AIDialogueEngine.js';
 import StoryEngine from '../story/StoryEngine.js';
 import StoryData from '../story/StoryData.js';
 import ResourceManager from '../graphics/ResourceManager.js';
+import PixelFontRenderer from '../graphics/PixelFontRenderer.js';
+import CharacterSpriteGenerator from '../graphics/CharacterSpriteGenerator.js';
+import BackgroundGenerator from '../graphics/BackgroundGenerator.js';
+import UIElementGenerator from '../graphics/UIElementGenerator.js';
 import EndingManager from '../ending/EndingManager.js';
 import MenuState from '../states/MenuState.js';
 import ModeSelectState from '../states/ModeSelectState.js';
@@ -34,7 +38,13 @@ class Game {
         this.aiEngine = null;
         this.storyEngine = null;
         this.resourceManager = null;
+        this.pixelFontRenderer = null;
+        this.characterSpriteGenerator = null;
+        this.backgroundGenerator = null;
+        this.uiElementGenerator = null;
         this.endingManager = null;
+        this.characterSprites = null;
+        this.currentTime = 0;
     }
     
     async init() {
@@ -49,6 +59,10 @@ class Game {
         this.storyEngine = new StoryEngine();
         this.storyEngine.loadStory(StoryData);
         this.resourceManager = new ResourceManager();
+        this.pixelFontRenderer = new PixelFontRenderer(this.ctx);
+        this.characterSpriteGenerator = new CharacterSpriteGenerator(this.ctx);
+        this.backgroundGenerator = new BackgroundGenerator(this.ctx, this.width, this.height);
+        this.uiElementGenerator = new UIElementGenerator(this.ctx);
         this.endingManager = new EndingManager();
         
         await this.loadAssets();
@@ -72,6 +86,7 @@ class Game {
     async loadAssets() {
         await new Promise(resolve => setTimeout(resolve, 1000));
         await this.guestData.load();
+        this.characterSprites = this.characterSpriteGenerator.generateAllCharacters(this.guestData.getGuests(), 128);
     }
     
     hideLoadingScreen() {
@@ -91,6 +106,7 @@ class Game {
     }
     
     update(dt) {
+        this.currentTime += dt * 1000;
         this.stateManager.update(dt);
         this.guiManager.update(dt);
         this.inputManager.update();
@@ -98,7 +114,16 @@ class Game {
     
     render() {
         this.renderer.clear();
-        this.renderer.renderBackground();
+        
+        const state = this.stateManager.getState();
+        if (state === 'menu') {
+            this.backgroundGenerator.drawHeartBackground(this.currentTime);
+        } else if (state === 'guestMode') {
+            this.backgroundGenerator.drawLivingRoomBackground(this.currentTime);
+        } else {
+            this.renderer.renderBackground();
+        }
+        
         this.stateManager.render(this.renderer);
         this.guiManager.render();
     }
