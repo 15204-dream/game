@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糟糕！是心动鸭！- 游戏设计</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1a1a2e;
+            color: #eee;
+            font-family: 'Microsoft YaHei', sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6b9d;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px #ff6b9d;
+        }
+        .section {
+            background: #16213e;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid #0f3460;
+        }
+        h2 {
+            color: #e94560;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0f3460;
+            padding-bottom: 10px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .card {
+            background: #0f3460;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e94560;
+        }
+        .card h3 {
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background: #e94560;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 3px;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #e94560;
+            border-radius: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% - 20px);
+            background: #0f3460;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .guest-card {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .guest-card:hover {
+            border-color: #e94560;
+            transform: translateY(-5px);
+        }
+        .guest-card.male {
+            border-top: 3px solid #4a90d9;
+        }
+        .guest-card.female {
+            border-top: 3px solid #ff6b9d;
+        }
+        .avatar-placeholder {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #0f3460;
+        }
+        .feature-list li::before {
+            content: '✨ ';
+            color: #ffd93d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖 糟糕！是心动鸭！- 恋综模拟器游戏设计 💖</h1>
+
+        <!-- 游戏概览 -->
+        <div class="section">
+            <h2>📋 游戏概览</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎮 玩法模式</h3>
+                    <div style="margin-top: 10px;">
+                        <span class="tag">嘉宾模式</span>
+                        <span class="tag">导演模式</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>📊 游戏规模</h3>
+                    <div style="margin-top: 10px;">
+                        <span class="tag">12位嘉宾</span>
+                        <span class="tag">50+结局</span>
+                        <span class="tag">8+小时</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 嘉宾设定 -->
+        <div class="section">
+            <h2>👥 12位嘉宾人设（6男6女）</h2>
+            <div class="grid-3" style="margin-top: 20px;">
+                <div class="guest-card male">
+                    <div class="avatar-placeholder">👨</div>
+                    <h3>阳光（昵称）</h3>
+                    <p>运动型男，热情开朗</p>
+                </div>
+                <div class="guest-card male">
+                    <div class="avatar-placeholder">👨‍💼</div>
+                    <h3>冷少（昵称）</h3>
+                    <p>高冷总裁，内心温柔</p>
+                </div>
+                <div class="guest-card male">
+                    <div class="avatar-placeholder">👨‍🎨</div>
+                    <h3>画师（昵称）</h3>
+                    <p>浪漫艺术家，细腻敏感</p>
+                </div>
+                <div class="guest-card male">
+                    <div class="avatar-placeholder">👨‍🔬</div>
+                    <h3>学霸（昵称）</h3>
+                    <p>理工直男，呆萌可爱</p>
+                </div>
+                <div class="guest-card male">
+                    <div class="avatar-placeholder">👨‍🍳</div>
+                    <h3>大厨（昵称）</h3>
+                    <p>温暖主厨，治愈系</p>
+                </div>
+                <div class="guest-card male">
+                    <div class="avatar-placeholder">🎸</div>
+                    <h3>乐手（昵称）</h3>
+                    <p>不羁音乐人，自由随性</p>
+                </div>
+
+                <div class="guest-card female">
+                    <div class="avatar-placeholder">👩</div>
+                    <h3>甜妹（昵称）</h3>
+                    <p>可爱甜心，活力满满</p>
+                </div>
+                <div class="guest-card female">
+                    <div class="avatar-placeholder">👩‍💼</div>
+                    <h3>御姐（昵称）</h3>
+                    <p>成熟职场女性，知性优雅</p>
+                </div>
+                <div class="guest-card female">
+                    <div class="avatar-placeholder">👩‍🎤</div>
+                    <h3>酷飒（昵称）</h3>
+                    <p>飒爽酷女孩，敢爱敢恨</p>
+                </div>
+                <div class="guest-card female">
+                    <div class="avatar-placeholder">👩‍⚕️</div>
+                    <h3>暖心（昵称）</h3>
+                    <p>温柔护士，善解人意</p>
+                </div>
+                <div class="guest-card female">
+                    <div class="avatar-placeholder">👩‍🔬</div>
+                    <h3>才女（昵称）</h3>
+                    <p>智慧才女，博览群书</p>
+                </div>
+                <div class="guest-card female">
+                    <div class="avatar-placeholder">🧘</div>
+                    <h3>禅意（昵称）</h3>
+                    <p>佛系少女，平和淡然</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏系统 -->
+        <div class="section">
+            <h2>🎯 游戏系统</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>核心系统</h3>
+                    <ul class="feature-list">
+                        <li>剧情生成系统（AI驱动）</li>
+                        <li>AI对话引擎（DeepSeek兼容）</li>
+                        <li>多分支剧情网络</li>
+                        <li>任务系统</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>社交系统</h3>
+                    <ul class="feature-list">
+                        <li>好感度系统</li>
+                        <li>关系网络图谱</li>
+                        <li>互动事件触发</li>
+                        <li>CP配对系统</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>辅助系统</h3>
+                    <ul class="feature-list">
+                        <li>商城系统</li>
+                        <li>新手引导系统</li>
+                        <li>数据统计面板</li>
+                        <li>存档/云同步</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>导演模式专属</h3>
+                    <ul class="feature-list">
+                        <li>活动安排系统</li>
+                        <li>热度管理系统</li>
+                        <li>节目剪辑系统</li>
+                        <li>收视率统计</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游玩流程 -->
+        <div class="section">
+            <h2>🎬 游玩流程</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>1. 开始游戏</h3>
+                    <p>选择玩法模式：嘉宾模式 OR 导演模式 → 选择/创建角色</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2. 新手引导</h3>
+                    <p>完成新手任务，了解基本操作和系统</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>3. 第一期录制</h3>
+                    <p>初次见面 → 入住心动小屋 → 初次选择</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>4. 日常互动</h3>
+                    <p>完成任务 → 积累好感 → 触发随机事件 → 探索分支剧情</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>5. 特别活动</h3>
+                    <p>每周特别约会 → 集体活动 → 告白环节</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>6. 结局</h3>
+                    <p>最终选择 → 达成对应结局（50+种）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技术架构 -->
+        <div class="section">
+            <h2>💻 技术架构</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>前端技术</h3>
+                    <ul class="feature-list">
+                        <li>纯 JavaScript + HTML5 Canvas</li>
+                        <li>方舟像素体字体</li>
+                        <li>像素风渲染引擎</li>
+                        <li>响应式设计</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>AI集成</h3>
+                    <ul class="feature-list">
+                        <li>DeepSeek API 兼容</li>
+                        <li>实时对话生成</li>
+                        <li>剧情分支生成</li>
+                        <li>API Key: sk-fe8fdf06158c44b5b6304a8e30dce5a8</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 像素资源 -->
+        <div class="section">
+            <h2>🎨 像素资源清单</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>人物立绘（128x128像素）</h3>
+                    <ul class="feature-list">
+                        <li>12位嘉宾 × 多种表情</li>
+                        <li>用户嘉宾立绘（男/女各2张）</li>
+                        <li>用户导演立绘（男/女各2张）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>场景与UI</h3>
+                    <ul class="feature-list">
+                        <li>恋综场景插图</li>
+                        <li>图标像素风立绘</li>
+                        <li>道具像素风立绘</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>装饰元素</h3>
+                    <ul class="feature-list">
+                        <li>小组件像素风立绘</li>
+                        <li>装饰边框像素风立绘</li>
+                        <li>参考图1（人物风格）</li>
+                        <li>参考图3（图标风格）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
