@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糟糕!是心动鸭! - 恋综模拟器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #c44569;
+            --accent: #ffd700;
+            --dark: #2d3436;
+            --light: #ffeef8;
+            --gradient-1: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            --gradient-2: linear-gradient(135deg, #ffeef8 0%, #ffd700 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatHeart 15s infinite ease-in-out;
+            opacity: 0.3;
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff6b9d, #ffd700, #ff6b9d);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 0 0 40px rgba(255, 107, 157, 0.5);
+            margin-bottom: 20px;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #ffeef8;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .mode-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            width: 350px;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 30px 60px rgba(255, 107, 157, 0.4);
+        }
+
+        .mode-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .mode-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .mode-card p {
+            color: #ffeef8;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffd700, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Characters Grid */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .character-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .character-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .character-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .character-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .character-tag {
+            display: inline-block;
+            background: rgba(255, 107, 157, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .character-desc {
+            color: #ffeef8;
+            opacity: 0.8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .feature-box p {
+            color: #ffeef8;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.5);
+            margin: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 70px rgba(255, 107, 157, 0.7);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 238, 248, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mode-card {
+                width: 100%;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: 80px 20px;
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">糟糕!是心动鸭!</h1>
+            <p class="hero-subtitle">💕 沉浸式恋综模拟游戏 · 双模式玩法 💕</p>
+            <div class="mode-selector">
+                <div class="mode-card" onclick="scrollToSection('features')">
+                    <div class="mode-icon">👤</div>
+                    <h3>嘉宾模式</h3>
+                    <p>作为第13位神秘嘉宾入住心动小屋<br>与12位性格迥异的素人共同生活21天<br>找到真爱或收获友情</p>
+                </div>
+                <div class="mode-card" onclick="scrollToSection('features')">
+                    <div class="mode-icon">🎬</div>
+                    <h3>导演模式</h3>
+                    <p>化身节目导演,掌控全局<br>安排活动、制造话题、处理危机<br>打造爆款恋综</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section class="section reveal" id="characters">
+            <h2 class="section-title">✨ 12位心动嘉宾 ✨</h2>
+            <div class="characters-grid">
+                <div class="character-card">
+                    <div class="character-avatar">❄️</div>
+                    <div class="character-name">冷冷</div>
+                    <span class="character-tag">高冷禁欲</span>
+                    <p class="character-desc">建筑设计师,外冷内热毒舌,需要温暖来融化他冰封的心</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">☀️</div>
+                    <div class="character-name">森森</div>
+                    <span class="character-tag">阳光暖男</span>
+                    <p class="character-desc">宠物咖啡馆店长,话唠动物控,像小太阳一样温暖每个人</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">💼</div>
+                    <div class="character-name">琛哥</div>
+                    <span class="character-tag">成熟稳重</span>
+                    <p class="character-desc">急诊科医生,温柔体贴有责任心,是最可靠的存在</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">🎹</div>
+                    <div class="character-name">小季</div>
+                    <span class="character-tag">艺术傲娇</span>
+                    <p class="character-desc">音乐学院研究生,敏感细腻,用音乐表达情感</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">💪</div>
+                    <div class="character-name">洲洲</div>
+                    <span class="character-tag">自信张扬</span>
+                    <p class="character-desc">网红健身博主,直球告白,用行动证明心意</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">📚</div>
+                    <div class="character-name">言深</div>
+                    <span class="character-tag">神秘腹黑</span>
+                    <p class="character-desc">悬疑小说作家,洞察人心,用故事暗示心意</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">🍬</div>
+                    <div class="character-name">念念</div>
+                    <span class="character-tag">甜美可爱</span>
+                    <p class="character-desc">幼儿园老师,温柔体贴有爱心,每个人都想保护她</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">⚖️</div>
+                    <div class="character-name">晚宁</div>
+                    <span class="character-tag">知性干练</span>
+                    <p class="character-desc">律师,逻辑清晰毒舌,但私底下怕打雷怕看恐怖片</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">📸</div>
+                    <div class="character-name">知意</div>
+                    <span class="character-tag">活泼八卦</span>
+                    <p class="character-desc">新闻专业大四学生,正义感强好奇心重,用镜头记录心动</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">🌟</div>
+                    <div class="character-name">星辰</div>
+                    <span class="character-tag">浪漫内敛</span>
+                    <p class="character-desc">天文馆讲解员,爱幻想,会用星星命名喜欢的人</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">🍰</div>
+                    <div class="character-name">幼薇</div>
+                    <span class="character-tag">邻家甜美</span>
+                    <p class="character-desc">甜品师,善于倾听,用甜点传达心意</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">🎤</div>
+                    <div class="character-name">酒酒</div>
+                    <span class="character-tag">酷飒御姐</span>
+                    <p class="character-desc">酒吧驻唱歌手,敢爱敢恨,唱情歌会哭</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section reveal" id="features">
+            <h2 class="section-title">🎮 游戏特色</h2>
+            <div class="features">
+                <div class="feature-box">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI驱动剧情</h3>
+                    <p>基于DeepSeek API的智能剧情生成系统,每次游戏都是全新体验,角色对话符合人设</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">💕</div>
+                    <h3>真实社交模拟</h3>
+                    <p>好感度系统、嫉妒机制、阵营分化,模拟真实恋综的社交博弈</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🎭</div>
+                    <h3>多结局系统</h3>
+                    <p>6种主结局 + 12种角色个人结局 + 4种隐藏彩蛋结局,你的选择决定故事走向</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">📊</div>
+                    <h3>热度管理</h3>
+                    <p>导演模式下管理节目热度、制造话题、处理危机,成为金牌制作人</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🎯</div>
+                    <h3>丰富任务系统</h3>
+                    <p>日常任务、主线任务、角色专属任务、成就任务,玩法多样不单调</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🛒</div>
+                    <h3>商城系统</h3>
+                    <p>礼物道具、装扮道具、功能道具、运营道具,助你攻略心仪对象</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section reveal">
+            <h2 class="section-title">💖 准备好开始心动之旅了吗?</h2>
+            <button class="cta-button">🎮 立即开始游戏</button>
+            <button class="cta-button secondary">📖 查看项目文档</button>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 糟糕!是心动鸭! - 恋综模拟器 · Unity项目</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">💕 愿每一份心动都不被辜负 💕</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsBg = document.getElementById('heartsBg');
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '✨', '💫'];
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (15 + Math.random() * 10) + 's';
+                heartsBg.appendChild(heart);
+            }
+        }
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Scroll to section
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize
+        createHearts();
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
