@@ -39,7 +39,9 @@ export default class Game {
             currentStoryNode: 'start',
             day: 1,
             mode: null,
-            playerCharacter: null
+            playerCharacter: null,
+            finalChoice: null,
+            currentEndingText: ''
         };
         
         this.guests = this.guestData.getGuests();
@@ -263,16 +265,31 @@ export default class Game {
     }
 
     renderStory() {
+        // 显示天数
+        this.renderDayDisplay();
+        
         const node = this.storyData.getStoryNode(this.gameData.currentStoryNode);
         if (!node) {
             this.gameData.currentStoryNode = 'start';
             return;
         }
         
+        // 特殊节点处理
+        if (this.gameData.currentStoryNode === 'calculate_ending') {
+            this.calculateEnding();
+            return;
+        }
+        
         const centerX = this.width / 2;
         
         this.uiGenerator.drawDialogBox(50, 450, this.width - 100, 200);
-        this.fontRenderer.drawTextWithWrap(node.text, 80, 480, this.width - 160, '#FFFFFF', 1.2);
+        
+        // 自定义结局文本
+        if (this.gameData.currentStoryNode === 'show_ending' && this.gameData.currentEndingText) {
+            this.fontRenderer.drawTextWithWrap(this.gameData.currentEndingText, 80, 480, this.width - 160, '#FFD700', 1.2);
+        } else {
+            this.fontRenderer.drawTextWithWrap(node.text, 80, 480, this.width - 160, '#FFFFFF', 1.2);
+        }
         
         let buttonY = 550;
         node.choices.forEach((choice, index) => {
@@ -281,15 +298,7 @@ export default class Game {
                 choice.text,
                 '#4ECDC4',
                 () => {
-                    if (choice.affection) {
-                        this.gameData.affection[choice.affection.guest] += choice.affection.value;
-                    }
-                    if (choice.next === 'menu') {
-                        this.stateManager.setState(this.stateManager.states.MENU);
-                        this.setupMenuUI();
-                    } else {
-                        this.gameData.currentStoryNode = choice.next;
-                    }
+                    this.handleChoice(choice);
                 }
             );
             button.update(this.inputManager);
@@ -298,6 +307,101 @@ export default class Game {
         });
         
         this.renderAffectionDisplay();
+    }
+
+    renderDayDisplay() {
+        let day = 1;
+        const nodeId = this.gameData.currentStoryNode;
+        
+        if (nodeId.startsWith('day2') || nodeId === 'date_yangyang' || nodeId === 'date_lengleng' || 
+            nodeId === 'date_momo' || nodeId === 'date_zhezhe' || nodeId === 'date_nuannuan' || 
+            nodeId === 'date_yangyangdog' || nodeId === 'date_mimi' || nodeId === 'date_qingqing' || 
+            nodeId === 'date_shuangshuang' || nodeId === 'date_nuanyang' || nodeId === 'date_yaya' || 
+            nodeId === 'date_qingyun' || nodeId === 'day2_end') {
+            day = 2;
+        } else if (nodeId.startsWith('day3') || nodeId === 'final_choice' || 
+                   nodeId === 'ending_check' || nodeId === 'calculate_ending' || nodeId === 'show_ending') {
+            day = 3;
+        }
+        
+        this.fontRenderer.drawText(`Day ${day}`, 50, 20, '#E94560', 1.5);
+    }
+
+    handleChoice(choice) {
+        if (choice.affection) {
+            this.gameData.affection[choice.affection.guest] += choice.affection.value;
+            if (choice.affection.guest2) {
+                this.gameData.affection[choice.affection.guest2] += choice.affection.value;
+            }
+        }
+        
+        // 记录最终告白选择
+        if (this.gameData.currentStoryNode === 'final_choice') {
+            if (choice.affection) {
+                this.gameData.finalChoice = choice.affection.guest;
+            } else {
+                this.gameData.finalChoice = 'single';
+            }
+        }
+        
+        if (choice.next === 'menu') {
+            this.stateManager.setState(this.stateManager.states.MENU);
+            this.setupMenuUI();
+            this.resetGameData();
+        } else {
+            this.gameData.currentStoryNode = choice.next;
+        }
+    }
+
+    calculateEnding() {
+        let endingText = '';
+        
+        if (this.gameData.finalChoice === 'single') {
+            this.endingManager.unlockEnding('single_elite');
+            endingText = '单身贵族结局！你选择了专注于自己，在心动小屋收获了珍贵的友情！这30天真的很开心~';
+        } else if (this.gameData.finalChoice) {
+            const guestId = this.gameData.finalChoice;
+            const guest = this.guestData.getGuestById(guestId);
+            const affection = this.gameData.affection[guestId];
+            const nickname = this.getGuestNickname(guestId);
+            
+            // 根据好感度解锁不同结局
+            if (affection >= 80) {
+                this.endingManager.unlockEnding(`love_${nickname}_1`);
+                endingText = `❤️ 甜蜜结局！你和${nickname}最终走到了一起！\n好感度: ${affection}/100\n${guest.nickname}：\"和你在一起的时光，是我最珍贵的回忆！\"`;
+            } else if (affection >= 50) {
+                this.endingManager.unlockEnding(`love_${nickname}_2`);
+                endingText = `💕 青涩结局！虽然有些害羞，但你和${nickname}确认了彼此的心意！\n好感度: ${affection}/100\n${guest.nickname}：\"...我也喜欢你\"`;
+            } else {
+                this.endingManager.unlockEnding(`love_${nickname}_3`);
+                endingText = `💔 遗憾结局！有些话没有说出口，这或许是最好的结局...\n好感度: ${affection}/100\n${guest.nickname}：\"希望你能幸福\"`;
+            }
+        }
+        
+        // 解锁友情结局
+        let totalAffection = 0;
+        Object.values(this.gameData.affection).forEach(a => totalAffection += a);
+        if (totalAffection >= 200) {
+            this.endingManager.unlockEnding('friend_group');
+        } else if (totalAffection >= 100) {
+            this.endingManager.unlockEnding('friend_best');
+        }
+        
+        this.gameData.currentEndingText = endingText;
+        this.gameData.currentStoryNode = 'show_ending';
+    }
+
+    getGuestNickname(guestId) {
+        const guest = this.guestData.getGuestById(guestId);
+        return guest ? guest.nickname : 'unknown';
+    }
+
+    resetGameData() {
+        this.gameData.currentStoryNode = 'start';
+        this.gameData.finalChoice = null;
+        this.guests.forEach(guest => {
+            this.gameData.affection[guest.id] = 0;
+        });
     }
 
     renderAffectionDisplay() {
