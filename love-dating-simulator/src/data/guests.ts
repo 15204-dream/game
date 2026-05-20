@@ -1,0 +1,162 @@
+import type { Guest } from '../types';
+
+export const guests: Guest[] = [
+  // 男嘉宾 6位
+  {
+    id: 1,
+    nickname: '鸭梨',
+    name: '李鸭梨',
+    gender: 'male',
+    avatar: '/assets/guests/1.png',
+    age: 26,
+    occupation: '建筑设计师',
+    appearance: '干净利落的短发，戴黑框眼镜，气质儒雅',
+    personality: '沉稳内敛，观察敏锐，不擅长主动但很细心',
+    background: '海外留学归来，独立工作室创始人',
+    loveType: '聪明有趣、能带动氛围的女生'
+  },
+  {
+    id: 2,
+    nickname: '蛋挞',
+    name: '王蛋挞',
+    gender: 'male',
+    avatar: '/assets/guests/2.png',
+    age: 24,
+    occupation: '独立音乐人',
+    appearance: '金发蓬松，笑起来有酒窝，总是抱着吉他',
+    personality: '热情开朗，乐观积极，像小太阳一样温暖',
+    background: '街头艺人出身，正在筹备首张专辑',
+    loveType: '能听懂他音乐、有艺术气息的女生'
+  },
+  {
+    id: 3,
+    nickname: '年糕',
+    name: '张年糕',
+    gender: 'male',
+    avatar: '/assets/guests/3.png',
+    age: 28,
+    occupation: '科技公司CEO',
+    appearance: '西装革履，气场强大，不怒自威',
+    personality: '外冷内热，控制欲强，其实很纯情',
+    background: '白手起家，创业三年公司估值过亿',
+    loveType: '不卑不亢、能治住他的女生'
+  },
+  {
+    id: 4,
+    nickname: '汤圆',
+    name: '刘汤圆',
+    gender: 'male',
+    avatar: '/assets/guests/4.png',
+    age: 22,
+    occupation: '体育系大学生',
+    appearance: '身高188，肌肉结实，笑起来很甜',
+    personality: '粘人可爱，直率单纯，年下小奶狗',
+    background: '国家游泳队后备选手，获得过多枚金牌',
+    loveType: '年上姐姐型，会照顾人的女生'
+  },
+  {
+    id: 5,
+    nickname: '抹茶',
+    name: '陈抹茶',
+    gender: 'male',
+    avatar: '/assets/guests/5.png',
+    age: 27,
+    occupation: '自由画家',
+    appearance: '长发扎成马尾，胡茬恰到好处，文艺气息浓厚',
+    personality: '浪漫多情，敏感细腻，活在自己的世界里',
+    background: '在798有自己的画廊，作品小有名气',
+    loveType: '能给他灵感、懂他艺术的女生'
+  },
+  {
+    id: 6,
+    nickname: '饭团',
+    name: '杨饭团',
+    gender: 'male',
+    avatar: '/assets/guests/6.png',
+    age: 29,
+    occupation: '心脏外科医生',
+    appearance: '斯文稳重，白大褂气质，手指修长好看',
+    personality: '理性冷静，责任感强，有点工作狂',
+    background: '三甲医院最年轻的副主任医师',
+    loveType: '温柔体贴、能理解他工作的女生'
+  },
+  // 女嘉宾 6位
+  {
+    id: 7,
+    nickname: '桃子',
+    name: '周桃子',
+    gender: 'female',
+    avatar: '/assets/guests/7.png',
+    age: 25,
+    occupation: '美食博主',
+    appearance: '圆脸大眼，笑起来有梨涡，看起来很好吃',
+    personality: '开朗大方，厨艺了得，治愈系女孩',
+    background: '全网百万粉丝美食博主',
+    loveType: '会欣赏美食、不挑食的男生'
+  },
+  {
+    id: 8,
+    nickname: '辣椒',
+    name: '吴辣椒',
+    gender: 'female',
+    avatar: '/assets/guests/8.png',
+    age: 27,
+    occupation: '律师',
+    appearance: '短发干练，红唇气场，职业装女王',
+    personality: '果断飒爽，逻辑清晰，不好惹但很酷',
+    background: '红圈所精英律师，胜诉率99%',
+    loveType: '能跟上她节奏、旗鼓相当的男生'
+  },
+  {
+    id: 9,
+    nickname: '棉花糖',
+    name: '赵棉花糖',
+    gender: 'female',
+    avatar: '/assets/guests/9.png',
+    age: 23,
+    occupation: '幼儿园老师',
+    appearance: '双马尾，洛丽塔风格，软萌可爱',
+    personality: '温柔善良，有爱心，喜欢小朋友',
+    background: '国际幼儿园老师，会弹钢琴',
+    loveType: '成熟稳重、能保护她的男生'
+  },
+  {
+    id: 10,
+    nickname: '布丁',
+    name: '孙布丁',
+    gender: 'female',
+    avatar: '/assets/guests/10.png',
+    age: 26,
+    occupation: '博士在读',
+    appearance: '戴圆框眼镜，书卷气十足，气质清冷',
+    personality: '理性知性，慢热但真诚，知识面广',
+    background: '清北复交本硕博连读，研究人工智能',
+    loveType: '能和她聊得来、有共同话题的男生'
+  },
+  {
+    id: 11,
+    nickname: '蓝莓',
+    name: '徐蓝莓',
+    gender: 'female',
+    avatar: '/assets/guests/11.png',
+    age: 24,
+    occupation: '摄影师',
+    appearance: '朋克风格，染着蓝发，手上有纹身',
+    personality: '自由奔放，特立独行，敢爱敢恨',
+    background: '时尚杂志签约摄影师，去过很多国家',
+    loveType: '有趣灵魂、不按常理出牌的男生'
+  },
+  {
+    id: 12,
+    nickname: '草莓',
+    name: '马草莓',
+    gender: 'female',
+    avatar: '/assets/guests/12.png',
+    age: 25,
+    occupation: '公务员',
+    appearance: '黑长直，连衣裙，标准大家闺秀',
+    personality: '温柔贤淑，家教良好，有点内向',
+    background: '书香门第，父母都是大学教授',
+    loveType: '阳光开朗、能带她体验新生活的男生'
+  }
+];
