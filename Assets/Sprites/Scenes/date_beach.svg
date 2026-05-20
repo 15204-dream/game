@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="576" viewBox="0 0 1024 576">
+  <defs>
+    <style>
+      .pixel { shape-rendering: crispEdges; }
+    </style>
+  </defs>
+  
+  <!-- Sky gradient -->
+  <rect x="0" y="0" width="1024" height="128" fill="#4A90D9" class="pixel"/>
+  <rect x="0" y="128" width="1024" height="128" fill="#7EC8E3" class="pixel"/>
+  <rect x="0" y="256" width="1024" height="64" fill="#B8E4F0" class="pixel"/>
+  
+  <!-- Ocean -->
+  <rect x="0" y="320" width="1024" height="128" fill="#1E90FF" class="pixel"/>
+  <rect x="0" y="448" width="1024" height="32" fill="#4169E1" class="pixel"/>
+  
+  <!-- Beach -->
+  <rect x="0" y="480" width="1024" height="96" fill="#F5DEB3" class="pixel"/>
+  
+  <!-- Sand dunes -->
+  <rect x="0" y="448" width="128" height="32" fill="#DAA520" class="pixel"/>
+  <rect x="256" y="448" width="128" height="32" fill="#DAA520" class="pixel"/>
+  <rect x="512" y="448" width="128" height="32" fill="#DAA520" class="pixel"/>
+  <rect x="768" y="448" width="128" height="32" fill="#DAA520" class="pixel"/>
+  
+  <!-- Sun -->
+  <rect x="896" y="32" width="80" height="80" fill="#FFEB3B" class="pixel"/>
+  <rect x="888" y="40" width="8" height="8" fill="#FFC107" class="pixel"/>
+  <rect x="976" y="40" width="8" height="8" fill="#FFC107" class="pixel"/>
+  <rect x="896" y="112" width="8" height="8" fill="#FFC107" class="pixel"/>
+  
+  <!-- Clouds -->
+  <rect x="64" y="80" width="64" height="16" fill="#FFFFFF" class="pixel"/>
+  <rect x="48" y="96" width="32" height="16" fill="#FFFFFF" class="pixel"/>
+  <rect x="64" y="96" width="64" height="16" fill="#FFFFFF" class="pixel"/>
+  <rect x="128" y="96" width="32" height="16" fill="#FFFFFF" class="pixel"/>
+  
+  <rect x="512" y="64" width="48" height="16" fill="#FFFFFF" class="pixel"/>
+  <rect x="496" y="80" width="32" height="16" fill="#FFFFFF" class="pixel"/>
+  <rect x="512" y="80" width="48" height="16" fill="#FFFFFF" class="pixel"/>
+  
+  <!-- Waves -->
+  <rect x="0" y="384" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="128" y="400" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="256" y="384" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="384" y="400" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="512" y="384" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="640" y="400" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="768" y="384" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  <rect x="896" y="400" width="128" height="8" fill="#87CEEB" class="pixel"/>
+  
+  <!-- Beach umbrella -->
+  <rect x="448" y="384" width="8" height="80" fill="#8B4513" class="pixel"/>
+  <rect x="384" y="384" width="128" height="8" fill="#FF6347" class="pixel"/>
+  <rect x="400" y="368" width="96" height="16" fill="#FF6347" class="pixel"/>
+  <rect x="416" y="352" width="64" height="16" fill="#FF6347" class="pixel"/>
+  <rect x="432" y="336" width="32" height="16" fill="#FF6347" class="pixel"/>
+  
+  <!-- Beach chair -->
+  <rect x="432" y="480" width="64" height="32" fill="#8B4513" class="pixel"/>
+  <rect x="440" y="488" width="48" height="24" fill="#A0522D" class="pixel"/>
+  
+  <!-- Second beach chair -->
+  <rect x="512" y="480" width="64" height="32" fill="#4CAF50" class="pixel"/>
+  <rect x="520" y="488" width="48" height="24" fill="#66BB6A" class="pixel"/>
+  
+  <!-- Picnic blanket -->
+  <rect x="320" y="512" width="128" height="64" fill="#FF6347" class="pixel"/>
+  <rect x="328" y="520" width="112" height="48" fill="#FF8C00" class="pixel"/>
+  
+  <!-- Picnic items -->
+  <rect x="352" y="512" width="16" height="16" fill="#FFD700" class="pixel"/>
+  <rect x="384" y="512" width="16" height="16" fill="#87CEEB" class="pixel"/>
+  <rect x="416" y="512" width="16" height="16" fill="#FF69B4" class="pixel"/>
+  
+  <!-- Palm trees -->
+  <rect x="64" y="256" width="16" height="192" fill="#5D4037" class="pixel"/>
+  <rect x="48" y="224" width="48" height="32" fill="#2E7D32" class="pixel"/>
+  <rect x="32" y="192" width="32" height="32" fill="#388E3C" class="pixel"/>
+  <rect x="64" y="192" width="32" height="32" fill="#388E3C" class="pixel"/>
+  <rect x="80" y="224" width="32" height="32" fill="#388E3C" class="pixel"/>
+  
+  <rect x="928" y="256" width="16" height="192" fill="#5D4037" class="pixel"/>
+  <rect x="912" y="224" width="48" height="32" fill="#2E7D32" class="pixel"/>
+  <rect x="896" y="192" width="32" height="32" fill="#388E3C" class="pixel"/>
+  <rect x="928" y="192" width="32" height="32" fill="#388E3C" class="pixel"/>
+  <rect x="944" y="224" width="32" height="32" fill="#388E3C" class="pixel"/>
+  
+  <!-- Shells -->
+  <rect x="128" y="544" width="8" height="8" fill="#F5DEB3" class="pixel"/>
+  <rect x="136" y="548" width="8" height="4" fill="#DAA520" class="pixel"/>
+  
+  <rect x="256" y="552" width="8" height="8" fill="#F5DEB3" class="pixel"/>
+  <rect x="264" y="556" width="8" height="4" fill="#DAA520" class="pixel"/>
+  
+  <rect x="768" y="544" width="8" height="8" fill="#F5DEB3" class="pixel"/>
+  <rect x="776" y="548" width="8" height="4" fill="#DAA520" class="pixel"/>
+  
+  <!-- Footprints -->
+  <rect x="640" y="528" width="8" height="8" fill="#DAA520" class="pixel"/>
+  <rect x="656" y="536" width="8" height="8" fill="#DAA520" class="pixel"/>
+  <rect x="672" y="544" width="8" height="8" fill="#DAA520" class="pixel"/>
+  
+  <!-- Sunset reflection -->
+  <rect x="896" y="320" width="80" height="32" fill="#FFB347" class="pixel"/>
+  
+  <!-- Birds -->
+  <rect x="192" y="128" width="8" height="4" fill="#424242" class="pixel"/>
+  <rect x="200" y="124" width="4" height="8" fill="#424242" class="pixel"/>
+  
+  <rect x="320" y="112" width="8" height="4" fill="#424242" class="pixel"/>
+  <rect x="328" y="108" width="4" height="8" fill="#424242" class="pixel"/>
+  
+  <!-- Boat -->
+  <rect x="704" y="368" width="32" height="8" fill="#8B4513" class="pixel"/>
+  <rect x="712" y="376" width="16" height="16" fill="#5D4037" class="pixel"/>
+  
+  <!-- Heart in sky -->
+  <rect x="200" y="64" width="8" height="8" fill="#FF6B6B" class="pixel"/>
+  <rect x="208" y="64" width="8" height="8" fill="#FF6B6B" class="pixel"/>
+  <rect x="192" y="72" width="8" height="8" fill="#FF6B6B" class="pixel"/>
+  <rect x="200" y="72" width="8" height="8" fill="#FF6B6B" class="pixel"/>
+  <rect x="208" y="72" width="8" height="8" fill="#FF6B6B" class="pixel"/>
+  <rect x="216" y="72" width="8" height="8" fill="#FF6B6B" class="pixel"/>
+</svg>

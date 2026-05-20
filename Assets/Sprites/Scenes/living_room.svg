@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="576" viewBox="0 0 1024 576">
+  <defs>
+    <style>
+      .pixel { shape-rendering: crispEdges; }
+    </style>
+  </defs>
+  
+  <!-- Wall -->
+  <rect x="0" y="0" width="1024" height="384" fill="#F5F5DC" class="pixel"/>
+  <rect x="0" y="384" width="1024" height="192" fill="#D2B48C" class="pixel"/>
+  
+  <!-- Floor pattern -->
+  <rect x="0" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="64" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="128" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="192" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="256" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="320" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="384" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="448" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="512" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="576" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="640" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="704" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="768" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="832" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  <rect x="896" y="384" width="64" height="64" fill="#DEB887" class="pixel"/>
+  <rect x="960" y="384" width="64" height="64" fill="#D2B48C" class="pixel"/>
+  
+  <!-- Ceiling -->
+  <rect x="0" y="0" width="1024" height="32" fill="#E8E8E8" class="pixel"/>
+  
+  <!-- Sofa -->
+  <rect x="256" y="320" width="256" height="64" fill="#8B4513" class="pixel"/>
+  <rect x="272" y="336" width="224" height="32" fill="#A0522D" class="pixel"/>
+  
+  <!-- Sofa cushions -->
+  <rect x="288" y="336" width="64" height="24" fill="#CD853F" class="pixel"/>
+  <rect x="368" y="336" width="64" height="24" fill="#CD853F" class="pixel"/>
+  <rect x="448" y="336" width="64" height="24" fill="#CD853F" class="pixel"/>
+  
+  <!-- Coffee table -->
+  <rect x="384" y="400" width="128" height="32" fill="#5D4037" class="pixel"/>
+  <rect x="392" y="432" width="112" height="16" fill="#8B4513" class="pixel"/>
+  
+  <!-- Table items -->
+  <rect x="416" y="392" width="16" height="16" fill="#FFD700" class="pixel"/>
+  <rect x="448" y="392" width="16" height="16" fill="#87CEEB" class="pixel"/>
+  <rect x="480" y="392" width="16" height="16" fill="#FF6347" class="pixel"/>
+  
+  <!-- TV -->
+  <rect x="640" y="224" width="256" height="144" fill="#1A1A1A" class="pixel"/>
+  <rect x="656" y="240" width="224" height="112" fill="#000000" class="pixel"/>
+  <rect x="688" y="272" width="160" height="80" fill="#1E90FF" class="pixel"/>
+  
+  <!-- TV stand -->
+  <rect x="624" y="368" width="288" height="16" fill="#5D4037" class="pixel"/>
+  
+  <!-- Bookshelf -->
+  <rect x="64" y="192" width="64" height="192" fill="#8B4513" class="pixel"/>
+  
+  <!-- Books -->
+  <rect x="72" y="200" width="8" height="16" fill="#FF6347" class="pixel"/>
+  <rect x="80" y="200" width="8" height="16" fill="#4169E1" class="pixel"/>
+  <rect x="88" y="200" width="8" height="16" fill="#FFD700" class="pixel"/>
+  <rect x="96" y="200" width="8" height="16" fill="#32CD32" class="pixel"/>
+  <rect x="104" y="200" width="8" height="16" fill="#FF69B4" class="pixel"/>
+  
+  <rect x="72" y="224" width="8" height="16" fill="#8A2BE2" class="pixel"/>
+  <rect x="80" y="224" width="8" height="16" fill="#DC143C" class="pixel"/>
+  <rect x="88" y="224" width="8" height="16" fill="#20B2AA" class="pixel"/>
+  <rect x="96" y="224" width="8" height="16" fill="#FFA500" class="pixel"/>
+  <rect x="104" y="224" width="8" height="16" fill="#00CED1" class="pixel"/>
+  
+  <rect x="72" y="248" width="8" height="16" fill="#FF4500" class="pixel"/>
+  <rect x="80" y="248" width="8" height="16" fill="#9370DB" class="pixel"/>
+  <rect x="88" y="248" width="8" height="16" fill="#3CB371" class="pixel"/>
+  <rect x="96" y="248" width="8" height="16" fill="#FF6347" class="pixel"/>
+  <rect x="104" y="248" width="8" height="16" fill="#4169E1" class="pixel"/>
+  
+  <!-- Lamp -->
+  <rect x="160" y="160" width="16" height="64" fill="#8B4513" class="pixel"/>
+  <rect x="152" y="152" width="32" height="16" fill="#FFD700" class="pixel"/>
+  
+  <!-- Painting -->
+  <rect x="448" y="96" width="128" height="96" fill="#FFE4E1" class="pixel"/>
+  <rect x="456" y="104" width="112" height="80" fill="#87CEEB" class="pixel"/>
+  <rect x="480" y="128" width="64" height="32" fill="#2E8B57" class="pixel"/>
+  
+  <!-- Window -->
+  <rect x="832" y="64" width="128" height="192" fill="#87CEEB" class="pixel"/>
+  <rect x="840" y="72" width="112" height="176" fill="#B0E0E6" class="pixel"/>
+  
+  <!-- Window frame -->
+  <rect x="832" y="160" width="128" height="8" fill="#5D4037" class="pixel"/>
+  <rect x="896" y="64" width="8" height="192" fill="#5D4037" class="pixel"/>
+  
+  <!-- Curtains -->
+  <rect x="768" y="64" width="64" height="192" fill="#FFC0CB" class="pixel"/>
+  <rect x="960" y="64" width="64" height="192" fill="#FFC0CB" class="pixel"/>
+  
+  <!-- Plant -->
+  <rect x="928" y="320" width="48" height="48" fill="#2E7D32" class="pixel"/>
+  <rect x="936" y="288" width="32" height="32" fill="#388E3C" class="pixel"/>
+  <rect x="928" y="368" width="48" height="8" fill="#5D4037" class="pixel"/>
+  
+  <!-- Armchair -->
+  <rect x="64" y="320" width="96" height="64" fill="#4CAF50" class="pixel"/>
+  <rect x="80" y="336" width="64" height="32" fill="#66BB6A" class="pixel"/>
+  
+  <!-- Rug -->
+  <rect x="320" y="416" width="256" height="128" fill="#CD5C5C" class="pixel"/>
+  <rect x="336" y="432" width="224" height="96" fill="#8B0000" class="pixel"/>
+  
+  <!-- Decorative items -->
+  <rect x="200" y="288" width="16" height="16" fill="#FFD700" class="pixel"/>
+  <rect x="720" y="200" width="16" height="16" fill="#FF69B4" class="pixel"/>
+  
+  <!-- Vase with flowers -->
+  <rect x="208" y="272" width="16" height="24" fill="#8B7355" class="pixel"/>
+  <rect x="212" y="264" width="8" height="8" fill="#FF69B4" class="pixel"/>
+  <rect x="220" y="268" width="8" height="4" fill="#FF69B4" class="pixel"/>
+</svg>
