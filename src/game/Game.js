@@ -137,6 +137,7 @@ export default class Game {
     setupGuestModeUI() {
         this.guiManager.clear();
         this.gameData.currentStoryNode = 'start';
+        this.updateStoryButtons();
     }
 
     setupEndingGalleryUI() {
@@ -238,15 +239,18 @@ export default class Game {
         this.fontRenderer.drawText('Director Mode', centerX - 120, 200, '#FFD700', 1.8);
         this.fontRenderer.drawText('Coming Soon!', centerX - 100, 300, '#FFFFFF', 1.5);
         
-        this.guiManager.addElement(new Button(
-            centerX - 100, 400, 200, 60,
-            'Back',
-            '#666666',
-            () => {
-                this.stateManager.setState(this.stateManager.states.MODE_SELECT);
-                this.setupModeSelectUI();
-            }
-        ));
+        // 避免重复添加按钮，只在没有元素时添加
+        if (this.guiManager.elements.length === 0) {
+            this.guiManager.addElement(new Button(
+                centerX - 100, 400, 200, 60,
+                'Back',
+                '#666666',
+                () => {
+                    this.stateManager.setState(this.stateManager.states.MODE_SELECT);
+                    this.setupModeSelectUI();
+                }
+            ));
+        }
     }
 
     renderEndingGallery() {
@@ -311,22 +315,37 @@ export default class Game {
             this.fontRenderer.drawTextWithWrap(node.text, 80, 480, this.width - 160, '#FFFFFF', 1.2);
         }
         
-        let buttonY = 550;
-        node.choices.forEach((choice, index) => {
-            const button = new Button(
-                centerX - 200, buttonY, 400, 50,
-                choice.text,
-                '#4ECDC4',
-                () => {
-                    this.handleChoice(choice);
-                }
-            );
-            button.update(this.inputManager);
-            button.render(this.ctx, this.uiGenerator, this.fontRenderer);
-            buttonY += 60;
-        });
+        // 更新按钮（只在节点变化时）
+        this.updateStoryButtons();
         
         this.renderAffectionDisplay();
+    }
+    
+    updateStoryButtons() {
+        const node = this.storyData.getStoryNode(this.gameData.currentStoryNode);
+        if (!node) return;
+        
+        // 检查按钮是否需要更新
+        const currentNodeId = this.gameData.currentStoryNode;
+        if (this.lastStoryNode !== currentNodeId) {
+            this.lastStoryNode = currentNodeId;
+            
+            // 清除旧按钮，添加新按钮
+            this.guiManager.clear();
+            
+            const centerX = this.width / 2;
+            let buttonY = 550;
+            
+            node.choices.forEach((choice, index) => {
+                this.guiManager.addElement(new Button(
+                    centerX - 200, buttonY, 400, 50,
+                    choice.text,
+                    '#4ECDC4',
+                    () => this.handleChoice(choice)
+                ));
+                buttonY += 60;
+            });
+        }
     }
 
     renderDayDisplay() {
@@ -369,6 +388,8 @@ export default class Game {
             this.setupMenuUI();
             this.resetGameData();
         } else {
+            // 更新当前节点，lastStoryNode会被清空，确保按钮更新
+            this.lastStoryNode = null; // 强制刷新按钮
             this.gameData.currentStoryNode = choice.next;
         }
     }
