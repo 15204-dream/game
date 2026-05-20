@@ -79,22 +79,22 @@ export default class Game {
 
     setupMenuUI() {
         this.guiManager.clear();
-        
+
         const centerX = this.width / 2;
-        
+
         this.guiManager.addElement(new Button(
             centerX - 100, 350, 200, 60,
-            'Start Game',
+            '开始游戏',
             '#FFB6C1',
             () => {
                 this.stateManager.setState(this.stateManager.states.MODE_SELECT);
                 this.setupModeSelectUI();
             }
         ));
-        
+
         this.guiManager.addElement(new Button(
             centerX - 100, 430, 200, 60,
-            'Endings',
+            '结局画廊',
             '#87CEEB',
             () => {
                 this.stateManager.setState(this.stateManager.states.ENDING_GALLERY);
@@ -105,12 +105,12 @@ export default class Game {
 
     setupModeSelectUI() {
         this.guiManager.clear();
-        
+
         const centerX = this.width / 2;
-        
+
         this.guiManager.addElement(new Button(
             centerX - 100, 300, 200, 60,
-            'Guest Mode',
+            '嘉宾模式',
             '#FFB6C1',
             () => {
                 this.gameData.mode = 'guest';
@@ -118,20 +118,20 @@ export default class Game {
                 this.setupGuestModeUI();
             }
         ));
-        
+
         this.guiManager.addElement(new Button(
             centerX - 100, 380, 200, 60,
-            'Director Mode',
+            '导演模式',
             '#87CEEB',
             () => {
                 this.gameData.mode = 'director';
                 this.stateManager.setState(this.stateManager.states.DIRECTOR_MODE);
             }
         ));
-        
+
         this.guiManager.addElement(new Button(
             centerX - 100, 460, 200, 60,
-            'Back',
+            '返回',
             '#DCDCDC',
             () => {
                 this.stateManager.setState(this.stateManager.states.MENU);
@@ -148,12 +148,12 @@ export default class Game {
 
     setupEndingGalleryUI() {
         this.guiManager.clear();
-        
+
         const centerX = this.width / 2;
-        
+
         this.guiManager.addElement(new Button(
             centerX - 100, 650, 200, 60,
-            'Back',
+            '返回',
             '#DCDCDC',
             () => {
                 this.stateManager.setState(this.stateManager.states.MENU);
@@ -226,10 +226,10 @@ export default class Game {
 
     renderModeSelect() {
         this.backgroundGenerator.drawLivingRoomBackground(this.currentTime);
-        
+
         const centerX = this.width / 2;
-        this.fontRenderer.drawText('Select Game Mode', centerX - 150, 200, '#FFFFFF', 1.5);
-        
+        this.fontRenderer.drawText('选择游戏模式', centerX - 150, 200, '#FFFFFF', 1.5);
+
         this.uiGenerator.drawDecorationBorder(centerX - 250, 250, 500, 300, '#FFB6C1');
     }
 
@@ -240,16 +240,16 @@ export default class Game {
 
     renderDirectorMode() {
         this.backgroundGenerator.drawHeartBackground(this.currentTime);
-        
+
         const centerX = this.width / 2;
-        this.fontRenderer.drawText('Director Mode', centerX - 120, 200, '#FFB6C1', 1.8);
-        this.fontRenderer.drawText('Coming Soon!', centerX - 100, 300, '#FFFFFF', 1.5);
-        
+        this.fontRenderer.drawText('导演模式', centerX - 120, 200, '#FFB6C1', 1.8);
+        this.fontRenderer.drawText('即将上线！', centerX - 100, 300, '#FFFFFF', 1.5);
+
         // 避免重复添加按钮，只在没有元素时添加
         if (this.guiManager.elements.length === 0) {
             this.guiManager.addElement(new Button(
                 centerX - 100, 400, 200, 60,
-                'Back',
+                '返回',
                 '#DCDCDC',
                 () => {
                     this.stateManager.setState(this.stateManager.states.MODE_SELECT);
@@ -262,12 +262,12 @@ export default class Game {
     renderEndingGallery() {
         this.ctx.fillStyle = '#1A1A2E';
         this.ctx.fillRect(0, 0, this.width, this.height);
-        
+
         const centerX = this.width / 2;
-        this.fontRenderer.drawText('Ending Gallery', centerX - 120, 80, '#FFB6C1', 1.8);
-        
+        this.fontRenderer.drawText('结局画廊', centerX - 120, 80, '#FFB6C1', 1.8);
+
         const progress = this.endingManager.getProgress();
-        const progressText = `Progress: ${progress.unlocked} / ${progress.total}`;
+        const progressText = `进度: ${progress.unlocked} / ${progress.total}`;
         this.fontRenderer.drawText(progressText, centerX - 120, 130, '#87CEEB', 1.2);
         
         const endings = this.endingManager.getAllEndings();

@@ -12,8 +12,8 @@ export default class BackgroundGenerator {
         ctx.fillRect(0, 0, width, height);
 
         const gradient = ctx.createLinearGradient(0, 0, 0, height);
-        gradient.addColorStop(0, '#16213E');
-        gradient.addColorStop(1, '#0F3460');
+        gradient.addColorStop(0, '#2C3E50');
+        gradient.addColorStop(1, '#1A1A2E');
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
 
@@ -24,14 +24,15 @@ export default class BackgroundGenerator {
             const size = 10 + (i % 3) * 5;
             const alpha = 0.3 + (Math.sin(time * 0.02 + i * 0.5) + 1) * 0.1;
             
-            this.drawHeart(x, y, size, `rgba(233, 69, 96, ${alpha})`);
+            const colors = ['rgba(255, 182, 193,', 'rgba(135, 206, 235,', 'rgba(220, 220, 220,'];
+            this.drawHeart(x, y, size, `${colors[i % 3]} ${alpha})`);
         }
 
         const centerX = width / 2;
         const centerY = height / 4;
         const pulseSize = 60 + Math.sin(time * 0.03) * 5;
-        this.drawHeart(centerX, centerY, pulseSize, 'rgba(233, 69, 96, 0.8)');
-        this.drawHeart(centerX, centerY, pulseSize * 0.7, 'rgba(255, 107, 107, 0.9)');
+        this.drawHeart(centerX, centerY, pulseSize, 'rgba(255, 182, 193, 0.8)');
+        this.drawHeart(centerX, centerY, pulseSize * 0.7, 'rgba(135, 206, 235, 0.9)');
     }
 
     drawLivingRoomBackground(time = 0) {
@@ -39,10 +40,10 @@ export default class BackgroundGenerator {
         const width = ctx.canvas.width;
         const height = ctx.canvas.height;
 
-        ctx.fillStyle = '#F5DEB3';
+        ctx.fillStyle = '#FFF0F5';
         ctx.fillRect(0, 0, width, height);
 
-        ctx.fillStyle = '#E8D4A8';
+        ctx.fillStyle = '#FFE4E1';
         for (let i = 0; i < width; i += 32) {
             for (let j = 0; j < height; j += 32) {
                 if ((i + j) % 64 === 0) {
@@ -51,15 +52,15 @@ export default class BackgroundGenerator {
             }
         }
 
-        ctx.fillStyle = '#8B4513';
+        ctx.fillStyle = '#B0C4DE';
         ctx.fillRect(0, height * 0.65, width, height * 0.35);
 
-        ctx.fillStyle = '#654321';
+        ctx.fillStyle = '#87CEEB';
         for (let i = 0; i < width; i += 64) {
             ctx.fillRect(i, height * 0.65, 2, height * 0.35);
         }
 
-        ctx.fillStyle = '#FF6B6B';
+        ctx.fillStyle = '#FFB6C1';
         ctx.fillRect(width * 0.2, height * 0.1, width * 0.6, height * 0.4);
         ctx.fillStyle = '#FFFFFF';
         ctx.fillRect(width * 0.22, height * 0.12, width * 0.56, height * 0.36);
@@ -71,14 +72,14 @@ export default class BackgroundGenerator {
         ctx.fillStyle = '#FFFFFF';
         ctx.fillRect(width * 0.44, height * 0.15, width * 0.12, height * 0.3);
 
-        ctx.fillStyle = '#DEB887';
+        ctx.fillStyle = '#DCDCDC';
         ctx.fillRect(width * 0.1, height * 0.5, width * 0.35, height * 0.15);
-        ctx.fillStyle = '#8B4513';
+        ctx.fillStyle = '#87CEEB';
         ctx.fillRect(width * 0.1, height * 0.62, width * 0.35, height * 0.03);
 
-        ctx.fillStyle = '#D2691E';
+        ctx.fillStyle = '#FFB6C1';
         ctx.fillRect(width * 0.55, height * 0.55, width * 0.35, height * 0.1);
-        ctx.fillStyle = '#FF0000';
+        ctx.fillStyle = '#87CEEB';
         ctx.fillRect(width * 0.7, height * 0.45, 10, 15);
     }
 
