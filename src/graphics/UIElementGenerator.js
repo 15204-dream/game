@@ -3,11 +3,11 @@ export default class UIElementGenerator {
         this.ctx = ctx;
     }
 
-    drawButton(x, y, width, height, text, color = '#E94560', hover = false) {
+    drawButton(x, y, width, height, text, color = '#FFB6C1', hover = false) {
         const ctx = this.ctx;
         ctx.imageSmoothingEnabled = false;
 
-        const fillColor = hover ? this.adjustColor(color, 20) : color;
+        const fillColor = hover ? this.adjustColor(color, -20) : color;
         
         ctx.fillStyle = fillColor;
         ctx.fillRect(x, y, width, height);
@@ -33,7 +33,7 @@ export default class UIElementGenerator {
         ctx.fillStyle = '#16213E';
         ctx.fillRect(x, y, width, height);
 
-        ctx.fillStyle = '#E94560';
+        ctx.fillStyle = '#FFB6C1';
         ctx.fillRect(x, y, width, 4);
         ctx.fillRect(x, y + height - 4, width, 4);
         ctx.fillRect(x, y, 4, height);
@@ -56,9 +56,9 @@ export default class UIElementGenerator {
         ctx.fillRect(x + 2, y + 2, width - 4, height - 4);
 
         let fillColor;
-        if (percentage < 0.3) fillColor = '#E94560';
-        else if (percentage < 0.6) fillColor = '#FFD93D';
-        else if (percentage < 0.85) fillColor = '#6BCB77';
+        if (percentage < 0.3) fillColor = '#DCDCDC';
+        else if (percentage < 0.6) fillColor = '#87CEEB';
+        else if (percentage < 0.85) fillColor = '#FFB6C1';
         else fillColor = '#FF69B4';
 
         ctx.fillStyle = fillColor;
@@ -72,7 +72,7 @@ export default class UIElementGenerator {
 
     drawHeartIcon(x, y, size, filled = true) {
         const ctx = this.ctx;
-        const color = filled ? '#E94560' : '#444444';
+        const color = filled ? '#FFB6C1' : '#DCDCDC';
         
         ctx.fillStyle = color;
         ctx.fillRect(x - size * 0.3, y - size * 0.2, size * 0.3, size * 0.3);
@@ -82,7 +82,7 @@ export default class UIElementGenerator {
         ctx.fillRect(x - size * 0.15, y + size * 0.3, size * 0.3, size * 0.15);
 
         if (filled) {
-            ctx.fillStyle = '#FFB6C1';
+            ctx.fillStyle = '#87CEEB';
             ctx.fillRect(x - size * 0.2, y - size * 0.1, size * 0.1, size * 0.1);
         }
 

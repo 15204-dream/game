@@ -85,15 +85,21 @@ export default class Game {
         this.guiManager.addElement(new Button(
             centerX - 100, 350, 200, 60,
             'Start Game',
-            '#E94560',
-            () => this.stateManager.setState(this.stateManager.states.MODE_SELECT)
+            '#FFB6C1',
+            () => {
+                this.stateManager.setState(this.stateManager.states.MODE_SELECT);
+                this.setupModeSelectUI();
+            }
         ));
         
         this.guiManager.addElement(new Button(
             centerX - 100, 430, 200, 60,
             'Endings',
-            '#4ECDC4',
-            () => this.stateManager.setState(this.stateManager.states.ENDING_GALLERY)
+            '#87CEEB',
+            () => {
+                this.stateManager.setState(this.stateManager.states.ENDING_GALLERY);
+                this.setupEndingGalleryUI();
+            }
         ));
     }
 
@@ -105,7 +111,7 @@ export default class Game {
         this.guiManager.addElement(new Button(
             centerX - 100, 300, 200, 60,
             'Guest Mode',
-            '#FF69B4',
+            '#FFB6C1',
             () => {
                 this.gameData.mode = 'guest';
                 this.stateManager.setState(this.stateManager.states.GUEST_MODE);
@@ -116,7 +122,7 @@ export default class Game {
         this.guiManager.addElement(new Button(
             centerX - 100, 380, 200, 60,
             'Director Mode',
-            '#2C2C2C',
+            '#87CEEB',
             () => {
                 this.gameData.mode = 'director';
                 this.stateManager.setState(this.stateManager.states.DIRECTOR_MODE);
@@ -126,7 +132,7 @@ export default class Game {
         this.guiManager.addElement(new Button(
             centerX - 100, 460, 200, 60,
             'Back',
-            '#666666',
+            '#DCDCDC',
             () => {
                 this.stateManager.setState(this.stateManager.states.MENU);
                 this.setupMenuUI();
@@ -148,7 +154,7 @@ export default class Game {
         this.guiManager.addElement(new Button(
             centerX - 100, 650, 200, 60,
             'Back',
-            '#666666',
+            '#DCDCDC',
             () => {
                 this.stateManager.setState(this.stateManager.states.MENU);
                 this.setupMenuUI();
@@ -224,7 +230,7 @@ export default class Game {
         const centerX = this.width / 2;
         this.fontRenderer.drawText('Select Game Mode', centerX - 150, 200, '#FFFFFF', 1.5);
         
-        this.uiGenerator.drawDecorationBorder(centerX - 250, 250, 500, 300, '#E94560');
+        this.uiGenerator.drawDecorationBorder(centerX - 250, 250, 500, 300, '#FFB6C1');
     }
 
     renderGuestMode() {
@@ -236,7 +242,7 @@ export default class Game {
         this.backgroundGenerator.drawHeartBackground(this.currentTime);
         
         const centerX = this.width / 2;
-        this.fontRenderer.drawText('Director Mode', centerX - 120, 200, '#FFD700', 1.8);
+        this.fontRenderer.drawText('Director Mode', centerX - 120, 200, '#FFB6C1', 1.8);
         this.fontRenderer.drawText('Coming Soon!', centerX - 100, 300, '#FFFFFF', 1.5);
         
         // 避免重复添加按钮，只在没有元素时添加
@@ -244,7 +250,7 @@ export default class Game {
             this.guiManager.addElement(new Button(
                 centerX - 100, 400, 200, 60,
                 'Back',
-                '#666666',
+                '#DCDCDC',
                 () => {
                     this.stateManager.setState(this.stateManager.states.MODE_SELECT);
                     this.setupModeSelectUI();
@@ -258,11 +264,11 @@ export default class Game {
         this.ctx.fillRect(0, 0, this.width, this.height);
         
         const centerX = this.width / 2;
-        this.fontRenderer.drawText('Ending Gallery', centerX - 120, 80, '#E94560', 1.8);
+        this.fontRenderer.drawText('Ending Gallery', centerX - 120, 80, '#FFB6C1', 1.8);
         
         const progress = this.endingManager.getProgress();
         const progressText = `Progress: ${progress.unlocked} / ${progress.total}`;
-        this.fontRenderer.drawText(progressText, centerX - 120, 130, '#FFD700', 1.2);
+        this.fontRenderer.drawText(progressText, centerX - 120, 130, '#87CEEB', 1.2);
         
         const endings = this.endingManager.getAllEndings();
         let x = 50;
@@ -278,7 +284,7 @@ export default class Game {
             }
             
             const title = isUnlocked ? ending.title : '???';
-            this.fontRenderer.drawText(title, x + 50, y + 15, isUnlocked ? '#FFFFFF' : '#666666', 1);
+            this.fontRenderer.drawText(title, x + 50, y + 15, isUnlocked ? '#FFFFFF' : '#DCDCDC', 1);
             
             x += 240;
             if (x > this.width - 100) {
@@ -310,7 +316,7 @@ export default class Game {
         
         // 自定义结局文本
         if (this.gameData.currentStoryNode === 'show_ending' && this.gameData.currentEndingText) {
-            this.fontRenderer.drawTextWithWrap(this.gameData.currentEndingText, 80, 480, this.width - 160, '#FFD700', 1.2);
+            this.fontRenderer.drawTextWithWrap(this.gameData.currentEndingText, 80, 480, this.width - 160, '#FFB6C1', 1.2);
         } else {
             this.fontRenderer.drawTextWithWrap(node.text, 80, 480, this.width - 160, '#FFFFFF', 1.2);
         }
@@ -340,7 +346,7 @@ export default class Game {
                 this.guiManager.addElement(new Button(
                     centerX - 200, buttonY, 400, 50,
                     choice.text,
-                    '#4ECDC4',
+                    '#87CEEB',
                     () => this.handleChoice(choice)
                 ));
                 buttonY += 60;
@@ -363,7 +369,7 @@ export default class Game {
             day = 3;
         }
         
-        this.fontRenderer.drawText(`Day ${day}`, 50, 20, '#E94560', 1.5);
+        this.fontRenderer.drawText(`Day ${day}`, 50, 20, '#FFB6C1', 1.5);
     }
 
     handleChoice(choice) {
