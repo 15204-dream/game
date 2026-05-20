@@ -8,6 +8,7 @@ import PixelFontRenderer from '../graphics/PixelFontRenderer.js';
 import CharacterSpriteGenerator from '../graphics/CharacterSpriteGenerator.js';
 import BackgroundGenerator from '../graphics/BackgroundGenerator.js';
 import UIElementGenerator from '../graphics/UIElementGenerator.js';
+import CoverGenerator from '../graphics/CoverGenerator.js';
 import GUIManager from '../ui/GUIManager.js';
 import Button from '../ui/Button.js';
 
@@ -33,6 +34,7 @@ export default class Game {
         
         this.characterSprites = null;
         this.guiManager = new GUIManager();
+        this.coverCanvas = null;
         
         this.gameData = {
             affection: {},
@@ -58,6 +60,10 @@ export default class Game {
     async init() {
         const spriteGenerator = new CharacterSpriteGenerator(this.ctx);
         this.characterSprites = spriteGenerator.generateAllCharacters(this.guests, 128);
+        
+        // 生成封面
+        const coverGenerator = new CoverGenerator(this.ctx);
+        this.coverCanvas = coverGenerator.generateCover(this.width, this.height);
         
         this.setupMenuUI();
         
@@ -187,12 +193,26 @@ export default class Game {
     }
 
     renderMenu() {
-        this.backgroundGenerator.drawHeartBackground(this.currentTime);
+        // 显示游戏封面
+        if (this.coverCanvas) {
+            this.ctx.drawImage(this.coverCanvas, 0, 0, this.width, this.height);
+        } else {
+            this.backgroundGenerator.drawHeartBackground(this.currentTime);
+        }
         
+        // 稍微调整一下，让按钮更显眼
         const centerX = this.width / 2;
-        this.fontRenderer.drawText('Oops! I\'m in Love!', centerX - 200, 180, '#E94560', 2);
-        this.fontRenderer.drawText('Dating Simulator', centerX - 150, 240, '#FFB6C1', 1.5);
         
+        // 如果有封面，在底部加上一点渐变让按钮更清晰
+        if (this.coverCanvas) {
+            const gradient = this.ctx.createLinearGradient(0, this.height * 0.65, 0, this.height);
+            gradient.addColorStop(0, 'rgba(22, 33, 62, 0)');
+            gradient.addColorStop(1, 'rgba(22, 33, 62, 0.9)');
+            this.ctx.fillStyle = gradient;
+            this.ctx.fillRect(0, this.height * 0.65, this.width, this.height * 0.35);
+        }
+        
+        // 额外显示12个嘉宾头像
         this.renderCharacterRow(100, 480, [1, 2, 3, 4, 5, 6]);
         this.renderCharacterRow(100, 590, [7, 8, 9, 10, 11, 12]);
     }
